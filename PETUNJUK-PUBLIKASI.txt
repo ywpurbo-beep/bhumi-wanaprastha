@@ -1,0 +1,9 @@
+BHUMI WANAPRASTHA – KEBUN AKTIF v0.4
+
+1. Unggah seluruh isi folder ini ke web hosting dengan struktur folder tetap.
+2. Beranda: index.html
+3. Aplikasi Pranata Mangsa: apps/pranata-mangsa/index.html
+4. Fitur statis, cuaca Open-Meteo, geolokasi, kalender, dan jurnal localStorage dapat berjalan pada hosting statis HTTPS.
+5. Analisis AI tidak aktif pada paket statis karena memerlukan server Node/Express dan variabel rahasia GEMINI_API_KEY.
+6. Untuk fitur AI penuh, gunakan source project asli dan deploy sebagai aplikasi Node (misalnya Render/Railway/VPS), lalu hubungkan tautannya dari situs utama.
+7. Geolokasi browser umumnya hanya bekerja melalui HTTPS atau localhost.
