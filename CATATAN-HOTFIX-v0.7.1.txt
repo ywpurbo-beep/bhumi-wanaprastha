@@ -1,0 +1,9 @@
+BHUMI WANAPRASTHA v0.7.1 HOTFIX
+
+Perbaikan:
+1. Tombol kembali pada aplikasi Pranata Mangsa memperoleh ruang khusus di atas header, sehingga tidak berimpit dengan judul Kawuruh Pranoto Mongso.
+2. Fitur Sastra Jendro AI tidak lagi menampilkan error teknis “Unexpected end of JSON input” saat endpoint tidak tersedia atau mengirim respons kosong.
+3. Pesan kegagalan kini menjelaskan bahwa observasi tetap tersimpan dan dapat dianalisis kembali.
+
+Catatan penting:
+Hotfix ini memperbaiki tampilan dan penanganan kegagalan. Aktivasi analisis AI secara penuh tetap memerlukan endpoint server /api/analyze-observations dan konfigurasi kunci API yang aman di Cloudflare.

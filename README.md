@@ -1,4 +1,4 @@
-# Bhumi Wanaprastha v0.7
+# Bhumi Wanaprastha v0.7.1
 
 Versi ini memisahkan isi dari mesin tampilan.
 
@@ -8,3 +8,9 @@ Versi ini memisahkan isi dari mesin tampilan.
 - `apps/` — aplikasi web yang ditanamkan.
 
 Untuk menambah atau memperbarui tulisan, bagian utama yang diedit adalah `content/content.js`. Struktur halaman tidak perlu dibongkar lagi.
+
+
+## Hotfix v0.7.1
+- Tombol kembali Bhumi Wanaprastha tidak lagi menindih judul aplikasi Pranata Mangsa.
+- Respons API kosong/tidak valid kini ditangani tanpa error JSON mentah.
+- Observasi lokal tetap tersimpan ketika layanan analisis AI belum tersedia.
