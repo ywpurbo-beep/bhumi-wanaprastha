@@ -1,0 +1,25 @@
+BHUMI WANAPRASTHA v0.7 — PETUNJUK PEMUTAKHIRAN
+
+1. Konten utama kini berada di folder:
+   content/content.js
+
+2. Untuk menambah Jejak Gagasan:
+   - Duplikasi satu objek di dalam daftar `ideas`.
+   - Ganti id, route, judul, ringkasan, tag, dan isi body.
+   - Tambahkan nama route tersebut ke `validRoutes` di index.html hanya bila ingin membuat halaman detail baru.
+
+3. Untuk menambah publikasi dan hasil panen:
+   - Tambahkan satu objek di dalam daftar `publications`.
+   - Data yang sama otomatis dipakai di Ruang Karya > Publikasi dan di Kebun.
+   - Tombol “Petik di Kebun” otomatis menuju hasil panen yang tepat.
+
+4. Thumbnail:
+   - Isi kolom `thumbnail` dengan alamat gambar.
+   - Isi kolom `download` dengan alamat PDF atau karya yang dapat dipetik.
+
+5. Prinsip versi 0.7:
+   - Tampilan dan isi dipisahkan.
+   - Satu sumber data dipakai oleh beberapa ruang.
+   - Perubahan isi tidak lagi memerlukan pengeditan berulang pada kartu publikasi dan Kebun.
+
+Catatan: manusia tetap harus memeriksa tanda koma dan tanda petik. JavaScript, seperti birokrasi, dapat runtuh karena satu karakter kecil yang tersinggung.

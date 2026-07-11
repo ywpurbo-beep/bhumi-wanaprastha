@@ -339,6 +339,113 @@ footer {
 }
 
 
+
+/* ===== Karya & hasil panen ===== */
+.publication-list {
+  margin-top: 20px;
+  display: grid;
+  gap: 22px;
+}
+.publication-feature {
+  display: grid;
+  grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr);
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: rgba(255,255,255,.48);
+}
+.publication-cover {
+  min-height: 420px;
+  background-position: center;
+  background-size: cover;
+  border-right: 1px solid var(--line);
+}
+.publication-copy { padding: 38px; }
+.publication-label {
+  margin: 0 0 14px;
+  color: var(--bronze);
+  font: 10px Arial,Helvetica,sans-serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.publication-copy h3 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -.025em;
+}
+.publication-subtitle {
+  margin: 12px 0 24px;
+  color: #555449;
+  font-size: 21px;
+  line-height: 1.45;
+}
+.publication-summary {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.72;
+}
+.publication-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 26px 0;
+}
+.publication-meta span {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255,255,255,.48);
+  font: 10px Arial,Helvetica,sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.publication-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.publication-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1px solid rgba(121,97,61,.30);
+  border-radius: 999px;
+  background: rgba(255,255,255,.62);
+  color: var(--ink);
+  font: 11px Arial,Helvetica,sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.publication-button.primary { background: var(--moss); color: #fff; border-color: var(--moss); }
+.publication-button:hover { transform: translateY(-2px); }
+.harvest-intro { margin: 18px 0 22px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+.harvest-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-bottom: 22px; }
+.harvest-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255,255,255,.46);
+}
+.harvest-item .harvest-label { color: var(--bronze); font: 10px Arial,Helvetica,sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.harvest-item h3 { margin: 16px 0 10px; font-size: 32px; font-weight: 500; line-height: 1.08; }
+.harvest-item p { margin: 0 0 20px; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.harvest-item .publication-meta { margin-top: auto; margin-bottom: 18px; }
+@media (max-width: 820px) {
+  .publication-feature { grid-template-columns: 1fr; }
+  .publication-cover { min-height: 330px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .harvest-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .publication-copy { padding: 27px 23px; }
+  .publication-cover { min-height: 250px; }
+}
+
 /* ===== Navigasi aktif v0.3 ===== */
 .site-nav {
   position: sticky;
@@ -433,6 +540,37 @@ footer.global-footer { margin-top:80px; }
   .room-shell { padding-top:24px; }
 }
 
+
+/* v0.7 — sistem konten terpisah */
+.content-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.idea-card { min-height:290px; }
+.idea-card .idea-tags { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 0; }
+.idea-card .idea-tags span, .article-tags span {
+  border:1px solid var(--line); border-radius:999px; padding:7px 10px;
+  color:var(--muted); font:10px Arial,Helvetica,sans-serif; letter-spacing:.1em; text-transform:uppercase;
+}
+.article-shell { max-width:900px; margin:0 auto; }
+.article-header { padding:34px 0 28px; border-bottom:1px solid var(--line); }
+.article-header h2 { margin:12px 0 18px; font-size:clamp(38px,6vw,68px); line-height:1.04; font-weight:500; letter-spacing:-.035em; }
+.article-deck { margin:0; max-width:760px; color:var(--muted); font-size:20px; line-height:1.65; }
+.article-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
+.article-body { padding:34px 0 12px; font-size:19px; line-height:1.82; }
+.article-body h3 { margin:46px 0 12px; font-size:30px; font-weight:500; }
+.article-body p { margin:0 0 20px; }
+.article-body .lead { font-size:22px; line-height:1.75; }
+.article-body .question { margin:30px 0; padding:25px 28px; border-left:3px solid var(--bronze); background:rgba(255,255,255,.42); font-size:25px; line-height:1.5; }
+.article-body .hypothesis { margin:30px 0; padding:28px; border:1px solid var(--line); border-radius:22px; background:rgba(255,255,255,.42); }
+.article-body .hypothesis p { margin:0 0 10px; }
+.article-body .hypothesis p:last-child { margin-bottom:0; }
+.idea-path { display:grid; gap:0; max-width:620px; margin:28px auto; }
+.idea-step { text-align:center; padding:14px 18px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.48); }
+.idea-arrow { text-align:center; color:var(--bronze); font-size:22px; line-height:1.4; }
+.editorial-note { margin:36px 0; padding:24px 28px; border-radius:20px; background:rgba(95,106,83,.08); color:#4f5548; }
+.harvest-item { scroll-margin-top:110px; }
+.harvest-thumb { width:100%; aspect-ratio:16/10; border-radius:16px; margin:0 0 20px; background-size:cover; background-position:center; border:1px solid var(--line); box-shadow:0 10px 28px rgba(52,46,36,.08); }
+.flash-focus { animation:focusPulse 1.4s ease; }
+@keyframes focusPulse { 0%,100%{box-shadow:none} 35%{box-shadow:0 0 0 5px rgba(169,139,92,.25),0 18px 50px rgba(52,46,36,.10)} }
+@media (max-width:760px){ .content-grid{grid-template-columns:1fr}.article-body{font-size:18px}.article-header h2{font-size:40px} }
 </style>
 </head>
 <body>
@@ -499,13 +637,15 @@ footer.global-footer { margin-top:80px; }
   <section class="view room-shell" data-view="gagasan">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Gagasan</span></div>
     <div class="room-hero"><div><p class="room-kicker">Ruang 01</p><h2 class="room-title">Gagasan</h2></div><p class="room-desc">Pertanyaan, hipotesis, dan kerangka berpikir diberi tempat untuk tumbuh sebelum dipaksa menjadi kesimpulan.</p></div>
-    <div class="room-grid">
-      <article class="room-card"><h3>Esai</h3><p>Tulisan panjang yang merangkai gagasan menjadi satu bangunan pemikiran.</p><span class="card-status">Segera diisi</span></article>
-      <article class="room-card"><h3>Catatan</h3><p>Fragmen pemikiran, observasi, dan temuan yang belum harus selesai.</p><span class="card-status">Segera diisi</span></article>
-      <article class="room-card"><h3>Hipotesis</h3><p>Dugaan yang layak diuji, diperdebatkan, dan dikembangkan bersama.</p><span class="card-status">Segera diisi</span></article>
-      <article class="room-card"><h3>Peta Pemikiran</h3><p>Hubungan antargagasan dalam bentuk visual dan interaktif.</p><span class="card-status">Segera diisi</span></article>
-    </div><div class="room-note">Ruang ini bukan museum jawaban. Ia adalah bengkel tempat pertanyaan memperoleh bentuk.</div>
+    <div id="idea-list" class="content-grid" aria-live="polite"></div>
+    <div class="room-note">Ruang ini bukan museum jawaban. Ia adalah bengkel tempat pertanyaan memperoleh bentuk, diuji, lalu dihubungkan dengan buah pemikiran yang lahir darinya.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
+  </section>
+
+  <section class="view room-shell" data-view="jejak-candi">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="gagasan">Gagasan</button><span>›</span><span>Jejak Gagasan</span></div>
+    <article id="idea-detail" class="article-shell" aria-live="polite"></article>
+    <div class="back-row"><button class="back-button" data-route="gagasan">← Kembali ke Ruang Gagasan</button></div>
   </section>
 
   <section class="view room-shell" data-view="renungan">
@@ -538,60 +678,167 @@ footer.global-footer { margin-top:80px; }
       <article class="room-card"><h3>Arsitektur</h3><p>Karya ruang yang dianggap berhasil menyimpan gagasan, laku, dan cara hidup.</p><span class="card-status">Segera dikurasi</span></article>
       <article class="room-card"><h3>Interior</h3><p>Ruang dalam yang dibentuk melalui fungsi, material, cahaya, dan pengalaman.</p><span class="card-status">Segera dikurasi</span></article>
       <article class="room-card"><h3>Visual</h3><p>Infografis, ilustrasi, diagram, dan visualisasi pengetahuan.</p><span class="card-status">Segera dikurasi</span></article>
-      <article class="room-card"><h3>Publikasi</h3><p>Buku, booklet, presentasi, dan dokumen yang telah disusun.</p><span class="card-status">Segera dikurasi</span></article>
+      <a class="room-card room-card-link" href="#publikasi" data-route="publikasi"><h3>Publikasi</h3><p>Buku, booklet, presentasi, dan dokumen yang telah disusun.</p><span class="card-status">Lihat publikasi</span></a>
     </div><div class="room-note">Karya bukan sekadar hasil akhir. Ia adalah jejak cara berpikir yang berhasil memperoleh tubuh.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
+
+  <section class="view room-shell" data-view="publikasi">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><span>Publikasi</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Karya · Publikasi</p><h2 class="room-title">Publikasi</h2></div><p class="room-desc">Di sini yang ditampilkan adalah pemikiran yang telah memperoleh bentuk. Hasil yang dapat dibaca atau dibawa pulang dipetik dari Kebun.</p></div>
+
+    <div id="publication-list" class="publication-list" aria-live="polite"></div>
+
+    <div class="back-row"><button class="back-button" data-route="karya">← Kembali ke Karya</button></div>
+  </section>
+
   <section class="view room-shell" data-view="kebun">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Kebun</span></div>
-    <div class="room-hero"><div><p class="room-kicker">Ruang 05</p><h2 class="room-title">Kebun</h2></div><p class="room-desc">Tempat proyek ditanam, dirawat, diuji, dipangkas, dan akhirnya dipetik ketika telah cukup matang.</p></div>
+    <div class="room-hero"><div><p class="room-kicker">Ruang 05</p><h2 class="room-title">Kebun</h2></div><p class="room-desc">Tempat hasil dari pohon pengetahuan dapat dipetik, dibaca, dijelajahi, dan dibawa pulang.</p></div>
+
+    <p class="harvest-intro">Hasil panen yang telah tersedia dapat dipetik di sini. Karya dipahami terlebih dahulu di Ruang Karya, lalu dibawa pulang dari Kebun. Sedikit ritual memang tidak akan membunuh internet.</p>
+    <div id="harvest-grid" class="harvest-grid" aria-live="polite"></div>
+
     <div class="room-grid">
       <a class="room-card room-card-link harvest-card" href="apps/pranata-mangsa/index.html">
         <span class="harvest-label">Pohon · Aplikasi aktif</span>
         <h3>Kawruh Pranata Mangsa</h3>
         <p>Membaca dua belas mangsa, sasmita alam, cuaca lokal, dan catatan pengamatan sebagai pengetahuan yang terus diuji dalam kehidupan.</p>
-        <span class="card-status">Masuk ke aplikasi</span>
+        <span class="card-status">Jelajahi aplikasi</span>
       </a>
       <article class="room-card"><h3>Bibit</h3><p>Gagasan awal, bahan mentah, dan kemungkinan yang baru ditemukan.</p><span class="card-status">Tahap awal</span></article>
       <article class="room-card"><h3>Tunas</h3><p>Eksperimen dan prototipe yang sudah mulai menunjukkan bentuk.</p><span class="card-status">Sedang tumbuh</span></article>
-      <article class="room-card"><h3>Pohon</h3><p>Karya matang yang stabil, bermanfaat, dan siap digunakan.</p><span class="card-status">Siap dipetik</span></article>
+      <article class="room-card"><h3>Pohon</h3><p>Karya matang yang stabil, bermanfaat, dan siap menghasilkan panen.</p><span class="card-status">Terawat</span></article>
       <article class="room-card"><h3>Gudang</h3><p>Arsip hasil panen, versi terdahulu, dan bahan yang tetap perlu disimpan.</p><span class="card-status">Arsip</span></article>
-    </div><div class="room-note">Tidak semua bibit harus menjadi pohon. Kebun yang sehat juga tahu apa yang perlu dipangkas dan dikomposkan.</div>
+    </div>
+    <div class="room-note">Tidak semua bibit harus menjadi pohon. Kebun yang sehat juga tahu apa yang perlu dipangkas dan dikomposkan.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
-  <footer class="global-footer"><span>Versi Kebun aktif 0.4</span><span>Bhumi Wanaprastha · Pengetahuan yang menjadi laku.</span></footer>
+  <footer class="global-footer"><span>Versi sistem konten 0.7</span><span>Bhumi Wanaprastha · Pengetahuan yang menjadi laku.</span></footer>
 </main>
+<script src="content/content.js"></script>
 <script>
 (() => {
-  const validRoutes = ['pendopo','gagasan','renungan','laku','karya','kebun'];
+  const validRoutes = ['pendopo','gagasan','jejak-candi','renungan','laku','karya','publikasi','kebun'];
   const views = [...document.querySelectorAll('[data-view]')];
   const navLinks = [...document.querySelectorAll('.nav-link')];
   const menu = document.getElementById('nav-links');
   const toggle = document.querySelector('.menu-toggle');
+  const data = window.BW_CONTENT || { ideas: [], publications: [] };
 
-  function show(route, push = true) {
+  const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[ch]));
+
+  function renderIdeas() {
+    const host = document.getElementById('idea-list');
+    if (!host) return;
+    host.innerHTML = data.ideas.map(item => `
+      <a class="room-card room-card-link idea-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">
+        <p class="publication-label">${escapeHTML(item.type)}</p>
+        <h3>${escapeHTML(item.title)}</h3>
+        <p>${escapeHTML(item.summary)}</p>
+        <div class="idea-tags">${item.tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
+        <span class="card-status">${escapeHTML(item.status)}</span>
+      </a>`).join('');
+  }
+
+  function renderIdeaDetail() {
+    const host = document.getElementById('idea-detail');
+    const item = data.ideas.find(x => x.route === 'jejak-candi');
+    if (!host || !item) return;
+    host.innerHTML = `
+      <header class="article-header">
+        <p class="room-kicker">${escapeHTML(item.type)}</p>
+        <h2>${escapeHTML(item.title)}</h2>
+        <p class="article-deck">${escapeHTML(item.deck)}</p>
+        <div class="article-tags">${item.tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
+      </header>
+      <div class="article-body">${item.body}</div>`;
+  }
+
+  function renderPublications() {
+    const host = document.getElementById('publication-list');
+    if (!host) return;
+    host.innerHTML = data.publications.map(item => `
+      <article class="publication-feature">
+        <div class="publication-cover" role="img" aria-label="Sampul ${escapeHTML(item.title)}" style="background-image:url('${escapeHTML(item.thumbnail)}')"></div>
+        <div class="publication-copy">
+          <p class="publication-label">${escapeHTML(item.label)}</p>
+          <h3>${escapeHTML(item.title)}</h3>
+          <p class="publication-subtitle">${escapeHTML(item.subtitle)}</p>
+          <p class="publication-summary">${escapeHTML(item.summary)}</p>
+          <div class="publication-meta">${item.meta.map(x => `<span>${escapeHTML(x)}</span>`).join('')}</div>
+          <div class="publication-actions">
+            <button class="publication-button primary" data-harvest="${escapeHTML(item.id)}">Petik di Kebun →</button>
+          </div>
+        </div>
+      </article>`).join('');
+  }
+
+  function renderHarvest() {
+    const host = document.getElementById('harvest-grid');
+    if (!host) return;
+    host.innerHTML = data.publications.map(item => `
+      <article class="harvest-item" id="panen-${escapeHTML(item.id)}">
+        <div class="harvest-thumb" role="img" aria-label="Visual ${escapeHTML(item.title)}" style="background-image:url('${escapeHTML(item.thumbnail)}')"></div>
+        <span class="harvest-label">Hasil panen · PDF</span>
+        <h3>${escapeHTML(item.title)}</h3>
+        <p>${escapeHTML(item.harvestSummary || item.summary)}</p>
+        <div class="publication-meta">${item.harvestMeta.map(x => `<span>${escapeHTML(x)}</span>`).join('')}</div>
+        <div class="publication-actions"><a class="publication-button primary" href="${escapeHTML(item.download)}" target="_blank" rel="noopener">Petik PDF</a></div>
+      </article>`).join('');
+  }
+
+  function show(route, push = true, targetId = '') {
     if (!validRoutes.includes(route)) route = 'pendopo';
     views.forEach(v => v.classList.toggle('active', v.dataset.view === route));
     navLinks.forEach(n => n.classList.toggle('active', n.dataset.route === route));
     if (push && location.hash !== '#' + route) history.pushState(null, '', '#' + route);
     menu.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
-    window.scrollTo({top: 0, behavior: 'smooth'});
-    document.title = route === 'pendopo' ? 'Bhumi Wanaprastha' : route[0].toUpperCase()+route.slice(1)+' · Bhumi Wanaprastha';
+    document.title = route === 'pendopo' ? 'Bhumi Wanaprastha' :
+      (route === 'jejak-candi' ? 'Jejak Gagasan · Bhumi Wanaprastha' : route[0].toUpperCase()+route.slice(1)+' · Bhumi Wanaprastha');
+
+    if (targetId) {
+      requestAnimationFrame(() => {
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        target.scrollIntoView({behavior:'smooth', block:'center'});
+        target.classList.remove('flash-focus');
+        void target.offsetWidth;
+        target.classList.add('flash-focus');
+      });
+    } else {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
   }
 
+  renderIdeas();
+  renderIdeaDetail();
+  renderPublications();
+  renderHarvest();
+
   document.addEventListener('click', e => {
+    const harvest = e.target.closest('[data-harvest]');
+    if (harvest) {
+      e.preventDefault();
+      show('kebun', true, 'panen-' + harvest.dataset.harvest);
+      return;
+    }
     const trigger = e.target.closest('[data-route]');
     if (!trigger) return;
     e.preventDefault();
     show(trigger.dataset.route);
   });
+
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
   });
+
   window.addEventListener('popstate', () => show(location.hash.slice(1) || 'pendopo', false));
   show(location.hash.slice(1) || 'pendopo', false);
 })();
