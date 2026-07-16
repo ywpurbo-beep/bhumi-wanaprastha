@@ -6,16 +6,19 @@
     <link rel="icon" type="image/jpeg" href="./assets/app_icon_v5_royal_crest_1782990096675-hHqfENIz.jpg" />
     <link rel="apple-touch-icon" href="./assets/app_icon_v5_royal_crest_1782990096675-hHqfENIz.jpg" />
     <title>Kawuruh Pranoto Mongso</title>
-    <script type="module" crossorigin src="./assets/index-D9qp5X8O.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CiacIGBx.css">
+    <script defer src="./assets/index-D9qp5X8O.js"></script>
+    <link rel="stylesheet" href="./assets/index-CiacIGBx.css">
   <style>
       /* v0.7.1 hotfix: sediakan jalur tersendiri untuk tombol kembali agar tidak menindih identitas aplikasi. */
       #root{padding-top:54px}
       .bhumi-return{position:fixed;z-index:99999;top:10px;left:14px;padding:10px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(29,26,21,.82);backdrop-filter:blur(12px);color:#f4ead7;text-decoration:none;font:600 11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 8px 24px rgba(0,0,0,.18)}
       .bhumi-return:hover{background:rgba(29,26,21,.96)}
       @media(max-width:640px){#root{padding-top:46px}.bhumi-return{top:7px;left:9px;padding:8px 11px;font-size:9px}}
+      /* v0.9 GUI pass: stabilkan raster hero saat sticky header menyusut pada scroll. */
+      #root .sticky.top-0{contain:layout paint;transform:translateZ(0);backface-visibility:hidden}
+      #root .sticky.top-0 img{transform:translateZ(0);backface-visibility:hidden;will-change:opacity}
     </style></head>
-  <body><a class="bhumi-return" href="../../index.html#kebun" aria-label="Kembali ke Kebun Bhumi Wanaprastha">← Bhumi Wanaprastha</a>
+  <body><a class="bhumi-return" href="../../index.html#app-library" aria-label="Kembali ke App Library Bhumi Wanaprastha">← Bhumi Wanaprastha</a>
     <div id="root"></div>
   </body>
 </html>

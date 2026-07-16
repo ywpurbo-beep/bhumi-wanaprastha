@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<defs><filter id="w"><feTurbulence baseFrequency=".018" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="10"/></filter><linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#819071" stop-opacity=".12"/><stop offset="1" stop-color="#a98b5c" stop-opacity=".28"/></linearGradient></defs>
+<g filter="url(#w)" fill="none" stroke-linecap="round"><path d="M450 525C560 410 660 300 900 205" stroke="#78866d" stroke-opacity=".34" stroke-width="8"/><path d="M665 330c-18-46-15-85 9-118M720 293c9-55 36-94 74-117M785 252c-6-39 4-70 31-94" stroke="#78866d" stroke-opacity=".30" stroke-width="5"/></g>
+<g fill="#7f8d72" fill-opacity=".24"><ellipse cx="653" cy="237" rx="35" ry="16" transform="rotate(-40 653 237)"/><ellipse cx="696" cy="207" rx="34" ry="15" transform="rotate(35 696 207)"/><ellipse cx="753" cy="178" rx="38" ry="17" transform="rotate(-30 753 178)"/><ellipse cx="817" cy="142" rx="32" ry="14" transform="rotate(27 817 142)"/></g>
+<path d="M0 430Q140 325 280 420T560 392T900 350V520H0Z" fill="url(#m)"/><path d="M0 470Q180 390 340 465T690 430T900 405V520H0Z" fill="#6c7b63" fill-opacity=".11"/>
+</svg>

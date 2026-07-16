@@ -1,0 +1,18 @@
+BHUMI WANAPRASTHA v0.8 — TAHAP 3
+
+Perubahan:
+1. Kartu Ruang Penjelajahan diperkecil dan disusun menjadi galeri lima ruang.
+2. Setiap ruang memperoleh ilustrasi cat air transparan yang khas:
+   - Gagasan: ranting, daun, dan lanskap kabut.
+   - Renungan: matahari dan pegunungan.
+   - Laku: jalan setapak dan sosok pejalan.
+   - Karya: meja, buku, kertas, dan alat berkarya.
+   - Kebun: tanaman dan keranjang.
+3. Ilustrasi yang sama digunakan kembali sebagai latar hero pada halaman utama masing-masing ruang.
+4. Footer diperbarui dengan latar pepohonan lembut tanpa ikon atau logo tambahan.
+5. Keterangan versi footer diperbarui menjadi v0.8 Tahap 3.
+6. Tata letak responsif disesuaikan untuk desktop, tablet, dan ponsel.
+
+Catatan:
+- Seluruh fungsi, konten markdown, navigasi, dan aplikasi Pranata Mangsa dipertahankan.
+- Ilustrasi disimpan sebagai SVG agar ringan dan tetap tajam pada berbagai ukuran layar.

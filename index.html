@@ -68,11 +68,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero {
-  min-height: min(780px, calc(100vh - 90px));
+  min-height: min(650px, calc(100vh - 120px));
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 42px 18px 64px;
+  padding: 34px 18px 46px;
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -333,6 +333,83 @@ footer {
   footer { flex-direction: column; }
 }
 
+
+/* ===== v0.8 Tahap 3 · penyempurnaan artistik ===== */
+.spaces {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+.space {
+  min-height: 330px;
+  padding: 28px 24px;
+  background-color: rgba(255,255,255,.52);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 100% auto;
+}
+.space::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg, rgba(250,247,239,.82) 0%, rgba(250,247,239,.30) 54%, rgba(250,247,239,.05) 100%);
+  z-index:0;
+}
+.space > * { position:relative; z-index:1; }
+.space h2 { margin:64px 0 12px; font-size:clamp(26px,2.4vw,36px); }
+.space p { max-width:18em; font-size:14px; line-height:1.55; }
+.space .enter { left:24px; bottom:22px; font-size:10px; }
+.space-gagasan { background-image:url('assets/stage3/gagasan.svg'); }
+.space-renungan { background-image:url('assets/stage3/renungan.svg'); }
+.space-laku { background-image:url('assets/stage3/laku.svg'); }
+.space-karya { background-image:url('assets/stage3/karya.svg'); }
+.space-kebun { background-image:url('assets/stage3/kebun.svg'); }
+
+.room-hero {
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  background-color:rgba(255,255,255,.50);
+  background-repeat:no-repeat;
+  background-position:right center;
+  background-size:min(72%, 820px) auto;
+}
+.room-hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg, rgba(249,246,238,.96) 0%, rgba(249,246,238,.82) 42%, rgba(249,246,238,.26) 76%, rgba(249,246,238,.08) 100%);
+}
+.room-hero > * { position:relative; z-index:1; }
+.room-hero-gagasan { background-image:url('assets/stage3/gagasan.svg'); }
+.room-hero-renungan { background-image:url('assets/stage3/renungan.svg'); }
+.room-hero-laku { background-image:url('assets/stage3/laku.svg'); }
+.room-hero-karya { background-image:url('assets/stage3/karya.svg'); }
+.room-hero-kebun { background-image:url('assets/stage3/kebun.svg'); }
+
+footer.global-footer {
+  min-height:190px;
+  margin-top:76px;
+  padding:98px 8px 24px;
+  align-items:flex-end;
+  background-image:url('assets/stage3/forest-footer.svg');
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:100% auto;
+}
+@media (max-width: 980px) {
+  .spaces { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .space-kebun { grid-column:1 / -1; min-height:280px; }
+}
+@media (max-width: 760px) {
+  .spaces { grid-template-columns:1fr; }
+  .space, .space-kebun { grid-column:auto; min-height:290px; }
+  .room-hero { background-size:auto 100%; background-position:72% center; }
+  .room-hero::before { background:linear-gradient(90deg, rgba(249,246,238,.96), rgba(249,246,238,.75) 62%, rgba(249,246,238,.28)); }
+  footer.global-footer { min-height:160px; padding-top:82px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
@@ -361,7 +438,7 @@ footer {
   background-size: cover;
   border-right: 1px solid var(--line);
 }
-.publication-copy { padding: 38px; }
+.publication-copy { padding: 32px 34px; }
 .publication-label {
   margin: 0 0 14px;
   color: var(--bronze);
@@ -543,8 +620,8 @@ footer.global-footer { margin-top:80px; }
 
 /* v0.7 — sistem konten terpisah */
 .content-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-.idea-card { min-height:290px; }
-.idea-card .idea-tags { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 0; }
+.idea-card { min-height:320px; padding-bottom:72px; }
+.idea-card .idea-tags { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 0; padding-bottom:8px; }
 .idea-card .idea-tags span, .article-tags span {
   border:1px solid var(--line); border-radius:999px; padding:7px 10px;
   color:var(--muted); font:10px Arial,Helvetica,sans-serif; letter-spacing:.1em; text-transform:uppercase;
@@ -571,6 +648,205 @@ footer.global-footer { margin-top:80px; }
 .flash-focus { animation:focusPulse 1.4s ease; }
 @keyframes focusPulse { 0%,100%{box-shadow:none} 35%{box-shadow:0 0 0 5px rgba(169,139,92,.25),0 18px 50px rgba(52,46,36,.10)} }
 @media (max-width:760px){ .content-grid{grid-template-columns:1fr}.article-body{font-size:18px}.article-header h2{font-size:40px} }
+
+/* Living Knowledge · Tahap 4.1 */
+.search-panel{max-width:920px;margin:0 auto 34px;padding:26px;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.48)}
+.search-box{display:flex;gap:10px;align-items:center}.search-box input{flex:1;min-width:0;padding:15px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72);font:inherit;color:var(--ink);outline:none}.search-box input:focus{border-color:var(--bronze);box-shadow:0 0 0 3px rgba(169,139,92,.14)}
+.search-count{margin:16px 4px 0;color:var(--muted);font-size:14px}.search-results{display:grid;gap:14px;max-width:920px;margin:0 auto}.search-result{display:block;padding:22px 24px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.5);text-decoration:none;color:inherit}.search-result:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(52,46,36,.08)}.search-result h3{margin:5px 0 8px}.search-result p{margin:0;color:var(--muted)}
+.knowledge-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.knowledge-meta span{font-size:12px;letter-spacing:.04em;padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.knowledge-links{margin-top:38px;padding-top:28px;border-top:1px solid var(--line)}.knowledge-links h3{font-size:24px;margin:0 0 16px}.knowledge-link-list{display:grid;gap:10px}.knowledge-link{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.42);text-decoration:none;color:inherit}.knowledge-link small{color:var(--bronze);font-weight:700}.knowledge-empty{color:var(--muted);font-style:italic}
+@media(max-width:760px){.search-box{display:block}.search-box input{width:100%}.knowledge-link{grid-template-columns:1fr;gap:4px}}
+
+
+
+/* ===== v0.9 Tahap 4.1.1 · GUI Pass: integrasi Asset Library ===== */
+.space {
+  background-position: center bottom;
+  background-size: cover;
+  isolation: isolate;
+}
+.space::after {
+  background:
+    linear-gradient(180deg, rgba(250,247,239,.92) 0%, rgba(250,247,239,.69) 45%, rgba(250,247,239,.18) 78%, rgba(250,247,239,.06) 100%),
+    linear-gradient(90deg, rgba(250,247,239,.18), transparent 48%);
+}
+.space-gagasan { background-image:url('assets/living-knowledge/A01-Gagasan.png'); }
+.space-renungan { background-image:url('assets/living-knowledge/A02-Renungan.png'); }
+.space-laku { background-image:url('assets/living-knowledge/A03-Laku.png'); }
+.space-karya { background-image:url('assets/living-knowledge/A04-Karya.png'); }
+.space-kebun { background-image:url('assets/living-knowledge/A05-Kebun.png'); }
+
+.room-hero {
+  background-color:rgba(255,255,255,.50);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  isolation:isolate;
+}
+.room-hero::before {
+  z-index:0;
+  background:linear-gradient(90deg, rgba(249,246,238,.97) 0%, rgba(249,246,238,.91) 38%, rgba(249,246,238,.62) 64%, rgba(249,246,238,.30) 100%);
+}
+.room-hero > * { position:relative; z-index:1; }
+.room-hero-gagasan { background-image:url('assets/living-knowledge/A01-Gagasan.png'); }
+.room-hero-renungan { background-image:url('assets/living-knowledge/A02-Renungan.png'); }
+.room-hero-laku { background-image:url('assets/living-knowledge/A03-Laku.png'); }
+.room-hero-karya { background-image:url('assets/living-knowledge/A04-Karya.png'); }
+.room-hero-kebun { background-image:url('assets/living-knowledge/A05-Kebun.png'); }
+
+/* Jeda yang lebih jelas antara identitas ruang dan isi pertamanya. */
+[data-view="gagasan"] .room-grid { margin-top:42px; }
+
+footer.global-footer {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:230px;
+  padding:132px 10px 26px;
+  background-image:url('assets/living-knowledge/B01-Forest-Panorama.png');
+  background-repeat:no-repeat;
+  background-position:center 58%;
+  background-size:cover;
+}
+footer.global-footer::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:linear-gradient(180deg, rgba(249,246,238,.96) 0%, rgba(249,246,238,.76) 36%, rgba(249,246,238,.30) 72%, rgba(249,246,238,.12) 100%);
+}
+footer.global-footer::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background-image:url('assets/living-knowledge/B02-Forest-Mist-Overlay.png');
+  background-repeat:no-repeat;
+  background-position:center 70%;
+  background-size:cover;
+  opacity:.42;
+  pointer-events:none;
+}
+footer.global-footer > * { position:relative; z-index:1; }
+
+@media (max-width:760px) {
+  .space { background-position:center bottom; }
+  .room-hero { background-position:62% center; background-size:cover; }
+  .room-hero::before { background:linear-gradient(90deg, rgba(249,246,238,.97), rgba(249,246,238,.84) 66%, rgba(249,246,238,.55)); }
+  [data-view="gagasan"] .room-grid { margin-top:34px; }
+  footer.global-footer { min-height:190px; padding:108px 10px 24px; background-position:center 58%; }
+}
+
+
+
+/* ===== v0.9 Tahap 4.1.1 HOTFIX · hero Gagasan, footer, spacing ===== */
+/* Gagasan memakai content-grid, bukan room-grid. Selector lama karena itu tidak pernah bekerja. */
+[data-view="gagasan"] #idea-list.content-grid {
+  margin-top: 42px;
+}
+
+/* A01 dibuat lebih terbaca tanpa mengorbankan ketenangan area tipografi. */
+.room-hero-gagasan {
+  background-position: center 68%;
+  background-size: cover;
+}
+.room-hero-gagasan::before {
+  background: linear-gradient(
+    90deg,
+    rgba(249,246,238,.89) 0%,
+    rgba(249,246,238,.77) 36%,
+    rgba(249,246,238,.38) 63%,
+    rgba(249,246,238,.12) 100%
+  );
+}
+
+/* Panorama menjadi lapisan bertepi kabur, bukan banner persegi yang ditempel. */
+footer.global-footer {
+  background-image: none;
+  min-height: 250px;
+  padding: 142px 14px 28px;
+}
+footer.global-footer::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 12px -2.5% -10px;
+  background: url('assets/living-knowledge/B01-Forest-Panorama.png') center 61% / cover no-repeat;
+  opacity: .88;
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 20%, #000 86%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 20%, #000 86%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  mask-composite: intersect;
+}
+footer.global-footer::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 -2%;
+  background:
+    linear-gradient(180deg, rgba(249,246,238,.98) 0%, rgba(249,246,238,.42) 30%, rgba(249,246,238,.05) 72%, rgba(249,246,238,.40) 100%),
+    url('assets/living-knowledge/B02-Forest-Mist-Overlay.png') center 66% / cover no-repeat;
+  opacity: .58;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 90%, transparent 100%);
+}
+
+@media (max-width: 760px) {
+  [data-view="gagasan"] #idea-list.content-grid { margin-top: 34px; }
+  .room-hero-gagasan { background-position: 43% 70%; }
+  .room-hero-gagasan::before {
+    background: linear-gradient(90deg, rgba(249,246,238,.91), rgba(249,246,238,.72) 65%, rgba(249,246,238,.30));
+  }
+  footer.global-footer { min-height: 205px; padding: 116px 12px 25px; }
+  footer.global-footer::before { inset: 8px -8% -8px; background-position:center 61%; }
+}
+
+
+/* ===== v0.9 Tahap 4.2 · Search, Related Content, Content Type ===== */
+.search-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.search-filter{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.58);padding:9px 13px;color:var(--muted);font:600 12px Arial,sans-serif;letter-spacing:.04em;cursor:pointer}
+.search-filter.active{background:var(--moss);border-color:var(--moss);color:#fff}
+.search-group{max-width:920px;margin:0 auto 30px}.search-group-title{display:flex;align-items:center;gap:12px;margin:0 0 12px;font:700 13px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--moss)}
+.search-group-title::after{content:"";height:1px;flex:1;background:var(--line)}
+.search-result small{font-family:Arial,sans-serif;text-transform:capitalize;color:var(--bronze)}
+.search-result-type{display:inline-flex;margin-left:7px;padding:3px 7px;border:1px solid var(--line);border-radius:999px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.related-content{margin-top:42px;padding-top:30px;border-top:1px solid var(--line)}
+.related-content h3{font-size:27px;margin:0 0 7px}.related-intro{margin:0 0 19px;color:var(--muted)}
+.related-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.related-card{display:block;padding:18px 19px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.45);text-decoration:none;color:inherit;transition:.2s ease}
+.related-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(52,46,36,.08)}
+.related-card small{display:block;margin-bottom:7px;font:700 11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--bronze)}
+.related-card strong{display:block;font-size:18px;line-height:1.25}.related-card span{display:block;margin-top:7px;color:var(--muted);font-size:14px;line-height:1.45}
+.recipe-block{margin:30px 0;padding:24px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.42)}
+.recipe-block h3{margin:0 0 15px;font-size:23px}.recipe-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.recipe-list{margin:0;padding-left:20px}.recipe-list li{margin:8px 0}.recipe-duration{display:inline-flex;margin:0 0 18px;padding:7px 11px;border-radius:999px;background:rgba(169,139,92,.12);font:700 12px Arial,sans-serif;color:#755e3c}
+.content-type-badge{display:inline-flex;margin-bottom:11px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font:700 11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--moss)}
+@media(max-width:760px){.related-grid,.recipe-columns{grid-template-columns:1fr}.search-filter{padding:8px 11px}.search-panel{padding:20px}}
+
+/* Tahap 4.3 — Jejak Pengetahuan */
+.knowledge-journey{margin:30px 0 34px;padding:24px;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.42)}
+.knowledge-journey-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}
+.knowledge-journey h3{margin:0 0 6px;font-size:27px}.knowledge-journey-head p{margin:0;color:var(--muted)}
+.knowledge-type{display:inline-flex;white-space:nowrap;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font:700 11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--moss)}
+.knowledge-track{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;align-items:stretch}
+.knowledge-stage{position:relative;min-width:0;padding:13px 12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.48)}
+.knowledge-stage:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;z-index:2;transform:translateY(-50%);color:var(--bronze);font-family:Arial,sans-serif}
+.knowledge-stage small{display:block;margin-bottom:7px;font:700 10px Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.knowledge-stage a,.knowledge-stage strong{display:block;color:inherit;text-decoration:none;font-size:14px;line-height:1.35}
+.knowledge-stage.current{border-color:var(--bronze);box-shadow:0 0 0 3px rgba(169,139,92,.12);background:rgba(255,252,245,.78)}
+.knowledge-stage.empty{opacity:.48}.knowledge-stage.empty strong{font-weight:400;color:var(--muted)}
+.knowledge-direction{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.knowledge-direction-card{padding:17px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.35)}
+.knowledge-direction-card h4{margin:0 0 10px;font:700 11px Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--bronze)}
+.knowledge-direction-card a{display:block;margin-top:8px;color:inherit;text-decoration:none;line-height:1.35}.knowledge-direction-card a:hover{text-decoration:underline}
+.knowledge-direction-card .empty{color:var(--muted);font-size:14px}
+@media(max-width:760px){.knowledge-journey{padding:20px}.knowledge-journey-head{display:block}.knowledge-type{margin-top:12px}.knowledge-track{grid-template-columns:1fr}.knowledge-stage:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-13px;transform:translateX(-50%)}.knowledge-direction{grid-template-columns:1fr}}
+
+
 </style>
 </head>
 <body>
@@ -588,6 +864,7 @@ footer.global-footer { margin-top:80px; }
       <button class="nav-link" data-route="laku">Laku</button>
       <button class="nav-link" data-route="karya">Karya</button>
       <button class="nav-link" data-route="kebun">Kebun</button>
+      <button class="nav-link" data-route="search">Cari</button>
     </div>
   </nav>
 
@@ -608,26 +885,20 @@ footer.global-footer { margin-top:80px; }
     </section>
 
     <section class="spaces" aria-label="Ruang-ruang Bhumi Wanaprastha">
-      <a class="space space-link" href="#gagasan" data-route="gagasan" data-number="01">
+      <a class="space space-link space-gagasan" href="#gagasan" data-route="gagasan" data-number="01">
         <h2>Gagasan</h2><p>Tempat pertanyaan, hipotesis, dan kerangka berpikir memperoleh bentuk awalnya.</p><span class="enter">Masuk ruang →</span>
       </a>
-      <a class="space space-link" href="#renungan" data-route="renungan" data-number="02">
+      <a class="space space-link space-renungan" href="#renungan" data-route="renungan" data-number="02">
         <h2>Renungan</h2><p>Tempat gagasan dipertemukan dengan pengalaman, waktu, dan kedalaman perhatian.</p><span class="enter">Masuk ruang →</span>
       </a>
-      <a class="space space-link" href="#laku" data-route="laku" data-number="03">
+      <a class="space space-link space-laku" href="#laku" data-route="laku" data-number="03">
         <h2>Laku</h2><p>Tempat pengetahuan diuji melalui kebiasaan, percobaan, keterampilan, dan kehidupan sehari-hari.</p><span class="enter">Masuk ruang →</span>
       </a>
-      <a class="space space-link" href="#karya" data-route="karya" data-number="04">
+      <a class="space space-link space-karya" href="#karya" data-route="karya" data-number="04">
         <h2>Karya</h2><p>Tempat laku menjelma menjadi arsitektur, desain, visual, dan artefak yang dapat diwariskan.</p><span class="enter">Masuk ruang →</span>
       </a>
-      <a class="space space-link garden" href="#kebun" data-route="kebun" data-number="05">
-        <h2>Kebun</h2><p>Tempat sesuatu ditanam, dirawat, diuji, dan dipetik. Di sinilah alat, aplikasi, dan hasil panen digital tumbuh.</p>
-        <div class="garden-grid">
-          <div class="garden-item"><strong>Bibit</strong><span>Ide dan bahan awal.</span></div>
-          <div class="garden-item"><strong>Tunas</strong><span>Eksperimen yang mulai hidup.</span></div>
-          <div class="garden-item"><strong>Pohon</strong><span>Karya yang telah matang.</span></div>
-          <div class="garden-item"><strong>Gudang</strong><span>Tempat hasil disimpan dan dapat dipetik.</span></div>
-        </div><span class="enter">Berjalan ke kebun →</span>
+      <a class="space space-link space-kebun" href="#kebun" data-route="kebun" data-number="05">
+        <h2>Kebun</h2><p>Tempat sesuatu ditanam, dirawat, diuji, dan dipetik. Di sinilah alat, aplikasi, dan hasil panen digital tumbuh.</p><span class="enter">Berjalan ke kebun →</span>
       </a>
     </section>
 
@@ -636,7 +907,7 @@ footer.global-footer { margin-top:80px; }
 
   <section class="view room-shell" data-view="gagasan">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Gagasan</span></div>
-    <div class="room-hero"><div><p class="room-kicker">Ruang 01</p><h2 class="room-title">Gagasan</h2></div><p class="room-desc">Pertanyaan, hipotesis, dan kerangka berpikir diberi tempat untuk tumbuh sebelum dipaksa menjadi kesimpulan.</p></div>
+    <div class="room-hero room-hero-gagasan"><div><p class="room-kicker">Ruang 01</p><h2 class="room-title">Gagasan</h2></div><p class="room-desc">Pertanyaan, hipotesis, dan kerangka berpikir diberi tempat untuk tumbuh sebelum dipaksa menjadi kesimpulan.</p></div>
     <div id="idea-list" class="content-grid" aria-live="polite"></div>
     <div class="room-note">Ruang ini bukan museum jawaban. Ia adalah bengkel tempat pertanyaan memperoleh bentuk, diuji, lalu dihubungkan dengan buah pemikiran yang lahir darinya.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
@@ -650,7 +921,7 @@ footer.global-footer { margin-top:80px; }
 
   <section class="view room-shell" data-view="renungan">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Renungan</span></div>
-    <div class="room-hero"><div><p class="room-kicker">Ruang 02</p><h2 class="room-title">Renungan</h2></div><p class="room-desc">Gagasan dipertemukan dengan pengalaman, waktu, keheningan, dan kedalaman perhatian.</p></div>
+    <div class="room-hero room-hero-renungan"><div><p class="room-kicker">Ruang 02</p><h2 class="room-title">Renungan</h2></div><p class="room-desc">Gagasan dipertemukan dengan pengalaman, waktu, keheningan, dan kedalaman perhatian.</p></div>
     <div class="room-grid">
       <article class="room-card"><h3>Artikel</h3><p>Renungan tertulis yang mengajak pembaca berhenti dan melihat kembali.</p><span class="card-status">Segera diisi</span></article>
       <article class="room-card"><h3>Video</h3><p>Tayangan dari kanal Renungan Ilmu dan karya audiovisual terpilih.</p><span class="card-status">Segera diisi</span></article>
@@ -661,28 +932,46 @@ footer.global-footer { margin-top:80px; }
 
   <section class="view room-shell" data-view="laku">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Laku</span></div>
-    <div class="room-hero"><div><p class="room-kicker">Ruang 03</p><h2 class="room-title">Laku</h2></div><p class="room-desc">Pengetahuan diuji melalui tindakan, kebiasaan, keterampilan, dan kehidupan sehari-hari.</p></div>
+    <div class="room-hero room-hero-laku"><div><p class="room-kicker">Ruang 03</p><h2 class="room-title">Laku</h2></div><p class="room-desc">Pengetahuan diuji melalui tindakan, kebiasaan, keterampilan, dan kehidupan sehari-hari.</p></div>
     <div class="room-grid">
-      <a class="room-card room-card-link" href="apps/pranata-mangsa/index.html"><h3>Pranata Mangsa</h3><p>Aplikasi untuk membaca ritme musim, tanda alam, cuaca lokal, dan pengetahuan ekologis Nusantara.</p><span class="card-status">Buka aplikasi</span></a>
-      <article class="room-card"><h3>Laku Visualizer</h3><p>Alat bantu untuk melihat hubungan antara kebiasaan, latihan, dan perubahan diri.</p><span class="card-status">Tautan akan dipasang</span></article>
-      <article class="room-card"><h3>Penjelajahan Diri</h3><p>Perangkat refleksi untuk mengenali kecenderungan kepribadian secara lebih jernih.</p><span class="card-status">Tautan akan dipasang</span></article>
-      <article class="room-card"><h3>Panduan</h3><p>Petunjuk praktis agar pengetahuan tidak berhenti sebagai bacaan.</p><span class="card-status">Segera diisi</span></article>
+      <a class="room-card room-card-link harvest-card" href="#app-library" data-route="app-library"><span class="harvest-label">Perangkat Laku</span><h3>App Library</h3><p>Kumpulan aplikasi interaktif untuk membaca alam, mengenali diri, mencatat kebiasaan, dan mengubah pengetahuan menjadi praktik.</p><span class="card-status">Masuk ke App Library</span></a>
+      <article class="room-card"><h3>Panduan Laku</h3><p>Petunjuk praktis agar pengetahuan tidak berhenti sebagai bacaan atau gagasan yang tampak pintar di layar.</p><span class="card-status">Segera diisi</span></article>
+      <article class="room-card"><h3>Catatan Praktik</h3><p>Jejak penerapan, pengamatan, dan pembelajaran yang muncul dari pengalaman sehari-hari.</p><span class="card-status">Segera diisi</span></article>
     </div><div class="room-note">Di sinilah gagasan kehilangan hak istimewanya. Ia harus membuktikan diri dalam kehidupan.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
+  <section class="view room-shell" data-view="app-library">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="laku">Laku</button><span>›</span><span>App Library</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Laku · Perangkat</p><h2 class="room-title">App Library</h2></div><p class="room-desc">Perangkat interaktif untuk membantu manusia mengamati, mencoba, mencatat, dan menjalani pengetahuan.</p></div>
+    <div class="room-grid">
+      <a class="room-card room-card-link harvest-card" href="apps/pranata-mangsa/index.html"><span class="harvest-label">Aplikasi aktif</span><h3>Kawruh Pranata Mangsa</h3><p>Membaca dua belas mangsa, sasmita alam, cuaca lokal, dan catatan pengamatan sebagai pengetahuan yang terus diuji dalam kehidupan.</p><span class="card-status">Buka aplikasi</span></a>
+      <article class="room-card"><h3>Titen Laku</h3><p>Alat bantu untuk melihat hubungan antara kebiasaan, latihan, kecenderungan diri, dan perubahan yang berlangsung.</p><span class="card-status">Dalam pengembangan</span></article>
+      <article class="room-card"><h3>Penjelajahan Diri</h3><p>Perangkat refleksi untuk mengenali kecenderungan kepribadian secara lebih jernih.</p><span class="card-status">Dalam pengembangan</span></article>
+    </div>
+    <div class="back-row"><button class="back-button" data-route="laku">← Kembali ke Laku</button></div>
+  </section>
+
   <section class="view room-shell" data-view="karya">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Karya</span></div>
-    <div class="room-hero"><div><p class="room-kicker">Ruang 04</p><h2 class="room-title">Karya</h2></div><p class="room-desc">Laku menjelma menjadi ruang, benda, gambar, sistem, dan artefak yang dapat digunakan serta diwariskan.</p></div>
+    <div class="room-hero room-hero-karya"><div><p class="room-kicker">Ruang 04</p><h2 class="room-title">Karya</h2></div><p class="room-desc">Laku menjelma menjadi ruang, benda, gambar, sistem, dan artefak yang dapat digunakan serta diwariskan.</p></div>
     <div class="room-grid">
-      <article class="room-card"><h3>Arsitektur</h3><p>Karya ruang yang dianggap berhasil menyimpan gagasan, laku, dan cara hidup.</p><span class="card-status">Segera dikurasi</span></article>
-      <article class="room-card"><h3>Interior</h3><p>Ruang dalam yang dibentuk melalui fungsi, material, cahaya, dan pengalaman.</p><span class="card-status">Segera dikurasi</span></article>
-      <article class="room-card"><h3>Visual</h3><p>Infografis, ilustrasi, diagram, dan visualisasi pengetahuan.</p><span class="card-status">Segera dikurasi</span></article>
+      <a class="room-card room-card-link harvest-card" href="#project-portfolio" data-route="project-portfolio"><span class="harvest-label">Karya Terbangun</span><h3>Project Portfolio</h3><p>Proyek arsitektur, interior, visual, riset, dan eksperimen yang telah memperoleh tubuh dan dapat ditinjau sebagai karya.</p><span class="card-status">Buka portfolio</span></a>
       <a class="room-card room-card-link" href="#publikasi" data-route="publikasi"><h3>Publikasi</h3><p>Buku, booklet, presentasi, dan dokumen yang telah disusun.</p><span class="card-status">Lihat publikasi</span></a>
     </div><div class="room-note">Karya bukan sekadar hasil akhir. Ia adalah jejak cara berpikir yang berhasil memperoleh tubuh.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
+  <section class="view room-shell" data-view="project-portfolio">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><span>Project Portfolio</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Karya · Portfolio</p><h2 class="room-title">Project Portfolio</h2></div><p class="room-desc">Kumpulan proyek yang memperlihatkan bagaimana gagasan, keterampilan, material, dan kebutuhan nyata dipertemukan.</p></div>
+    <div class="room-grid">
+      <article class="room-card"><h3>Arsitektur</h3><p>Ruang dan bangunan yang menyimpan gagasan, laku, serta cara hidup.</p><span class="card-status">Segera dikurasi</span></article>
+      <article class="room-card"><h3>Interior</h3><p>Ruang dalam yang dibentuk melalui fungsi, material, cahaya, dan pengalaman.</p><span class="card-status">Segera dikurasi</span></article>
+      <article class="room-card"><h3>Visual & Sistem</h3><p>Infografis, ilustrasi, diagram, aplikasi, dan visualisasi pengetahuan.</p><span class="card-status">Segera dikurasi</span></article>
+    </div>
+    <div class="back-row"><button class="back-button" data-route="karya">← Kembali ke Karya</button></div>
+  </section>
 
   <section class="view room-shell" data-view="publikasi">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><span>Publikasi</span></div>
@@ -695,42 +984,177 @@ footer.global-footer { margin-top:80px; }
 
   <section class="view room-shell" data-view="kebun">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Kebun</span></div>
-    <div class="room-hero"><div><p class="room-kicker">Ruang 05</p><h2 class="room-title">Kebun</h2></div><p class="room-desc">Tempat hasil dari pohon pengetahuan dapat dipetik, dibaca, dijelajahi, dan dibawa pulang.</p></div>
-
-    <p class="harvest-intro">Hasil panen yang telah tersedia dapat dipetik di sini. Karya dipahami terlebih dahulu di Ruang Karya, lalu dibawa pulang dari Kebun. Sedikit ritual memang tidak akan membunuh internet.</p>
-    <div id="harvest-grid" class="harvest-grid" aria-live="polite"></div>
-
+    <div class="room-hero room-hero-kebun"><div><p class="room-kicker">Ruang 05</p><h2 class="room-title">Kebun</h2></div><p class="room-desc">Tempat pengetahuan ditanam, dirawat, dipanen, dan disimpan untuk kembali digunakan.</p></div>
     <div class="room-grid">
-      <a class="room-card room-card-link harvest-card" href="apps/pranata-mangsa/index.html">
-        <span class="harvest-label">Pohon · Aplikasi aktif</span>
-        <h3>Kawruh Pranata Mangsa</h3>
-        <p>Membaca dua belas mangsa, sasmita alam, cuaca lokal, dan catatan pengamatan sebagai pengetahuan yang terus diuji dalam kehidupan.</p>
-        <span class="card-status">Jelajahi aplikasi</span>
-      </a>
-      <article class="room-card"><h3>Bibit</h3><p>Gagasan awal, bahan mentah, dan kemungkinan yang baru ditemukan.</p><span class="card-status">Tahap awal</span></article>
-      <article class="room-card"><h3>Tunas</h3><p>Eksperimen dan prototipe yang sudah mulai menunjukkan bentuk.</p><span class="card-status">Sedang tumbuh</span></article>
-      <article class="room-card"><h3>Pohon</h3><p>Karya matang yang stabil, bermanfaat, dan siap menghasilkan panen.</p><span class="card-status">Terawat</span></article>
-      <article class="room-card"><h3>Gudang</h3><p>Arsip hasil panen, versi terdahulu, dan bahan yang tetap perlu disimpan.</p><span class="card-status">Arsip</span></article>
+      <a class="room-card room-card-link" href="#pasemaian" data-route="pasemaian"><h3>Pasemaian</h3><p>Benih gagasan, eksperimen awal, dan kemungkinan yang belum memperoleh bentuk akhir.</p><span class="card-status">Masuk ke pasemaian</span></a>
+      <a class="room-card room-card-link" href="#hasil-panen" data-route="hasil-panen"><h3>Hasil Panen</h3><p>Karya dan pengetahuan yang telah matang, siap dibaca, digunakan, atau dibawa pulang.</p><span class="card-status">Lihat hasil panen</span></a>
+      <a class="room-card room-card-link" href="#gudang" data-route="gudang"><h3>Gudang</h3><p>Arsip, bahan, versi terdahulu, dan persediaan pengetahuan yang perlu tetap disimpan.</p><span class="card-status">Buka gudang</span></a>
     </div>
-    <div class="room-note">Tidak semua bibit harus menjadi pohon. Kebun yang sehat juga tahu apa yang perlu dipangkas dan dikomposkan.</div>
+    <div class="room-note">Tidak semua bibit harus menjadi pohon. Kebun yang sehat juga tahu apa yang perlu dirawat, dipangkas, dipanen, dan disimpan.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
-  <footer class="global-footer"><span>Versi sistem konten 0.7</span><span>Bhumi Wanaprastha · Pengetahuan yang menjadi laku.</span></footer>
+  <section class="view room-shell" data-view="pasemaian">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="kebun">Kebun</button><span>›</span><span>Pasemaian</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Kebun · Benih</p><h2 class="room-title">Pasemaian</h2></div><p class="room-desc">Ruang bagi ide muda, catatan mentah, prototipe, dan eksperimen yang masih memerlukan waktu.</p></div>
+    <div class="placeholder-panel"><strong>Pasemaian sedang disiapkan.</strong><span>Strukturnya sudah tersedia untuk menerima gagasan dan eksperimen berikutnya.</span></div>
+    <div class="back-row"><button class="back-button" data-route="kebun">← Kembali ke Kebun</button></div>
+  </section>
+
+  <section class="view room-shell" data-view="hasil-panen">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="kebun">Kebun</button><span>›</span><span>Hasil Panen</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Kebun · Panen</p><h2 class="room-title">Hasil Panen</h2></div><p class="room-desc">Hasil yang telah cukup matang untuk dipetik, dibaca, digunakan, dan dibawa pulang.</p></div>
+    <p class="harvest-intro">Karya yang telah memperoleh bentuk tersedia di sini. Rupanya bahkan gagasan membutuhkan rak panen agar tidak tercecer seperti file bernama final-revisi-final-2.</p>
+    <div id="harvest-grid" class="harvest-grid" aria-live="polite"></div>
+    <div class="back-row"><button class="back-button" data-route="kebun">← Kembali ke Kebun</button></div>
+  </section>
+
+  <section class="view room-shell" data-view="gudang">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="kebun">Kebun</button><span>›</span><span>Gudang</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Kebun · Penyimpanan</p><h2 class="room-title">Gudang</h2></div><p class="room-desc">Tempat menyimpan arsip, bahan, versi terdahulu, dan persediaan yang mungkin berguna kembali.</p></div>
+    <div class="placeholder-panel"><strong>Gudang sedang ditata.</strong><span>Kelak ruang ini menampung arsip dan bahan yang tidak perlu tampil di ruang utama, tetapi terlalu berharga untuk dibuang.</span></div>
+    <div class="back-row"><button class="back-button" data-route="kebun">← Kembali ke Kebun</button></div>
+  </section>
+
+
+  <section class="view room-shell" data-view="search">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Jejak Pengetahuan</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Living Knowledge</p><h2 class="room-title">Cari Pengetahuan</h2></div><p class="room-desc">Temukan tulisan melalui judul, isi, penulis, ruang, dan tag. Mesin ini masih muda, tetapi setidaknya sudah tidak mencari dengan cara menatap folder sambil berharap.</p></div>
+    <div class="search-panel"><label class="search-box"><span class="sr-only">Kata pencarian</span><input id="knowledge-search" type="search" placeholder="Cari judul, isi, tag, jenis, atau hubungan…" autocomplete="off"></label><div id="search-filters" class="search-tools" aria-label="Saring ruang pengetahuan"></div><p id="search-count" class="search-count">Seluruh node pengetahuan akan ditampilkan.</p></div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
+  </section>
+
+  <section class="view room-shell" data-view="konten">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span id="content-breadcrumb">Konten</span></div>
+    <article id="content-detail" class="article-shell" aria-live="polite"></article>
+    <div class="back-row"><button class="back-button" id="content-back" data-route="pendopo">← Kembali</button></div>
+  </section>
+
+  <footer class="global-footer"><span>Bhumi Wanaprastha v0.9 · Tahap 4.2</span><span>Pengetahuan yang menjadi laku.</span></footer>
 </main>
+<script src="content/_generated/content-manifest.js"></script>
 <script src="content/content.js"></script>
 <script>
 (() => {
-  const validRoutes = ['pendopo','gagasan','jejak-candi','renungan','laku','karya','publikasi','kebun'];
+  const baseRoutes = ['search','pendopo','gagasan','jejak-candi','renungan','laku','app-library','karya','project-portfolio','publikasi','kebun','pasemaian','hasil-panen','gudang'];
   const views = [...document.querySelectorAll('[data-view]')];
   const navLinks = [...document.querySelectorAll('.nav-link')];
   const menu = document.getElementById('nav-links');
   const toggle = document.querySelector('.menu-toggle');
-  const data = window.BW_CONTENT || { ideas: [], publications: [] };
+  const legacy = window.BW_CONTENT || { ideas: [], publications: [] };
+  const manifest = window.BW_CONTENT_V08 || { items: [] };
+  const nodes = manifest.items || [];
+  const tagsOf = item => item.allTags || (Array.isArray(item.tags) ? item.tags : [...(item.tags?.primary || []), ...(item.tags?.secondary || [])]);
+  const relationLabels = {'related':'Berkaitan dengan','extends':'Memperluas','derived-from':'Dikembangkan dari','applies-to':'Diterapkan pada','references':'Merujuk','contrasts':'Sudut pandang berbeda','continues':'Melanjutkan','precedes':'Mendahului','implemented-by':'Diwujudkan melalui','see-also':'Lihat juga','inspires':'Menginspirasi','becomes-practice':'Menjadi laku','produces-work':'Melahirkan karya','verified-by':'Dibuktikan melalui','observed-through':'Diamati melalui'};
+  const data = {
+    ideas: nodes.filter(x => x.section === 'gagasan'),
+    publications: nodes.filter(x => x.type === 'publikasi' || x.section === 'karya')
+  };
+  if (!data.ideas.length) data.ideas = legacy.ideas || [];
+  if (!data.publications.length) data.publications = legacy.publications || [];
+  const routeMap = new Map(nodes.map(x => [x.route, x]));
+  const validRoutes = [...baseRoutes, ...routeMap.keys()];
 
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   }[ch]));
+
+  const spaceOrder = ['gagasan','renungan','laku','karya','kebun'];
+  const spaceNames = {gagasan:'Gagasan',renungan:'Renungan',laku:'Laku',karya:'Karya',kebun:'Kebun'};
+  let activeSearchSpace = 'semua';
+
+  function explicitConnections(item) {
+    const outgoing=(item.relations||[]).map(rel=>({rel,target:nodes.find(n=>n.id===rel.id),direction:'out'})).filter(x=>x.target);
+    const incoming=nodes.flatMap(source=>(source.relations||[]).filter(rel=>rel.id===item.id).map(rel=>({rel,target:source,direction:'in'})));
+    return [...outgoing,...incoming.filter(x=>!outgoing.some(y=>y.target.id===x.target.id))];
+  }
+
+  function relatedScore(source,target) {
+    if(source.id===target.id) return -1;
+    let score=0; const reasons=[];
+    const explicit=(source.relations||[]).find(r=>r.id===target.id);
+    const incoming=(target.relations||[]).find(r=>r.id===source.id);
+    if(explicit||incoming){score+=100; reasons.push((explicit||incoming).label||relationLabels[(explicit||incoming).type]||'Relasi langsung');}
+    const shared=tagsOf(source).filter(t=>tagsOf(target).includes(t));
+    if(shared.length){score+=shared.length*14; reasons.push(`${shared.length} tag serupa`);}
+    if(source.section===target.section){score+=5; reasons.push('ruang yang sama');}
+    if(source.type===target.type){score+=3; reasons.push('jenis konten serupa');}
+    if(source.section!==target.section) score+=4; // lintas ruang lebih berguna untuk penjelajahan
+    return {score,reasons};
+  }
+
+
+  function connectedKnowledge(item) {
+    const visited=new Set([item.id]); const queue=[item.id];
+    while(queue.length){
+      const id=queue.shift();
+      const node=nodes.find(n=>n.id===id); if(!node) continue;
+      const adjacent=[...(node.relations||[]).map(r=>r.id),...nodes.filter(n=>(n.relations||[]).some(r=>r.id===id)).map(n=>n.id)];
+      adjacent.forEach(next=>{if(!visited.has(next)){visited.add(next);queue.push(next);}});
+    }
+    return nodes.filter(n=>visited.has(n.id));
+  }
+
+  function renderKnowledgeJourney(item) {
+    const component=connectedKnowledge(item);
+    const stages=spaceOrder.map(space=>{
+      const candidates=component.filter(n=>n.section===space);
+      const node=candidates.find(n=>n.id===item.id)||candidates[0];
+      if(!node) return `<div class="knowledge-stage empty"><small>${spaceNames[space]}</small><strong>Belum terhubung</strong></div>`;
+      const cls=node.id===item.id?'knowledge-stage current':'knowledge-stage';
+      return `<div class="${cls}"><small>${spaceNames[space]}</small>${node.id===item.id?`<strong>${escapeHTML(node.title)}</strong>`:`<a href="#${escapeHTML(node.route)}" data-route="${escapeHTML(node.route)}">${escapeHTML(node.title)}</a>`}</div>`;
+    }).join('');
+    const links=explicitConnections(item);
+    const before=links.filter(x=>spaceOrder.indexOf(x.target.section)<spaceOrder.indexOf(item.section));
+    const after=links.filter(x=>spaceOrder.indexOf(x.target.section)>spaceOrder.indexOf(item.section));
+    const linkList=(arr,empty)=>arr.length?arr.map(({rel,target})=>`<a href="#${escapeHTML(target.route)}" data-route="${escapeHTML(target.route)}"><strong>${escapeHTML(target.title)}</strong><br><small>${escapeHTML(rel.label||relationLabels[rel.type]||rel.type)}</small></a>`).join(''):`<span class="empty">${empty}</span>`;
+    return `<section class="knowledge-journey" aria-label="Jejak Pengetahuan"><div class="knowledge-journey-head"><div><h3>Jejak Pengetahuan</h3><p>Alur konseptual yang menghubungkan node ini dengan ruang lain.</p></div><span class="knowledge-type">${escapeHTML(spaceNames[item.section]||item.section)} · ${escapeHTML(item.type)}</span></div><div class="knowledge-track">${stages}</div><div class="knowledge-direction"><div class="knowledge-direction-card"><h4>Berasal dan berkembang dari</h4>${linkList(before,'Belum ada node asal yang dicatat.')}</div><div class="knowledge-direction-card"><h4>Bergerak dan diterapkan menuju</h4>${linkList(after,'Belum ada lanjutan yang dicatat.')}</div></div></section>`;
+  }
+
+  function renderRelatedContent(item) {
+    const ranked=nodes.map(target=>({target,...relatedScore(item,target)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score || String(b.target.date).localeCompare(String(a.target.date))).slice(0,6);
+    if(!ranked.length) return '<section class="related-content"><h3>Jelajahi Selanjutnya</h3><p class="knowledge-empty">Belum ada konten terkait. Jaringan ini akan tumbuh bersama isinya.</p></section>';
+    return `<section class="related-content"><h3>Jelajahi Selanjutnya</h3><p class="related-intro">Dipilih dari relasi yang dicatat, tag bersama, ruang, dan jenis konten.</p><div class="related-grid">${ranked.map(({target,reasons})=>`<a class="related-card" href="#${escapeHTML(target.route)}" data-route="${escapeHTML(target.route)}"><small>${escapeHTML(spaceNames[target.section]||target.section)} · ${escapeHTML(target.type)}</small><strong>${escapeHTML(target.title)}</strong><span>${escapeHTML(reasons.slice(0,2).join(' · '))}</span></a>`).join('')}</div></section>`;
+  }
+
+  function renderKnowledgeLinks(item) {
+    const links=explicitConnections(item);
+    if(!links.length) return '';
+    return `<section class="knowledge-links"><h3>Hubungan yang Dicatat</h3><div class="knowledge-link-list">${links.map(({rel,target,direction})=>`<a class="knowledge-link" href="#${escapeHTML(target.route)}" data-route="${escapeHTML(target.route)}"><small>${escapeHTML(rel.label||relationLabels[rel.type]||rel.type)}${direction==='in'?' · menuju konten ini':''}</small><span>${escapeHTML(target.title)}</span></a>`).join('')}</div></section>`;
+  }
+
+  function searchableText(item) {
+    const relationText=(item.relations||[]).flatMap(rel=>{const target=nodes.find(n=>n.id===rel.id);return [rel.type,rel.label,target?.title,target?.summary];});
+    return [item.title,item.summary,item.author,item.section,item.type,item.status,...tagsOf(item),item.plainText,...relationText,...(item.ingredients||[]),...(item.tools||[]),...(item.steps||[]),...(item.benefits||[]),...(item.cautions||[])].join(' ').toLocaleLowerCase('id-ID');
+  }
+
+  function searchScore(item,terms) {
+    const title=String(item.title||'').toLocaleLowerCase('id-ID'), summary=String(item.summary||'').toLocaleLowerCase('id-ID');
+    const tags=tagsOf(item).join(' ').toLocaleLowerCase('id-ID'), body=String(item.plainText||'').toLocaleLowerCase('id-ID');
+    return terms.reduce((score,term)=>score+(title.includes(term)?30:0)+(tags.includes(term)?18:0)+(summary.includes(term)?12:0)+(body.includes(term)?3:0),0);
+  }
+
+  function renderSearchFilters(){
+    const host=document.getElementById('search-filters'); if(!host)return;
+    host.innerHTML=['semua',...spaceOrder].map(space=>`<button class="search-filter ${activeSearchSpace===space?'active':''}" type="button" data-search-space="${space}">${space==='semua'?'Semua':spaceNames[space]}</button>`).join('');
+  }
+
+  function renderSearch(query='') {
+    const host=document.getElementById('search-results'); const count=document.getElementById('search-count'); if(!host)return;
+    const terms=query.trim().toLocaleLowerCase('id-ID').split(/\s+/).filter(Boolean);
+    let results=nodes.filter(item=>(activeSearchSpace==='semua'||item.section===activeSearchSpace)&&terms.every(term=>searchableText(item).includes(term)));
+    results=results.map(item=>({item,score:searchScore(item,terms)})).sort((a,b)=>b.score-a.score||String(b.item.date).localeCompare(String(a.item.date))).map(x=>x.item);
+    count.textContent=query.trim()?`${results.length} node ditemukan untuk “${query.trim()}”.`:`${results.length} node pengetahuan tersedia.`;
+    const groups=spaceOrder.map(space=>({space,items:results.filter(x=>x.section===space)})).filter(g=>g.items.length);
+    host.innerHTML=groups.length?groups.map(group=>`<section class="search-group"><h3 class="search-group-title">${spaceNames[group.space]} <span>(${group.items.length})</span></h3>${group.items.map(item=>`<a class="search-result" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}"><small>${escapeHTML(item.date)} · ${escapeHTML(item.author)}<span class="search-result-type">${escapeHTML(item.type)}</span></small><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.summary)}</p><div class="knowledge-meta">${tagsOf(item).map(tag=>`<span>${escapeHTML(tag)}</span>`).join('')}</div></a>`).join('')}</section>`).join(''):'<div class="placeholder-panel"><strong>Tidak ditemukan.</strong><span>Coba istilah yang lebih umum, ruang lain, atau periksa ejaannya.</span></div>';
+  }
+
+  function renderRecipeData(item){
+    if(item.type!=='recipe'&&item.type!=='resep') return '';
+    const list=(title,items)=>items?.length?`<div><h3>${title}</h3><ul class="recipe-list">${items.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul></div>`:'';
+    return `<section class="recipe-block">${item.duration?`<span class="recipe-duration">Durasi: ${escapeHTML(item.duration)}</span>`:''}<div class="recipe-columns">${list('Bahan',item.ingredients)}${list('Peralatan',item.tools)}</div>${item.steps?.length?`<h3>Langkah</h3><ol class="recipe-list">${item.steps.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ol>`:''}<div class="recipe-columns">${list('Manfaat yang Dicatat',item.benefits)}${list('Kehati-hatian',item.cautions)}</div></section>`;
+  }
 
   function renderIdeas() {
     const host = document.getElementById('idea-list');
@@ -740,23 +1164,43 @@ footer.global-footer { margin-top:80px; }
         <p class="publication-label">${escapeHTML(item.type)}</p>
         <h3>${escapeHTML(item.title)}</h3>
         <p>${escapeHTML(item.summary)}</p>
-        <div class="idea-tags">${item.tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
+        <div class="idea-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
         <span class="card-status">${escapeHTML(item.status)}</span>
       </a>`).join('');
   }
 
   function renderIdeaDetail() {
     const host = document.getElementById('idea-detail');
-    const item = data.ideas.find(x => x.route === 'jejak-candi');
+    const item = routeMap.get('jejak-candi') || data.ideas.find(x => x.route === 'jejak-candi');
     if (!host || !item) return;
     host.innerHTML = `
       <header class="article-header">
         <p class="room-kicker">${escapeHTML(item.type)}</p>
         <h2>${escapeHTML(item.title)}</h2>
         <p class="article-deck">${escapeHTML(item.deck)}</p>
-        <div class="article-tags">${item.tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
+        <div class="article-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
       </header>
-      <div class="article-body">${item.body}</div>`;
+      ${renderKnowledgeJourney(item)}<div class="article-body">${item.body}</div>${renderRecipeData(item)}${renderKnowledgeLinks(item)}${renderRelatedContent(item)}`;
+  }
+
+  function renderGenericContent(item) {
+    const host = document.getElementById('content-detail');
+    const crumb = document.getElementById('content-breadcrumb');
+    const back = document.getElementById('content-back');
+    if (!host || !item) return;
+    crumb.textContent = item.title;
+    const backRoute = ['gagasan','renungan','laku','karya','kebun'].includes(item.section) ? item.section : 'pendopo';
+    back.dataset.route = backRoute;
+    back.textContent = '← Kembali ke ' + (backRoute === 'pendopo' ? 'Pendopo' : backRoute[0].toUpperCase() + backRoute.slice(1));
+    host.innerHTML = `
+      <header class="article-header">
+        <p class="room-kicker">${escapeHTML(item.label || item.type)}</p>
+        <h2>${escapeHTML(item.title)}</h2>
+        ${item.subtitle ? `<p class="article-deck">${escapeHTML(item.subtitle)}</p>` : `<p class="article-deck">${escapeHTML(item.deck || item.summary)}</p>`}
+        <div class="article-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
+      </header>
+      ${renderKnowledgeJourney(item)}<div class="article-body">${item.body || ''}</div>${renderRecipeData(item)}
+      ${item.download ? `<div class="publication-actions"><a class="publication-button primary" href="${escapeHTML(item.download)}" target="_blank" rel="noopener">Buka karya →</a></div>` : ''}${renderKnowledgeLinks(item)}${renderRelatedContent(item)}`;
   }
 
   function renderPublications() {
@@ -794,13 +1238,16 @@ footer.global-footer { margin-top:80px; }
 
   function show(route, push = true, targetId = '') {
     if (!validRoutes.includes(route)) route = 'pendopo';
-    views.forEach(v => v.classList.toggle('active', v.dataset.view === route));
-    navLinks.forEach(n => n.classList.toggle('active', n.dataset.route === route));
+    const dynamicItem = routeMap.get(route);
+    const viewRoute = dynamicItem && !baseRoutes.includes(route) ? 'konten' : route;
+    if (dynamicItem && viewRoute === 'konten') renderGenericContent(dynamicItem);
+    views.forEach(v => v.classList.toggle('active', v.dataset.view === viewRoute));
+    navLinks.forEach(n => n.classList.toggle('active', n.dataset.route === (dynamicItem?.section || route)));
     if (push && location.hash !== '#' + route) history.pushState(null, '', '#' + route);
     menu.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
     document.title = route === 'pendopo' ? 'Bhumi Wanaprastha' :
-      (route === 'jejak-candi' ? 'Jejak Gagasan · Bhumi Wanaprastha' : route[0].toUpperCase()+route.slice(1)+' · Bhumi Wanaprastha');
+      (dynamicItem ? dynamicItem.title + ' · Bhumi Wanaprastha' : (route === 'jejak-candi' ? 'Jejak Gagasan · Bhumi Wanaprastha' : route[0].toUpperCase()+route.slice(1)+' · Bhumi Wanaprastha'));
 
     if (targetId) {
       requestAnimationFrame(() => {
@@ -820,12 +1267,16 @@ footer.global-footer { margin-top:80px; }
   renderIdeaDetail();
   renderPublications();
   renderHarvest();
+  renderSearchFilters();
+  renderSearch();
+  document.getElementById('knowledge-search')?.addEventListener('input', e => renderSearch(e.target.value));
+  document.getElementById('search-filters')?.addEventListener('click', e => { const b=e.target.closest('[data-search-space]'); if(!b)return; activeSearchSpace=b.dataset.searchSpace; renderSearchFilters(); renderSearch(document.getElementById('knowledge-search')?.value||''); });
 
   document.addEventListener('click', e => {
     const harvest = e.target.closest('[data-harvest]');
     if (harvest) {
       e.preventDefault();
-      show('kebun', true, 'panen-' + harvest.dataset.harvest);
+      show('hasil-panen', true, 'panen-' + harvest.dataset.harvest);
       return;
     }
     const trigger = e.target.closest('[data-route]');

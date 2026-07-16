@@ -1,0 +1,16 @@
+BHUMI WANAPRASTHA v0.9 — TAHAP 4.3.5 BATCH 1
+
+Tujuan:
+Menguji pemasukan beberapa jenis konten ke sistem Living Knowledge yang sudah berjalan.
+
+Konten uji:
+- 4 tulisan Gagasan
+- 2 node Laku (aplikasi HTML dan simulasi XLSX)
+- 2 node Renungan (audio dan YouTube)
+- 2 node Karya (gambar dan dokumen Google Drive)
+
+Catatan:
+- Video YouTube dan Google Drive masih diberi judul sementara karena metadata belum diverifikasi.
+- Berkas lokal ditempatkan di assets/batch-1/.
+- Aplikasi Penjelajahan Diri ditempatkan di apps/penjelajahan-diri/.
+- Manifest telah dibangun ulang dengan scripts/build-content.mjs.

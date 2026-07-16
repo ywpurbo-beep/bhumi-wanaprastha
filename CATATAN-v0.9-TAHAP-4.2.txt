@@ -1,0 +1,17 @@
+BHUMI WANAPRASTHA v0.9 — TAHAP 4.2
+SEARCH, RELATED CONTENT, DAN CONTENT TYPE
+
+IMPLEMENTASI
+1. Indeks konten Markdown mencakup judul, ringkasan, isi, tag, ruang, jenis, penulis, status, metadata resep, dan relasi.
+2. Search memberi peringkat lebih tinggi pada kecocokan judul, tag, dan ringkasan.
+3. Hasil pencarian dikelompokkan menurut Gagasan, Renungan, Laku, Karya, dan Kebun.
+4. Filter ruang tersedia pada halaman pencarian.
+5. Related Content tampil sebagai “Jelajahi Selanjutnya”. Bobot utama berasal dari relasi eksplisit, kemudian tag bersama, ruang, dan jenis konten.
+6. Hubungan eksplisit tetap ditampilkan sebagai “Hubungan yang Dicatat”.
+7. Content Type recipe/resep didukung dengan metadata ingredients, tools, steps, duration, benefits, dan cautions.
+8. Template resep tersedia di content/_template/template-resep.md.
+
+CATATAN BATAS TAHAP
+- Jejak Pengetahuan konseptual visual tetap menjadi Tahap 4.3.
+- Knowledge Graph interaktif tetap menjadi Tahap 4.4.
+- AI tagging dan semantic embedding belum diterapkan.

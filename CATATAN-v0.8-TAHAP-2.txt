@@ -1,0 +1,14 @@
+BHUMI WANAPRASTHA v0.8 - TAHAP 2
+
+Perubahan:
+- Perbaikan empat temuan QA Tahap 1.
+- Laku kini memiliki App Library.
+- Karya kini memiliki Project Portfolio.
+- Kebun dibagi menjadi Pasemaian, Hasil Panen, dan Gudang.
+- Tautan Kawruh Pranata Mangsa diarahkan ke aplikasi lokal.
+- Footer diperbarui menjadi v0.8 Tahap 2.
+
+HOTFIX PRANATA MANGSA (local file)
+- Mengubah bundle aplikasi agar dapat dijalankan langsung melalui file:// tanpa server lokal.
+- Menghapus ketergantungan ES module pada index aplikasi.
+- Mengganti import.meta.url dengan document.currentScript.src untuk resolusi aset lokal.

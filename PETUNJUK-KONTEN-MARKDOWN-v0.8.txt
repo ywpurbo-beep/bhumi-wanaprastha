@@ -1,0 +1,39 @@
+BHUMI WANAPRASTHA v0.8 — TAHAP 1
+PANDUAN MENAMBAH KONTEN MARKDOWN
+
+1. Buat folder baru di dalam salah satu ruang:
+   content/gagasan/nama-tulisan/
+   content/renungan/nama-tulisan/
+   content/karya/nama-proyek/
+   content/video/nama-video/
+   content/laku/nama-aplikasi/
+   content/kebun/nama-item/
+
+2. Di dalam folder tersebut buat file bernama index.md.
+
+3. Gunakan metadata dasar berikut:
+---
+title: Judul tulisan
+summary: Ringkasan singkat.
+author: Yus
+date: 2026-07-13
+type: artikel
+status: berkembang
+featured: false
+cover: hero.jpg
+tags:
+  - Tag pertama
+  - Tag kedua
+---
+
+Isi tulisan dimulai di sini.
+
+4. Setelah mengubah Markdown, jalankan:
+   node scripts/build-content.mjs
+
+5. Unggah seluruh isi folder hasil ke Cloudflare Pages.
+
+CATATAN
+- File content/_generated/content-manifest.js dibuat otomatis. Jangan diedit manual.
+- content/content.js dipertahankan sementara sebagai fallback kompatibilitas v0.7.1.
+- Tahap 1 belum merombak tampilan Laku, Kebun, Karya, atau visual watercolor. Itu masuk tahap berikutnya.

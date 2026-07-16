@@ -1,0 +1,13 @@
+BHUMI WANAPRASTHA v0.9 — TAHAP 4.1.1 GUI PASS
+
+Perubahan:
+1. Mengganti ilustrasi SVG pada lima kartu Ruang Penjelajahan dengan aset PNG A01–A05.
+2. Menggunakan aset yang sama sebagai ilustrasi hero pada Ruang Gagasan, Renungan, Laku, Karya, dan Kebun.
+3. Mengganti footer SVG dengan B01 Forest Panorama dan B02 Forest Mist Overlay.
+4. Menambah jarak antara hero Ruang Gagasan dan kartu Jejak Gagasan.
+5. Menstabilkan hero Kawruh Pranata Mangsa ketika sticky header menyusut saat scroll dengan menghapus interpolasi scale dan menambah compositor stabilization.
+6. Struktur metadata Living Knowledge, konten, navigasi, dan fungsi aplikasi dipertahankan.
+
+Catatan uji:
+- Uji desktop dan mobile tetap diperlukan karena crop background responsif bergantung pada rasio layar.
+- Buka index.html dari folder bw-v3 untuk uji lokal.

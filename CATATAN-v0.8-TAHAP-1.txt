@@ -1,0 +1,18 @@
+BHUMI WANAPRASTHA v0.8 — TAHAP 1
+
+SELESAI
+- Markdown Engine tanpa dependensi eksternal.
+- Metadata universal melalui YAML frontmatter sederhana.
+- Unified Content Manifest.
+- Auto Index berdasarkan section/type.
+- Auto Routing untuk route konten baru.
+- Migrasi Jejak Candi dan dua publikasi ke Markdown.
+- Fallback content.js v0.7.1 tetap tersedia.
+- Footer diperbarui menjadi v0.8 Tahap 1.
+
+BELUM TERMASUK
+- Restrukturisasi Laku, Kebun, dan Karya.
+- Project Portfolio lengkap.
+- YouTube auto metadata.
+- Search dan auto tag UI.
+- Watercolor background, icon system, dan forest footer.

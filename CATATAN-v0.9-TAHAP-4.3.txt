@@ -1,0 +1,21 @@
+BHUMI WANAPRASTHA v0.9 — TAHAP 4.3
+JEJAK PENGETAHUAN
+
+Yang diterapkan:
+1. Panel Jejak Pengetahuan pada halaman konten Markdown.
+2. Alur lima ruang: Gagasan → Renungan → Laku → Karya → Kebun.
+3. Penanda node yang sedang dibuka.
+4. Panel asal pengetahuan dan arah penerapannya berdasarkan metadata relations.
+5. Tampilan responsif: horizontal di desktop, vertikal di mobile.
+6. Dataset minimum percontohan “Perjalanan Wedang Jahe” sebanyak lima node:
+   - Mengapa Jahe Terasa Menghangatkan Tubuh (Gagasan)
+   - Mengapa Saya Meminum Wedang Jahe (Renungan)
+   - Wedang Jahe Klasik (Laku / recipe)
+   - Menanam Jahe di Pekarangan (Kebun / cultivation)
+   - Infografik Perjalanan Wedang Jahe (Karya / project)
+7. Search dan Related Content Tahap 4.2 tetap dipertahankan.
+
+Catatan:
+- Jejak dibentuk dari relasi eksplisit antar-node, bukan dari nama folder.
+- Ruang yang belum mempunyai node terhubung ditampilkan sebagai “Belum terhubung”.
+- Contoh resep memuat catatan kehati-hatian dan tidak diposisikan sebagai pengganti pengobatan medis.

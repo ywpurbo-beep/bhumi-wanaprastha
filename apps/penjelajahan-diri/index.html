@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MBTI 20 Persimpangan - Versi Pematangan</title>
+  <style>
+    :root{
+      --bg:#f3efe6;
+      --card:#fffaf0;
+      --ink:#2d261f;
+      --ink2:#3d342c;
+      --muted:#74695f;
+      --accent:#8a5b32;
+      --accent-dark:#5e3b21;
+      --accent-soft:#ead8c1;
+      --accent2:#5f7d68;
+      --line:#ded3c2;
+      --soft:#ece2d1;
+      --white:#fffdf7;
+      --shadow:rgba(45,38,31,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(156,107,62,.18), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(95,125,104,.16), transparent 30%),
+        linear-gradient(180deg,#f7f0e4,var(--bg));
+      color:var(--ink);
+      min-height:100vh;
+    }
+    .app{
+      width:min(960px, 100%);
+      margin:0 auto;
+      padding:18px;
+    }
+    header{
+      padding:24px 10px 14px;
+      text-align:center;
+    }
+    .eyebrow{
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:12px;
+      color:var(--accent);
+      font-weight:800;
+    }
+    h1{
+      margin:8px 0 8px;
+      font-size:clamp(28px, 5vw, 48px);
+      line-height:1.04;
+    }
+    .subtitle{
+      color:var(--muted);
+      max-width:740px;
+      margin:0 auto;
+      line-height:1.6;
+      font-size:16px;
+    }
+    .card{
+      background:rgba(255,250,240,.92);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:0 18px 60px var(--shadow);
+      padding:22px;
+      backdrop-filter: blur(10px);
+    }
+    .hero{
+      min-height:190px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(156,107,62,.14), rgba(95,125,104,.12)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.36) 0 2px, transparent 2px 9px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      border:34px solid rgba(156,107,62,.09);
+      left:-90px;
+      top:-80px;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      border:28px solid rgba(95,125,104,.10);
+      right:-80px;
+      bottom:-90px;
+    }
+    .hero-text{
+      position:relative;
+      z-index:1;
+      padding:20px;
+      text-align:center;
+      color:#453a31;
+      font-family: Georgia, serif;
+      font-size:22px;
+      max-width:680px;
+      line-height:1.45;
+    }
+    .progress-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:8px 0 18px;
+    }
+    .progress{
+      height:10px;
+      background:var(--soft);
+      border-radius:999px;
+      flex:1;
+      overflow:hidden;
+    }
+    .bar{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;
+      transition:.25s;
+    }
+    .count{
+      color:var(--muted);
+      font-size:14px;
+      white-space:nowrap;
+      font-weight:700;
+    }
+    .question{
+      font-size:22px;
+      line-height:1.35;
+      margin:10px 0 18px;
+      font-weight:800;
+      color:var(--ink);
+    }
+    .choices{
+      display:grid;
+      gap:12px;
+    }
+    .choice{
+      border:1.5px solid #d5c7b7;
+      background:#fffdf8;
+      color:var(--ink);
+      border-radius:18px;
+      padding:15px 16px;
+      cursor:pointer;
+      transition:.18s;
+      display:grid;
+      grid-template-columns:38px 1fr;
+      gap:12px;
+      align-items:start;
+      text-align:left;
+      font-size:16px;
+      line-height:1.48;
+      box-shadow:0 3px 10px rgba(45,38,31,.035);
+    }
+    .choice span:last-child{
+      color:var(--ink2);
+      font-weight:650;
+    }
+    .choice:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 28px rgba(45,38,31,.10);
+      border-color:rgba(138,91,50,.65);
+      background:#fff9ef;
+    }
+    .choice.selected{
+      border-color:var(--accent-dark);
+      background:#ead8c1;
+      box-shadow:0 10px 26px rgba(94,59,33,.14);
+    }
+    .choice.selected span:last-child{
+      color:#241b15;
+    }
+    .badge{
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#eadfce;
+      color:var(--accent-dark);
+      font-weight:900;
+      border:1px solid rgba(94,59,33,.12);
+    }
+    .choice.selected .badge{
+      background:var(--accent-dark);
+      color:white;
+      border-color:var(--accent-dark);
+    }
+    .nav{
+      margin-top:18px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    button{
+      border:0;
+      border-radius:999px;
+      padding:12px 18px;
+      font-weight:850;
+      cursor:pointer;
+      background:var(--ink);
+      color:white;
+      transition:.18s;
+    }
+    button.secondary{
+      background:var(--soft);
+      color:var(--ink);
+    }
+    button.ghost{
+      background:transparent;
+      color:var(--accent-dark);
+      border:1px solid var(--line);
+    }
+    button:disabled{
+      opacity:.45;
+      cursor:not-allowed;
+    }
+    button:hover:not(:disabled){
+      transform:translateY(-1px);
+    }
+
+    .result-head{
+      text-align:center;
+      padding:10px 0 22px;
+    }
+    .type{
+      font-size:clamp(48px, 9vw, 78px);
+      font-weight:950;
+      letter-spacing:.08em;
+      margin:4px 0 0;
+      color:var(--ink);
+    }
+    .archetype{
+      font-family: Georgia, serif;
+      color:var(--accent-dark);
+      font-size:clamp(23px, 4vw, 34px);
+      margin:0 0 8px;
+      font-weight:700;
+    }
+    .confidence{
+      color:var(--muted);
+      margin-top:6px;
+    }
+    .result-section{
+      background:#fffdf7;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+      margin-top:16px;
+      line-height:1.58;
+    }
+    .result-section h3{
+      margin:0 0 10px;
+      font-size:20px;
+      color:var(--ink);
+    }
+    .portrait{
+      font-size:17px;
+      color:#44392f;
+    }
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .mini{
+      background:#fbf4ea;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+    .mini h4{
+      margin:0 0 8px;
+      color:var(--accent-dark);
+    }
+    ul{
+      margin:8px 0 0 18px;
+      padding:0;
+    }
+    li{margin:6px 0}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .dim{
+      background:#fffdf7;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:15px;
+    }
+    .dim-top{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+      font-weight:850;
+    }
+    .dim-name{
+      color:var(--muted);
+      font-weight:700;
+    }
+    .scale{
+      position:relative;
+      height:12px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#d8c7b5 0 50%, #c7d2c8 50% 100%);
+      overflow:visible;
+    }
+    .pin{
+      position:absolute;
+      top:-4px;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:var(--ink);
+      border:3px solid white;
+      transform:translateX(-50%);
+      box-shadow:0 3px 8px rgba(0,0,0,.18);
+    }
+    .explain{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+    .note{
+      background:#f8f0e3;
+      border:1px dashed rgba(156,107,62,.55);
+      padding:14px;
+      border-radius:18px;
+      color:#5a4c40;
+      line-height:1.5;
+      margin-top:16px;
+    }
+    .answers{
+      margin-top:18px;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .answers details{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+      background:#fffdf7;
+    }
+    .answers code{
+      white-space:normal;
+      color:#5a3b24;
+    }
+    .tag{
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#efe3d2;
+      color:#5a3b24;
+      font-size:13px;
+      font-weight:800;
+      margin:3px;
+    }
+    @media(max-width:760px){
+      .grid,.split{grid-template-columns:1fr}
+      .card{padding:16px;border-radius:22px}
+      .hero{min-height:140px}
+      .hero-text{font-size:18px}
+      .question{font-size:20px}
+      .nav > div{display:flex;gap:8px;flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    
+<header>
+  
+<div style="display:flex;justify-content:center;align-items:center;margin-bottom:14px;">
+  <div style="width:90px;height:1px;background:linear-gradient(to right,transparent,#b18d62,transparent);position:relative;">
+  </div>
+</div>
+
+  <h1>Penjelajahan Diri</h1>
+  <p class="subtitle">
+    Simulasi singkat untuk memperkirakan kecenderungan kepribadian melalui keputusan-keputusan situasional.
+    Hasilnya disajikan sebagai cermin kecenderungan diri, bukan sebagai label yang membatasi siapa Anda.
+  </p>
+</header>
+
+
+    <main id="root" class="card"></main>
+  </div>
+
+<script>
+const QUESTIONS = [
+  {
+    scene:"Sebuah ruang penuh orang asing, suara gelas, percakapan, dan peluang kecil untuk menyelinap kabur.",
+    q:"Anda datang ke acara dengan banyak orang yang belum dikenal. Apa respons paling alami?",
+    choices:[
+      {t:"Saya mulai membuka percakapan dan mencari energi dari suasana.", w:{EI: 2}},
+      {t:"Saya mengamati dulu, lalu bicara kalau ada orang atau topik yang cocok.", w:{EI: 0}},
+      {t:"Saya mencari sudut tenang dan memilih interaksi seperlunya.", w:{EI:-2}}
+    ]
+  },
+  {
+    scene:"Di meja ada perangkat baru, belum ada yang menjelaskan cara pakainya.",
+    q:"Anda mendapat alat baru tanpa petunjuk yang jelas. Apa yang Anda lakukan lebih dulu?",
+    choices:[
+      {t:"Langsung mencoba tombol dan fitur yang terlihat nyata.", w:{SN:-2, JP:-1}},
+      {t:"Mencoba sedikit sambil melihat gambaran cara kerjanya.", w:{SN:0, JP:0}},
+      {t:"Membayangkan sistem dan kemungkinan penggunaannya sebelum mencoba.", w:{SN:2, JP:1}}
+    ]
+  },
+  {
+    scene:"Dua teman berselisih. Keduanya merasa benar, tentu saja, karena manusia memang hobi begitu.",
+    q:"Dua teman bertengkar dan meminta Anda menengahi. Respons pertama Anda?",
+    choices:[
+      {t:"Menenangkan emosi keduanya agar suasana tidak makin rusak.", w:{TF:-2, EI:1}},
+      {t:"Mendengar dua sisi cerita dulu sebelum menyimpulkan.", w:{TF:0}},
+      {t:"Memisahkan fakta, penyebab, dan solusi paling masuk akal.", w:{TF:2}}
+    ]
+  },
+  {
+    scene:"Besok perjalanan jauh. Koper masih kosong. Semesta menatap Anda dengan kecewa.",
+    q:"Besok ada perjalanan jauh. Kapan Anda biasanya menyiapkan barang?",
+    choices:[
+      {t:"Jauh-jauh hari, minimal sudah ada daftar.", w:{JP:2}},
+      {t:"Sehari sebelumnya, cukup agar tidak kacau.", w:{JP:0}},
+      {t:"Menjelang berangkat, yang penting jalan.", w:{JP:-2}}
+    ]
+  },
+  {
+    scene:"Satu minggu kosong tanpa agenda. Momen langka yang biasanya langsung dihancurkan oleh notifikasi.",
+    q:"Tiba-tiba Anda punya waktu libur satu minggu. Anda cenderung...",
+    choices:[
+      {t:"Membuat rencana kasar agar waktu tidak terbuang.", w:{JP:2, SN:-1}},
+      {t:"Menentukan beberapa kemungkinan lalu mengikuti suasana.", w:{JP:0, SN:1}},
+      {t:"Membiarkan minggu itu terbuka untuk kejutan.", w:{JP:-2, SN:1}}
+    ]
+  },
+  {
+    scene:"Sebuah artikel panjang, padat, dan sedikit mengancam harga diri intelektual.",
+    q:"Saat membaca artikel sulit, bagian mana yang paling Anda cari dulu?",
+    choices:[
+      {t:"Contoh konkret, data, dan detail yang bisa diverifikasi.", w:{SN:-2, TF:1}},
+      {t:"Ringkasan umum untuk memahami arah pembahasannya.", w:{SN:0}},
+      {t:"Gagasan besar, pola, dan implikasinya.", w:{SN:2}}
+    ]
+  },
+  {
+    scene:"Komunitas baru, wajah baru, aturan tak tertulis baru. Paket lengkap kecanggungan sosial.",
+    q:"Saat bergabung dengan komunitas baru, Anda biasanya...",
+    choices:[
+      {t:"Cepat memperkenalkan diri dan membangun koneksi.", w:{EI:2}},
+      {t:"Bersikap ramah tetapi tetap membaca suasana.", w:{EI:0}},
+      {t:"Masuk perlahan dan memilih beberapa orang yang terasa cocok.", w:{EI:-2}}
+    ]
+  },
+  {
+    scene:"Data berkata satu hal, firasat berkata hal lain. Keduanya sama-sama merasa paling bijak.",
+    q:"Saat harus memilih antara data dan firasat, Anda lebih sering...",
+    choices:[
+      {t:"Mengikuti data selama datanya cukup kuat.", w:{TF:2, SN:-1}},
+      {t:"Membandingkan data dengan konteks dan pengalaman.", w:{TF:0, SN:0}},
+      {t:"Memberi ruang besar pada intuisi, pola halus, dan rasa keseluruhan.", w:{TF:-1, SN:2}}
+    ]
+  },
+  {
+    scene:"Proyek tim dimulai. Semua tampak semangat sebelum realitas datang membawa spreadsheet.",
+    q:"Dalam proyek tim, peran yang paling alami bagi Anda adalah...",
+    choices:[
+      {t:"Mengatur alur, target, pembagian tugas, dan tenggat.", w:{JP:2, EI:1}},
+      {t:"Menyesuaikan peran sesuai kebutuhan tim.", w:{JP:0, EI:0}},
+      {t:"Mencari ide, kemungkinan baru, dan cara yang lebih lentur.", w:{JP:-1, SN:2}}
+    ]
+  },
+  {
+    scene:"Anda melihat orang asing tampak kesulitan. Dunia memberi ujian kecil tanpa formulir persetujuan.",
+    q:"Melihat orang asing membutuhkan bantuan, Anda biasanya...",
+    choices:[
+      {t:"Langsung mendekat dan menawarkan bantuan.", w:{TF:-2, EI:1}},
+      {t:"Mengecek situasi dulu, lalu membantu jika memang perlu.", w:{TF:0}},
+      {t:"Memastikan bantuan saya efektif dan tidak malah mengganggu.", w:{TF:2}}
+    ]
+  },
+  {
+    scene:"Rencana mendadak berubah. Kalender menangis pelan di pojok ruangan.",
+    q:"Saat rencana berubah mendadak, Anda lebih sering...",
+    choices:[
+      {t:"Merasa terganggu dan ingin segera menyusun ulang.", w:{JP:2}},
+      {t:"Butuh sebentar menyesuaikan, lalu jalan lagi.", w:{JP:0}},
+      {t:"Merasa perubahan bisa membuka kemungkinan baru.", w:{JP:-2, SN:1}}
+    ]
+  },
+  {
+    scene:"Seseorang bercerita panjang. Ada emosi, detail, dan beberapa bagian yang mungkin bisa dipangkas editor.",
+    q:"Saat mendengarkan cerita seseorang, fokus pertama Anda biasanya...",
+    choices:[
+      {t:"Apa yang ia rasakan dan butuhkan.", w:{TF:-2}},
+      {t:"Memahami situasi secara utuh.", w:{TF:0}},
+      {t:"Masalah inti dan solusi yang mungkin.", w:{TF:2}}
+    ]
+  },
+  {
+    scene:"Anda belajar keterampilan baru, dari memasak sampai software. Kekacauan kecil sedang menunggu.",
+    q:"Cara belajar yang paling cocok untuk Anda adalah...",
+    choices:[
+      {t:"Mengikuti langkah praktis dan latihan langsung.", w:{SN:-2, JP:1}},
+      {t:"Melihat contoh, lalu mencoba dengan penyesuaian.", w:{SN:0}},
+      {t:"Memahami konsep dasarnya, lalu mengembangkan cara sendiri.", w:{SN:2, JP:-1}}
+    ]
+  },
+  {
+    scene:"Akhir pekan tiba. Manusia modern menyebutnya istirahat lalu mengisinya dengan agenda.",
+    q:"Akhir pekan ideal bagi Anda lebih dekat ke...",
+    choices:[
+      {t:"Bertemu orang, bergerak, atau ikut kegiatan sosial.", w:{EI:2}},
+      {t:"Kombinasi antara kegiatan luar dan waktu sendiri.", w:{EI:0}},
+      {t:"Waktu tenang untuk membaca, berkarya, atau memulihkan energi.", w:{EI:-2}}
+    ]
+  },
+  {
+    scene:"Anda diminta memimpin proyek yang belum rapi. Sebuah kehormatan, katanya. Padahal jebakan.",
+    q:"Ketika memimpin proyek baru, hal pertama yang Anda bangun adalah...",
+    choices:[
+      {t:"Visi besar dan arah makna proyeknya.", w:{SN:2, TF:-1}},
+      {t:"Kerangka kerja yang bisa disepakati bersama.", w:{JP:1, TF:0}},
+      {t:"Struktur, prioritas, dan ukuran keberhasilan.", w:{JP:2, TF:2}}
+    ]
+  },
+  {
+    scene:"Ruang kerja Anda mulai kacau. Benda-benda kecil membentuk negara merdeka di atas meja.",
+    q:"Tentang ruang kerja, Anda cenderung...",
+    choices:[
+      {t:"Menatanya rapi karena membantu pikiran lebih jernih.", w:{JP:2, SN:-1}},
+      {t:"Cukup rapi selama masih mudah digunakan.", w:{JP:0}},
+      {t:"Membiarkan agak organik selama ide tetap mengalir.", w:{JP:-2, SN:1}}
+    ]
+  },
+  {
+    scene:"Keputusan besar harus diambil. Tidak ada jawaban sempurna, karena hidup memang suka bercanda.",
+    q:"Dalam keputusan besar, yang paling menentukan bagi Anda adalah...",
+    choices:[
+      {t:"Dampaknya pada orang dan nilai yang saya pegang.", w:{TF:-2, SN:1}},
+      {t:"Keseimbangan antara dampak manusia dan nalar praktis.", w:{TF:0}},
+      {t:"Analisis risiko, konsekuensi, dan efisiensi keputusan.", w:{TF:2, SN:-1}}
+    ]
+  },
+  {
+    scene:"Masalah baru muncul, belum ada contoh yang bisa ditiru.",
+    q:"Menghadapi masalah yang benar-benar baru, Anda biasanya...",
+    choices:[
+      {t:"Mencari fakta, batasan, dan referensi terdekat.", w:{SN:-2, TF:1}},
+      {t:"Memahami situasi lalu mencoba beberapa pendekatan.", w:{SN:0, JP:0}},
+      {t:"Mencari pola tersembunyi dan kemungkinan pendekatan baru.", w:{SN:2}}
+    ]
+  },
+  {
+    scene:"Rapat panjang, layar presentasi, dan kalimat yang seharusnya bisa jadi email.",
+    q:"Dalam rapat panjang, Anda lebih sering...",
+    choices:[
+      {t:"Aktif berbicara agar energi dan arah diskusi hidup.", w:{EI:2}},
+      {t:"Berbicara ketika ada hal penting untuk ditambahkan.", w:{EI:0}},
+      {t:"Lebih banyak mengamati dan memproses sebelum bicara.", w:{EI:-2}}
+    ]
+  },
+  {
+    scene:"Anda diminta membayangkan hidup lima tahun ke depan. Kalender pun mulai berkeringat.",
+    q:"Saat memikirkan tujuan lima tahun ke depan, Anda lebih nyaman dengan...",
+    choices:[
+      {t:"Gambaran besar yang memberi arah, meski detailnya berubah.", w:{SN:2, JP:-1}},
+      {t:"Arah umum plus beberapa target yang realistis.", w:{SN:0, JP:0}},
+      {t:"Rencana bertahap, ukuran jelas, dan target konkret.", w:{SN:-1, JP:2}}
+    ]
+  }
+];
+
+const DIMS = {
+  EI:{left:"I", right:"E", name:"Energi Sosial", desc:"I cenderung memulihkan energi melalui ruang pribadi. E cenderung mendapat energi dari interaksi dan pertukaran langsung."},
+  SN:{left:"S", right:"N", name:"Cara Menangkap Informasi", desc:"S kuat pada fakta konkret, detail, dan pengalaman langsung. N kuat pada pola, kemungkinan, makna, dan gambaran besar."},
+  TF:{left:"F", right:"T", name:"Cara Mengambil Keputusan", desc:"F menimbang nilai, harmoni, dan dampak manusia. T menimbang logika, konsistensi, dan struktur sebab-akibat."},
+  JP:{left:"P", right:"J", name:"Gaya Mengelola Hidup", desc:"P lentur, terbuka, dan adaptif. J menyukai struktur, keputusan, rencana, dan kepastian."}
+};
+
+const TYPE_PROFILES = {
+  INFP:{
+    title:"Sang Perangkai Makna",
+    portrait:"Anda cenderung membaca hidup dari sisi makna, nilai, dan kemungkinan batin. Keputusan penting biasanya tidak cukup hanya masuk akal; ia juga perlu terasa benar. Anda mudah menangkap lapisan halus dalam pengalaman, tetapi bisa terseret terlalu lama dalam dunia kemungkinan sebelum mengubahnya menjadi tindakan nyata.",
+    strengths:["Imajinatif dan reflektif","Peka terhadap nilai dan suasana batin","Mampu melihat potensi tersembunyi","Setia pada hal yang dianggap bermakna"],
+    challenges:["Mudah menunda ketika hasil belum terasa ideal","Kurang nyaman dengan konflik langsung","Kadang sulit menerjemahkan visi menjadi langkah konkret","Dapat terlalu banyak memikul perasaan orang lain"],
+    laku:["Ubah satu gagasan besar menjadi satu tindakan kecil setiap hari","Buat batas waktu untuk keputusan, agar idealisme tidak berubah menjadi rawa","Latih menyampaikan ketidaksetujuan dengan tenang dan jelas","Seimbangkan intuisi dengan data sederhana sebelum keputusan besar"],
+    cocok:["Penulisan","Desain","Pendidikan","Riset humaniora","Konseling","Karya kreatif"]
+  },
+  INFJ:{
+    title:"Sang Penjaga Arah",
+    portrait:"Anda cenderung melihat pola manusia dan arah jangka panjang. Ada dorongan untuk memahami sesuatu sampai ke akar maknanya, lalu mengarahkannya menjadi sesuatu yang berguna. Anda bisa sangat mendalam, tetapi kadang terlalu menanggung beban idealisme sendiri, seolah dunia ini proyek pribadi yang telat deadline.",
+    strengths:["Mampu membaca pola sosial dan makna tersembunyi","Visioner namun tetap peduli dampak manusia","Dalam, tenang, dan berorientasi tujuan","Kuat dalam membimbing atau memberi arah"],
+    challenges:["Mudah lelah oleh konflik nilai","Perfeksionis terhadap visi pribadi","Kadang sulit meminta bantuan","Dapat terlalu serius memikul masa depan"],
+    laku:["Pecah visi besar menjadi ritme mingguan yang bisa diuji","Jaga batas energi sosial agar tidak habis untuk menyelamatkan semua orang","Berbagi proses sebelum semuanya sempurna","Latih menerima bahwa tidak semua hal harus bermakna kosmis"],
+    cocok:["Pendidikan","Strategi komunitas","Konseling","Riset budaya","Penulisan","Desain berbasis nilai"]
+  },
+  INTJ:{
+    title:"Sang Perancang Sistem",
+    portrait:"Anda cenderung melihat dunia sebagai rangkaian sistem yang bisa dipahami, diperbaiki, dan diarahkan. Anda nyaman dengan strategi, struktur, dan pemikiran jangka panjang. Tantangannya: manusia lain kadang tidak bergerak secepat logika Anda, sebuah tragedi kecil yang terus berulang dalam peradaban.",
+    strengths:["Strategis dan mandiri","Mampu menyusun sistem kompleks","Tahan berpikir jangka panjang","Kuat dalam melihat kelemahan struktur"],
+    challenges:["Bisa terlihat dingin atau terlalu kritis","Kurang sabar pada proses sosial yang lambat","Kadang terlalu percaya pada rancangan sendiri","Perlu melatih empati operasional"],
+    laku:["Uji strategi dengan umpan balik manusia nyata","Sisakan ruang adaptasi dalam rencana","Latih menjelaskan alasan, bukan hanya memberi kesimpulan","Beri nilai pada ritme, bukan hanya efisiensi"],
+    cocok:["Arsitektur sistem","Strategi","Riset","Teknologi","Desain konseptual","Manajemen kompleksitas"]
+  },
+  INTP:{
+    title:"Sang Pengurai Gagasan",
+    portrait:"Anda cenderung mengejar pemahaman, bukan sekadar jawaban cepat. Pikiran Anda senang membongkar konsep, menguji asumsi, dan menemukan kerangka yang lebih bersih. Tantangannya: dunia nyata kadang meminta keputusan sebelum teori selesai mandi dan berpakaian.",
+    strengths:["Analitis dan konseptual","Mampu melihat inkonsistensi","Mandiri dalam berpikir","Kuat dalam eksplorasi ide"],
+    challenges:["Bisa terlalu lama berada di tahap analisis","Kurang tertarik pada rutinitas eksekusi","Kadang tampak jauh secara emosional","Mudah bosan pada hal yang terlalu praktis"],
+    laku:["Tetapkan versi kerja meski teori belum sempurna","Gunakan catatan untuk mengubah ide menjadi struktur","Latih komunikasi yang lebih sederhana","Buat eksperimen kecil untuk menguji gagasan"],
+    cocok:["Riset","Pemrograman","Teori desain","Analisis sistem","Filsafat","Inovasi konseptual"]
+  },
+  ENFP:{
+    title:"Sang Pemantik Kemungkinan",
+    portrait:"Anda cenderung hidup dari kemungkinan, koneksi, dan percikan ide. Anda cepat melihat peluang dalam orang, tempat, dan situasi. Kekuatan ini besar, tetapi tanpa ritme eksekusi bisa berubah menjadi festival ide yang meninggalkan banyak panggung setengah dibangun.",
+    strengths:["Energik dan kreatif","Mudah menghubungkan orang dan ide","Adaptif","Mampu menghidupkan suasana"],
+    challenges:["Mudah terdistraksi oleh kemungkinan baru","Kurang betah pada rutinitas panjang","Kadang menghindari detail teknis","Perlu menuntaskan sebelum melompat"],
+    laku:["Pilih sedikit proyek utama dan lindungi dari gangguan","Gunakan partner atau sistem untuk menjaga konsistensi","Tutup satu siklus sebelum membuka siklus baru","Catat ide, tetapi jangan semuanya langsung dijalankan"],
+    cocok:["Kreatif","Komunitas","Branding","Pendidikan","Kampanye sosial","Pengembangan produk awal"]
+  },
+  ENFJ:{
+    title:"Sang Penggerak Manusia",
+    portrait:"Anda cenderung memahami energi kelompok dan mengarahkannya menuju tujuan bersama. Anda kuat dalam membangun hubungan, menyatukan orang, dan memberi rasa arah. Tantangannya adalah tidak semua masalah harus diselesaikan dengan menanggung semua orang di pundak sendiri.",
+    strengths:["Komunikatif dan empatik","Mampu memimpin kelompok","Peka terhadap kebutuhan orang","Kuat membangun visi bersama"],
+    challenges:["Terlalu banyak menyesuaikan diri demi harmoni","Sulit menolak permintaan","Bisa mengabaikan kebutuhan pribadi","Rentan lelah karena membawa beban sosial"],
+    laku:["Buat batas bantuan yang sehat","Pisahkan kebutuhan orang dari tanggung jawab Anda","Gunakan struktur agar kepedulian tidak menjadi kelelahan","Latih memberi ruang bagi orang lain untuk bertanggung jawab"],
+    cocok:["Kepemimpinan komunitas","Pendidikan","Pelatihan","Manajemen tim","Konseling","Public communication"]
+  },
+  ENTJ:{
+    title:"Sang Panglima Strategi",
+    portrait:"Anda cenderung cepat melihat tujuan, hambatan, dan cara menggerakkan sumber daya. Anda nyaman mengambil keputusan dan mendorong sistem agar berjalan. Tantangannya: tidak semua orang adalah komponen mesin yang tinggal disetel pakai obeng manajemen.",
+    strengths:["Tegas dan berorientasi hasil","Kuat menyusun strategi","Mampu memimpin dalam situasi rumit","Efisien melihat prioritas"],
+    challenges:["Bisa terlalu dominan","Kurang sabar pada proses emosional","Kadang mengabaikan nuansa manusia","Perlu melatih mendengar sebelum mengarahkan"],
+    laku:["Tunda memberi solusi sampai konteks manusia terbaca","Bangun ruang masukan yang benar-benar aman","Ukur keberhasilan bukan hanya output, tetapi daya tahan tim","Latih empati sebagai bagian dari strategi"],
+    cocok:["Manajemen","Strategi bisnis","Kepemimpinan proyek","Operasi","Kebijakan","Pengembangan organisasi"]
+  },
+  ENTP:{
+    title:"Sang Penantang Pola",
+    portrait:"Anda cenderung melihat celah, kemungkinan, dan alternatif yang belum dipikirkan orang lain. Anda senang menguji ide dan membongkar asumsi. Tantangannya: bagi sebagian manusia, debat bukan bentuk kasih sayang. Mengejutkan, tapi benar.",
+    strengths:["Cepat berpikir dan argumentatif","Inovatif","Berani menantang asumsi","Fleksibel dalam strategi"],
+    challenges:["Mudah bosan setelah ide dipahami","Kadang terlalu provokatif","Kurang sabar pada detail eksekusi","Perlu menuntaskan proyek, bukan hanya memenangi argumen"],
+    laku:["Pilih medan debat yang produktif","Ubah ide menjadi prototipe, bukan hanya percakapan","Gunakan batas waktu untuk eksekusi","Latih membaca kesiapan orang sebelum menantang mereka"],
+    cocok:["Inovasi","Startup","Strategi kreatif","Debat kebijakan","Produk digital","Konsultasi"]
+  },
+  ISFP:{
+    title:"Sang Penjaga Rasa",
+    portrait:"Anda cenderung memahami dunia melalui pengalaman langsung, keindahan, dan keselarasan nilai pribadi. Anda tidak selalu banyak bicara tentang prinsip, tetapi sering menunjukkannya lewat pilihan konkret. Tantangannya adalah tidak membiarkan kepekaan berubah menjadi penghindaran.",
+    strengths:["Peka terhadap suasana dan estetika","Autentik","Praktis dalam ekspresi kreatif","Hangat tanpa perlu banyak teori"],
+    challenges:["Cenderung menghindari tekanan langsung","Sulit merencanakan terlalu jauh","Mudah tertutup saat merasa tidak aman","Perlu melatih artikulasi kebutuhan"],
+    laku:["Nyatakan batas pribadi sebelum menumpuk menjadi penarikan diri","Bangun rutinitas kecil untuk karya","Latih membuat rencana ringan tanpa merasa dikurung","Dokumentasikan proses kreatif agar bisa berkembang"],
+    cocok:["Seni","Desain","Kerajinan","Fotografi","Ruang terapi","Pekerjaan berbasis pengalaman langsung"]
+  },
+  ISFJ:{
+    title:"Sang Perawat Tatanan",
+    portrait:"Anda cenderung menjaga stabilitas, detail, dan kesejahteraan orang di sekitar. Anda kuat dalam tanggung jawab yang nyata dan diam-diam sering menjadi penyangga sistem. Tantangannya: jangan sampai dunia menganggap kebaikan Anda sebagai fasilitas umum gratis.",
+    strengths:["Teliti dan dapat dipercaya","Peduli secara konkret","Kuat menjaga tradisi dan ritme","Stabil dalam tanggung jawab"],
+    challenges:["Sulit menolak","Bisa terlalu memendam kebutuhan sendiri","Kurang nyaman dengan perubahan cepat","Kadang terlalu keras pada diri sendiri"],
+    laku:["Latih mengatakan tidak tanpa penjelasan panjang","Pisahkan tanggung jawab nyata dari rasa bersalah","Beri ruang untuk pembaruan kecil","Catat kontribusi agar tidak selalu merasa kurang"],
+    cocok:["Administrasi","Pendidikan","Kesehatan","Pelayanan komunitas","Manajemen rumah tangga/proyek","Kurasi detail"]
+  },
+  ISTJ:{
+    title:"Sang Penjaga Struktur",
+    portrait:"Anda cenderung mempercayai fakta, prosedur, dan tanggung jawab yang jelas. Anda kuat dalam menjaga sistem tetap berjalan, terutama ketika orang lain sedang sibuk menamai kekacauan sebagai kreativitas. Tantangannya adalah memberi ruang pada perubahan yang memang perlu.",
+    strengths:["Disiplin dan teliti","Dapat dipercaya","Kuat dalam prosedur dan detail","Tahan menyelesaikan tugas panjang"],
+    challenges:["Kurang nyaman dengan ambiguitas","Bisa terlalu kaku pada aturan lama","Kadang sulit menerima pendekatan eksperimental","Perlu melatih kelenturan"],
+    laku:["Sisihkan ruang untuk evaluasi cara lama","Bedakan prinsip dari kebiasaan","Latih mencoba perubahan kecil yang terukur","Jangan memikul tanggung jawab orang lain sendirian"],
+    cocok:["Operasi","Keuangan","Administrasi","Teknik","Manajemen proyek","Quality control"]
+  },
+  ISTP:{
+    title:"Sang Ahli Bongkar-Pasang",
+    portrait:"Anda cenderung memahami dunia dengan membongkar, mencoba, dan melihat cara sesuatu bekerja. Anda praktis, tenang, dan sering lebih nyaman bertindak daripada menjelaskan panjang. Tantangannya: relasi manusia tidak selalu bisa diperbaiki seperti engsel pintu.",
+    strengths:["Praktis dan tenang dalam masalah teknis","Cepat membaca mekanisme nyata","Mandiri","Adaptif dalam situasi lapangan"],
+    challenges:["Kurang suka komitmen terlalu kaku","Kadang tampak jauh secara emosional","Mudah bosan pada teori panjang","Perlu melatih komunikasi kebutuhan"],
+    laku:["Jelaskan proses berpikir agar orang lain tidak menebak-nebak","Buat komitmen kecil yang jelas","Gunakan keterampilan praktis untuk membangun, bukan hanya memperbaiki","Latih bahasa emosi secara sederhana"],
+    cocok:["Teknik","Troubleshooting","Desain produk","Lapangan","Olahraga teknis","Maker/craft"]
+  },
+  ESFP:{
+    title:"Sang Penghidup Momen",
+    portrait:"Anda cenderung hadir penuh dalam pengalaman, orang, dan suasana. Anda mudah membuat ruang terasa hidup dan manusiawi. Tantangannya adalah jangan sampai momen hari ini mencuri terlalu banyak dari masa depan, karena tagihan tetap tidak punya rasa seni.",
+    strengths:["Spontan dan hangat","Peka pada suasana nyata","Mudah terhubung dengan orang","Praktis dalam tindakan langsung"],
+    challenges:["Kurang betah pada rencana jangka panjang","Mudah terdorong suasana","Kadang menghindari refleksi berat","Perlu menjaga konsistensi"],
+    laku:["Buat rencana pendek yang tetap terasa hidup","Gunakan energi sosial untuk membangun karya, bukan hanya pengalaman","Latih menunda respons impulsif","Catat pelajaran dari pengalaman"],
+    cocok:["Event","Hospitality","Seni pertunjukan","Sales","Komunitas","Aktivitas lapangan"]
+  },
+  ESFJ:{
+    title:"Sang Penjalin Harmoni",
+    portrait:"Anda cenderung menjaga hubungan, keteraturan sosial, dan kebutuhan nyata orang di sekitar. Anda kuat membuat orang merasa diperhatikan. Tantangannya adalah tidak semua ketidaknyamanan harus segera dirapikan demi harmoni permukaan.",
+    strengths:["Ramah dan suportif","Kuat membangun jaringan sosial","Peduli pada kebutuhan konkret","Terorganisir dalam pelayanan"],
+    challenges:["Mudah terlalu memikirkan penilaian orang","Sulit menghadapi konflik terbuka","Bisa mengorbankan diri demi diterima","Perlu melatih keputusan berbasis nilai pribadi"],
+    laku:["Tanyakan kebutuhan diri sebelum memenuhi harapan orang","Latih konflik sehat tanpa merasa relasi runtuh","Gunakan struktur sosial untuk pertumbuhan, bukan hanya kenyamanan","Beri ruang bagi perbedaan"],
+    cocok:["Pendidikan","Pelayanan","HR","Event","Komunitas","Koordinasi tim"]
+  },
+  ESTJ:{
+    title:"Sang Pengatur Gerak",
+    portrait:"Anda cenderung menyukai kejelasan, tanggung jawab, dan hasil yang terlihat. Anda kuat mengubah rencana menjadi pelaksanaan. Tantangannya: dunia tidak selalu rusak hanya karena tidak mengikuti cara Anda, meski kadang memang begitu, sayangnya.",
+    strengths:["Tegas dan praktis","Kuat mengorganisir orang dan proses","Berorientasi hasil","Dapat diandalkan dalam struktur"],
+    challenges:["Bisa terlalu keras atau langsung","Kurang sabar pada ambiguitas emosional","Kadang menilai cepat","Perlu memberi ruang pada pendekatan berbeda"],
+    laku:["Dengar konteks sebelum menetapkan standar","Bedakan tegas dari memaksa","Beri ruang eksperimen kecil","Ukur kualitas relasi, bukan hanya hasil kerja"],
+    cocok:["Operasi","Manajemen","Logistik","Kepemimpinan lapangan","Administrasi","Pengawasan proyek"]
+  },
+  ESTP:{
+    title:"Sang Taktisi Lapangan",
+    portrait:"Anda cenderung cepat membaca situasi nyata dan bertindak langsung. Anda nyaman dalam dinamika, risiko, dan keputusan cepat. Tantangannya adalah tidak semua hal perlu diselesaikan dengan spontanitas, walau itu memang lebih seru daripada rapat koordinasi.",
+    strengths:["Cepat tanggap","Praktis dan berani","Kuat membaca peluang lapangan","Energik dalam situasi dinamis"],
+    challenges:["Mudah bosan pada rencana panjang","Kadang terlalu mengambil risiko","Kurang tertarik pada refleksi mendalam","Perlu memperhitungkan dampak jangka panjang"],
+    laku:["Tunda aksi besar sampai risiko utama terbaca","Gunakan energi cepat untuk eksperimen terukur","Latih dokumentasi sederhana","Bangun disiplin kecil agar spontanitas punya arah"],
+    cocok:["Entrepreneurship","Sales","Operasi lapangan","Olahraga","Negosiasi","Manajemen krisis"]
+  }
+};
+
+let index = 0;
+let answers = Array(QUESTIONS.length).fill(null);
+
+function score(){
+  const s = {EI:0,SN:0,TF:0,JP:0};
+  const possible = {EI:0,SN:0,TF:0,JP:0};
+  answers.forEach((a,i)=>{
+    if(a===null) return;
+    const c = QUESTIONS[i].choices[a];
+    Object.keys(c.w).forEach(k=>s[k]+=c.w[k]);
+    Object.keys(DIMS).forEach(k=>{
+      let m = Math.max(...QUESTIONS[i].choices.map(choice=>Math.abs(choice.w[k] || 0)));
+      possible[k]+=m;
+    });
+  });
+  return {s, possible};
+}
+
+function dimensionResult(k,val,max){
+  const d = DIMS[k];
+  const pct = max ? Math.abs(val)/max : 0;
+  const letter = val >= 0 ? d.right : d.left;
+  let strength = "borderline";
+  if(pct > .70) strength = "kuat";
+  else if(pct > .45) strength = "cukup kuat";
+  else if(pct > .20) strength = "ringan";
+  return {letter, pct, strength};
+}
+
+function renderQuestion(){
+  const q = QUESTIONS[index];
+  const answered = answers.filter(x=>x!==null).length;
+  const pct = answered / QUESTIONS.length * 100;
+  document.getElementById("root").innerHTML = `
+    <div class="hero"><div class="hero-text">${q.scene}</div></div>
+    <div class="progress-wrap">
+      <div class="progress"><div class="bar" style="width:${pct}%"></div></div>
+      <div class="count">${answered}/${QUESTIONS.length}</div>
+    </div>
+    <div class="question">${index+1}. ${q.q}</div>
+    <div class="choices">
+      ${q.choices.map((c,i)=>`
+        <button class="choice ${answers[index]===i?'selected':''}" onclick="choose(${i})">
+          <span class="badge">${String.fromCharCode(65+i)}</span>
+          <span>${c.t}</span>
+        </button>
+      `).join("")}
+    </div>
+    <div class="nav">
+      <button class="secondary" onclick="prev()" ${index===0?'disabled':''}>← Sebelumnya</button>
+      <div>
+        <button class="ghost" onclick="resetAll()">Reset</button>
+        <button onclick="${index===QUESTIONS.length-1?'renderResult()':'next()'}" ${answers[index]===null?'disabled':''}>
+          ${index===QUESTIONS.length-1?'Lihat Hasil':'Lanjut →'}
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function choose(i){
+  answers[index]=i;
+  renderQuestion();
+}
+
+function next(){
+  if(index < QUESTIONS.length-1){ index++; renderQuestion(); }
+}
+
+function prev(){
+  if(index > 0){ index--; renderQuestion(); }
+}
+
+function resetAll(){
+  if(confirm("Reset semua jawaban? Karena tentu saja hidup butuh tombol ulang, walau kenyataan tidak sebaik itu.")){
+    index=0; answers=Array(QUESTIONS.length).fill(null); renderQuestion();
+  }
+}
+
+function renderResult(){
+  const answered = answers.filter(x=>x!==null).length;
+  if(answered < QUESTIONS.length){
+    alert("Selesaikan semua pertanyaan dulu.");
+    return;
+  }
+
+  const {s, possible} = score();
+  const results = {};
+  Object.keys(DIMS).forEach(k=> results[k]=dimensionResult(k,s[k],possible[k]));
+  const type = results.EI.letter + results.SN.letter + results.TF.letter + results.JP.letter;
+  const profile = TYPE_PROFILES[type];
+  const avgConf = Math.round(Object.values(results).reduce((a,b)=>a+b.pct,0)/4*100);
+  const borderline = Object.entries(results).filter(([k,r])=>r.pct<=.20).map(([k,r])=>`${DIMS[k].left}/${DIMS[k].right}`);
+
+  document.getElementById("root").innerHTML = `
+    <div class="result-head">
+      <div class="eyebrow">Potret Kepribadian Anda</div>
+      <h2 class="type">${type}</h2>
+      <p class="archetype">${profile.title}</p>
+      <div class="confidence">Confidence kasar: <b>${avgConf}%</b></div>
+    </div>
+
+    <div class="result-section">
+      <h3>Ringkasan Karakter</h3>
+      <p class="portrait">${profile.portrait}</p>
+      <div>
+        ${Object.keys(results).map(k=>`<span class="tag">${results[k].letter} · ${DIMS[k].name} ${results[k].strength}</span>`).join("")}
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="mini">
+        <h4>Kekuatan Alami</h4>
+        <ul>${profile.strengths.map(x=>`<li>${x}</li>`).join("")}</ul>
+      </div>
+      <div class="mini">
+        <h4>Tantangan yang Perlu Diwaspadai</h4>
+        <ul>${profile.challenges.map(x=>`<li>${x}</li>`).join("")}</ul>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h3>Cara Anda Memahami Dunia</h3>
+      <p>${results.SN.letter === "N" 
+        ? "Anda lebih mudah menangkap pola, kemungkinan, dan arah besar di balik kejadian. Detail tetap penting, tetapi biasanya Anda mencarinya setelah gambaran makna mulai terlihat."
+        : "Anda lebih nyaman memulai dari fakta, pengalaman langsung, dan detail yang bisa diamati. Gagasan besar akan terasa kuat ketika sudah punya pijakan nyata."}</p>
+    </div>
+
+    <div class="result-section">
+      <h3>Cara Anda Mengambil Keputusan</h3>
+      <p>${results.TF.letter === "F" 
+        ? "Anda cenderung menimbang dampak keputusan terhadap manusia, nilai, dan harmoni. Keputusan yang benar bagi Anda bukan hanya logis, tetapi juga tidak mengkhianati rasa kemanusiaan."
+        : "Anda cenderung menimbang konsistensi, sebab-akibat, dan struktur logis. Keputusan yang benar bagi Anda perlu tahan diuji oleh nalar, bukan hanya terasa nyaman."}</p>
+    </div>
+
+    <div class="result-section">
+      <h3>Cara Anda Berinteraksi dengan Orang</h3>
+      <p>${results.EI.letter === "E" 
+        ? "Anda cenderung mendapatkan energi dari interaksi, pertukaran ide, dan gerak sosial. Pikiran sering menjadi lebih hidup saat diuji di ruang bersama."
+        : "Anda cenderung memulihkan energi melalui ruang pribadi, percakapan yang lebih dalam, atau proses batin yang tenang. Interaksi tetap penting, tetapi perlu takaran yang tepat."}</p>
+    </div>
+
+    <div class="result-section">
+      <h3>Cara Anda Mengelola Kehidupan</h3>
+      <p>${results.JP.letter === "J" 
+        ? "Anda cenderung nyaman ketika arah, struktur, dan keputusan sudah jelas. Rencana membantu Anda mengubah energi menjadi hasil yang konkret."
+        : "Anda cenderung nyaman dengan kelenturan, ruang improvisasi, dan kemungkinan yang masih terbuka. Kebebasan membantu Anda menemukan jalan yang tidak selalu terlihat sejak awal."}</p>
+    </div>
+
+    <div class="result-section">
+      <h3>Laku Pengembangan</h3>
+      <ul>${profile.laku.map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>
+
+    <div class="result-section">
+      <h3>Lingkungan yang Biasanya Cocok</h3>
+      <p>${profile.cocok.map(x=>`<span class="tag">${x}</span>`).join("")}</p>
+    </div>
+
+    <div class="grid">
+      ${Object.keys(DIMS).map(k=>{
+        const r = results[k], d = DIMS[k];
+        const pos = 50 + (s[k]/(possible[k] || 1))*50;
+        return `
+          <div class="dim">
+            <div class="dim-top">
+              <span>${d.left} ← ${d.name} → ${d.right}</span>
+              <span>${r.letter} · ${r.strength}</span>
+            </div>
+            <div class="scale"><div class="pin" style="left:${Math.max(0,Math.min(100,pos))}%"></div></div>
+            <div class="explain">Skor: ${s[k]} dari ±${possible[k]}. ${d.desc}</div>
+          </div>
+        `
+      }).join("")}
+    </div>
+
+    <div class="note">
+      ${borderline.length 
+        ? `<b>Catatan:</b> Dimensi ${borderline.join(", ")} masih borderline. Sebaiknya hasil tidak dipaksa terlalu kaku, karena manusia bukan file ZIP berisi empat huruf.`
+        : `<b>Catatan:</b> Tidak ada dimensi yang sangat borderline. Hasil relatif stabil untuk versi 20 keputusan ini.`}
+      <br><br>
+      Prototype ini memakai bobot sederhana. Untuk versi matang, pertanyaan bisa dikalibrasi dari data pengguna nyata, lalu item yang lemah dibuang atau diganti.
+    </div>
+
+    <div class="answers">
+      <details>
+        <summary>Lihat jawaban dan bobot teknis</summary>
+        <ol>
+          ${answers.map((a,i)=>{
+            const c = QUESTIONS[i].choices[a];
+            return `<li><b>${QUESTIONS[i].q}</b><br>${c.t}<br><code>${JSON.stringify(c.w)}</code></li>`
+          }).join("")}
+        </ol>
+      </details>
+    </div>
+
+    <div class="nav">
+      <button class="secondary" onclick="index=QUESTIONS.length-1; renderQuestion()">← Edit Jawaban</button>
+      <button onclick="resetAll()">Ulangi Tes</button>
+    </div>
+  `;
+}
+
+renderQuestion();
+</script>
+
+</body>
+</html>

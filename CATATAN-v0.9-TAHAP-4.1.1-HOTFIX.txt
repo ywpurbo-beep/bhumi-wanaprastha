@@ -1,0 +1,8 @@
+BHUMI WANAPRASTHA v0.9 · TAHAP 4.1.1 HOTFIX
+
+Perbaikan:
+1. Hero Gagasan dibuat lebih terbaca melalui penyesuaian overlay dan posisi A01.
+2. Footer B01/B02 dibuat menyatu dengan halaman memakai fade/mask pada tepi.
+3. Jarak Hero Gagasan ke Jejak Gagasan diperbaiki. Penyebabnya: daftar Gagasan memakai class content-grid, sedangkan GUI Pass sebelumnya menargetkan room-grid.
+
+Tidak ada perubahan pada metadata Living Knowledge, isi konten, navigasi, atau fungsi aplikasi.

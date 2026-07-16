@@ -1,0 +1,15 @@
+BHUMI WANAPRASTHA v0.9 — TAHAP 4.1 LIVING KNOWLEDGE
+
+Sudah diterapkan:
+1. Metadata wajib: id, title, summary, author, date, type, status.
+2. Nama file Markdown mengikuti judul dalam bentuk slug.
+3. Tag utama dan tag sekunder.
+4. Sepuluh jenis relasi antar-node.
+5. Validasi ID unik, tanggal, jumlah tag utama, dan jenis relasi.
+6. Manifest node pengetahuan dengan teks pencarian.
+7. Pencarian seluruh konten dari menu Cari.
+8. Jejak Pengetahuan pada halaman konten.
+9. Template Markdown dan panduan tag.
+
+Catatan:
+Knowledge Graph visual belum dibuat. Tahap ini membangun fondasi data dan fitur Living Knowledge pertama yang sudah dapat digunakan.
