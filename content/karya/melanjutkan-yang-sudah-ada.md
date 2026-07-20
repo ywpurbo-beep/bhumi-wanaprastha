@@ -116,7 +116,7 @@ Ruang utama menjadi tempat bekerja, membaca, berbincang, memainkan musik, dan be
 
 Kehadiran buku, peralatan kerja, tanaman, makanan, dan benda-benda pribadi membuat rumah berkembang tanpa rancangan tambahan yang berlebihan. Ruang memperoleh bentuknya dari kebiasaan penghuninya.
 
-Pada malam hari, cahaya dari dalam bangunan menjadikannya tampak seperti bagian kecil dari kebun yang tetap hidup. Sementara kunang-kunang bercahaya kelap-kelip di kegelapan kebun.
+Pada malam hari, cahaya dari dalam bangunan menjadikannya tampak seperti bagian kecil dari kebun yang tetap hidup. Sementara di luar kunang-kunang bercahaya kelap-kelip di kegelapan kebun.
 
 ![Suasana rumah pada malam hari](/images/karya/rumah-papakmanggu/suasana-malam.webp)
 
