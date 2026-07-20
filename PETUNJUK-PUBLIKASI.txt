@@ -1,9 +1,29 @@
-BHUMI WANAPRASTHA – KEBUN AKTIF v0.4
+BHUMI WANAPRASTHA v0.9 - PETUNJUK PEMUTAKHIRAN DAN PUBLIKASI
 
-1. Unggah seluruh isi folder ini ke web hosting dengan struktur folder tetap.
-2. Beranda: index.html
-3. Aplikasi Pranata Mangsa: apps/pranata-mangsa/index.html
-4. Fitur statis, cuaca Open-Meteo, geolokasi, kalender, dan jurnal localStorage dapat berjalan pada hosting statis HTTPS.
-5. Analisis AI tidak aktif pada paket statis karena memerlukan server Node/Express dan variabel rahasia GEMINI_API_KEY.
-6. Untuk fitur AI penuh, gunakan source project asli dan deploy sebagai aplikasi Node (misalnya Render/Railway/VPS), lalu hubungkan tautannya dari situs utama.
-7. Geolokasi browser umumnya hanya bekerja melalui HTTPS atau localhost.
+A. JIKA MENGUBAH KONTEN DI KOMPUTER
+1. Buka Git Bash pada folder repository.
+2. Jalankan:
+
+   git pull origin main
+   node scripts/build-content.mjs
+   git add .
+   git commit -m "Update konten Bhumi Wanaprastha"
+   git push origin main
+
+3. Cloudflare akan melakukan deployment otomatis.
+4. Periksa Workers & Pages > bhumi-wanaprastha > Deployments.
+
+B. JIKA MENGUBAH FILE .MD LANGSUNG DI GITHUB
+1. Commit perubahan langsung ke branch main.
+2. Sinkronkan folder lokal dengan git pull origin main.
+3. Jalankan node scripts/build-content.mjs.
+4. Commit dan push file content/_generated/content-manifest.js.
+
+Sampai otomatisasi build diterapkan, file Markdown tidak cukup diubah sendirian karena website membaca manifest hasil generate.
+
+C. BATAS ASET
+Cloudflare Workers menerima aset statis dengan ukuran maksimum 25 MiB per file.
+Jangan memasukkan audio atau video yang melampaui batas tersebut ke repository deployment.
+
+D. ALAMAT WEBSITE
+https://bhumi-wanaprastha.ywpurbo.workers.dev

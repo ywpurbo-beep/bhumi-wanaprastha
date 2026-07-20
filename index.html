@@ -1076,6 +1076,32 @@ footer.global-footer {
   .knowledge-accordion-body { padding: 0 17px 20px; }
 }
 
+
+
+/* ===== Batch 3 Review 3 Footer Clean =====
+   Gunakan panorama PNG transparan tanpa lapisan putih, mist overlay, atau gradient penutup. */
+footer.global-footer {
+  background-color: transparent !important;
+  background-image: url('assets/living-knowledge/B01-Forest-Panorama.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  background-size: cover !important;
+  min-height: 250px;
+  padding: 142px max(18px, calc((100vw - 1180px)/2)) 28px;
+}
+footer.global-footer::before,
+footer.global-footer::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+@media (max-width:760px) {
+  footer.global-footer {
+    min-height: 215px;
+    padding: 120px 18px 24px;
+    background-position: center bottom !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1273,7 +1299,7 @@ footer.global-footer {
     <div class="back-row"><button class="back-button" id="content-back" data-route="pendopo">← Kembali</button></div>
   </section>
 
-  <footer class="global-footer"><span>Bhumi Wanaprastha v0.9 · Batch 3 Review 2</span><span>Pengetahuan yang menjadi laku.</span></footer>
+  <footer class="global-footer"><span>Bhumi Wanaprastha v0.9 · Batch 3 Review 3 Footer Clean</span><span>Pengetahuan yang menjadi laku.</span></footer>
 </main>
 <script src="content/_generated/content-manifest.js"></script>
 <script src="content/content.js"></script>

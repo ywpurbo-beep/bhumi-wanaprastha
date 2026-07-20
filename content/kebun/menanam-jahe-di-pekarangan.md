@@ -26,6 +26,8 @@ relations:
 
 ## Menyiapkan bahan tanam
 
+Halaman ini masih percobaan. Daripada menulis 
+Lorem ipsum dolor sit amet, lebih baik seolah-olah kita membahas tentang penanaman Jahe.
 Pilih rimpang sehat yang tidak lembek atau berjamur dan memiliki mata tunas. Rimpang dapat ditunaskan lebih dahulu di tempat teduh dan lembap sebelum dipindahkan ke media tanam yang gembur serta memiliki drainase baik.
 
 ## Mengamati, bukan sekadar menunggu

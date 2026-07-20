@@ -26,6 +26,8 @@ relations:
 
 ## Sebuah jeda kecil
 
+Halaman ini masih percobaan. Daripada menulis 
+Lorem ipsum dolor sit amet, lebih baik seolah-olah kita membahas tentang khasiat Wedang Jahe.
 Wedang jahe tidak perlu dibebani sebagai ramuan yang menyelesaikan segala perkara. Bagi saya, nilainya justru muncul ketika ia menjadi jeda kecil: menunggu air panas, mencium aroma rimpang, lalu memperhatikan keadaan tubuh sebelum dan sesudah meminumnya.
 
 Dari kebiasaan sederhana itu muncul beberapa pertanyaan. Apakah tubuh memang membutuhkan minuman hangat, atau hanya menyukai rasa dan suasananya? Apakah tambahan gula membantu menikmati minuman, atau justru menutupi karakter jahe? Apakah pengalaman hari ini sama ketika cuaca, kondisi tubuh, dan takarannya berubah?

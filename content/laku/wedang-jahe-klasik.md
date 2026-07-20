@@ -47,10 +47,9 @@ relations:
     label: Dilanjutkan melalui pengamatan kebun
 ---
 
-## Catatan praktik
-
-Takaran ini adalah titik awal. Jahe muda, jahe tua, jahe merah, dan jahe emprit dapat menghasilkan intensitas berbeda. Catat jenis jahe, jumlah pemanis, lama perebusan, cuaca, dan respons tubuh bila resep ini hendak dijadikan percobaan pribadi.
+## Cara membuat
+Halaman ini masih percobaan. Daripada menulis 
+Lorem ipsum dolor sit amet, lebih baik kita bikin Wedang Jahe.Takaran ini adalah titik awal. Jahe muda, jahe tua, jahe merah, dan jahe emprit dapat menghasilkan intensitas berbeda. Catat jenis jahe, jumlah pemanis, lama perebusan, cuaca, dan respons tubuh bila resep ini hendak dijadikan percobaan pribadi.
 
 ## Variasi sederhana
-
 Kayu manis, serai, atau perasan jeruk dapat ditambahkan satu per satu. Mengubah terlalu banyak bahan sekaligus membuat pengaruh setiap perubahan sulit dibaca. Manusia memang gemar menyebut campuran sepuluh bahan sebagai eksperimen, lalu heran ketika tidak tahu apa yang sebenarnya bekerja.

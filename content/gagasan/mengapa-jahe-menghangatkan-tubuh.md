@@ -23,6 +23,8 @@ relations:
 
 ## Dari pengalaman menuju pertanyaan
 
+Halaman ini masih percobaan. Daripada menulis 
+Lorem ipsum dolor sit amet, lebih baik seolah-olah kita membahas tentang Jahe.
 Jahe telah lama digunakan dalam minuman dan masakan Nusantara. Banyak orang menggambarkan sensasi setelah meminumnya sebagai hangat, pedas, dan membuat tubuh terasa lebih nyaman, terutama ketika cuaca dingin atau setelah kehujanan.
 
 Pengalaman tersebut dapat menjadi awal pertanyaan, bukan akhir kesimpulan. Sensasi hangat yang dirasakan tidak sama dengan bukti bahwa suhu inti tubuh selalu meningkat. Rasa pedas dan hangat dapat muncul dari interaksi senyawa jahe dengan sistem sensorik tubuh, sementara pengalaman tiap orang dapat berbeda.

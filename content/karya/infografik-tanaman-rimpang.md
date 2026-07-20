@@ -25,7 +25,8 @@ relations:
 
 ## Tujuan karya
 
-Infografik ini belum dimaksudkan sebagai produk visual final. Ia berfungsi sebagai node percontohan untuk menunjukkan bahwa sebuah karya dapat lahir dari gagasan, pengalaman, praktik, dan hasil pengamatan kebun.
+Infografik ini belum dimaksudkan sebagai produk visual final. Daripada menulis 
+Lorem ipsum dolor sit amet, lebih baik seolah-olah kita membahas tentang Jahe.
 
 ## Isi yang direncanakan
 
