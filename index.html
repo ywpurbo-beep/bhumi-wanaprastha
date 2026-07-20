@@ -847,6 +847,235 @@ footer.global-footer::after {
 @media(max-width:760px){.knowledge-journey{padding:20px}.knowledge-journey-head{display:block}.knowledge-type{margin-top:12px}.knowledge-track{grid-template-columns:1fr}.knowledge-stage:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-13px;transform:translateX(-50%)}.knowledge-direction{grid-template-columns:1fr}}
 
 
+
+
+/* ===== v0.9 Tahap 4.3.5 BATCH 2 · hasil review Batch 1 ===== */
+/* Tipografi artikel: isi tetap di Markdown, presentasi ditangani oleh CSS global. */
+.article-header h2 {
+  font-size: clamp(34px, 5.2vw, 60px);
+  line-height: 1.01;
+}
+.article-deck {
+  max-width: 720px;
+  font-size: 17px;
+  line-height: 1.42;
+}
+.article-body {
+  font-size: 17px;
+  line-height: 1.58;
+}
+.article-body h3 {
+  margin: 38px 0 10px;
+  font-size: 25px;
+  line-height: 1.16;
+}
+.article-body p { margin-bottom: 17px; }
+.article-body .lead { font-size: 19px; line-height: 1.55; }
+.article-body .question { font-size: 21px; line-height: 1.42; }
+.room-desc { font-size: 18px; line-height: 1.48; }
+.room-note { font-size: 18px; line-height: 1.48; }
+.harvest-intro {
+  max-width: 760px;
+  font-size: 15px;
+  line-height: 1.48;
+}
+.related-card span {
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 400;
+  opacity: .72;
+}
+
+/* Jejak Pengetahuan menjadi timeline vertikal ringkas, bukan lima kartu administrasi. */
+.knowledge-track {
+  display: block;
+  position: relative;
+  max-width: 680px;
+  margin-top: 8px;
+  padding-left: 2px;
+}
+.knowledge-stage {
+  position: relative;
+  min-height: 58px;
+  padding: 2px 0 17px 35px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.knowledge-stage:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 20px;
+  bottom: -2px;
+  width: 1px;
+  background: rgba(95,106,83,.32);
+}
+.knowledge-stage::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 3px !important;
+  right: auto !important;
+  top: 4px !important;
+  bottom: auto !important;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid var(--moss);
+  border-radius: 50%;
+  background: var(--paper);
+  transform: none !important;
+}
+.knowledge-stage.current {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.knowledge-stage.current::after {
+  background: var(--moss);
+  box-shadow: 0 0 0 4px rgba(95,106,83,.12);
+}
+.knowledge-stage.empty { opacity: .55; }
+.knowledge-stage small {
+  margin-bottom: 4px;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+.knowledge-stage a,
+.knowledge-stage strong {
+  max-width: 610px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.knowledge-stage.empty strong { font-size: 12px; font-weight: 400; }
+
+/* Hasil Panen: cover dan isi karya adalah dua lapisan terpisah. */
+.harvest-thumb.is-placeholder {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(169,139,92,.18), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,.72), rgba(232,223,206,.68));
+}
+.harvest-thumb.is-placeholder::after {
+  content: "Visual karya belum tersedia";
+  color: var(--muted);
+  font: 10px Arial,Helvetica,sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* Footer full-bleed: akhir halaman, bukan kartu bergambar yang malu-malu. */
+footer.global-footer {
+  width: 100vw;
+  max-width: none;
+  margin: 80px 0 -72px calc(50% - 50vw);
+  min-height: 250px;
+  padding: 142px max(18px, calc((100vw - 1180px)/2)) 28px;
+  background-image: url('assets/living-knowledge/B01-Forest-Panorama.png');
+  background-position: center 61%;
+  background-size: cover;
+  border-radius: 0;
+}
+footer.global-footer::before {
+  inset: 0;
+  background: linear-gradient(180deg, rgba(249,246,238,.98) 0%, rgba(249,246,238,.48) 26%, rgba(249,246,238,.08) 66%, rgba(239,231,216,.10) 100%);
+  opacity: 1;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+footer.global-footer::after {
+  inset: 0;
+  background: url('assets/living-knowledge/B02-Forest-Mist-Overlay.png') center 66% / cover no-repeat;
+  opacity: .42;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%);
+}
+@media (max-width:760px) {
+  .article-header h2 { font-size: 38px; }
+  .article-deck { font-size: 16px; line-height: 1.4; }
+  .article-body { font-size: 16px; line-height: 1.55; }
+  .article-body h3 { font-size: 23px; }
+  .room-desc { font-size: 16px; line-height: 1.44; }
+  .harvest-intro { font-size: 14px; line-height: 1.44; }
+  .knowledge-journey { padding: 19px; }
+  .knowledge-direction { grid-template-columns: 1fr; }
+  footer.global-footer {
+    min-height: 215px;
+    padding: 120px 18px 24px;
+    background-position: center 61%;
+  }
+}
+
+
+/* ===== Batch 3 · dynamic rooms, quiet reading, accordion ===== */
+.room-content-heading{margin:54px 0 18px}.room-content-heading h3{margin:4px 0 0;font-size:30px;font-weight:500}.room-index-cards{margin-bottom:10px}
+.knowledge-accordion{margin-top:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.18)}
+.knowledge-accordion+ .knowledge-accordion{margin-top:-1px}.knowledge-accordion summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 4px}.knowledge-accordion summary::-webkit-details-marker{display:none}.knowledge-accordion summary strong{display:block;font-size:22px;font-weight:500}.knowledge-accordion summary small{display:block;margin-top:4px;color:var(--muted);font:400 13px/1.4 Arial,sans-serif}.accordion-mark{font:300 28px/1 Arial,sans-serif;color:var(--bronze);transition:.2s}.knowledge-accordion[open] .accordion-mark{transform:rotate(45deg)}.knowledge-accordion-body{padding:0 4px 25px}
+.knowledge-journey{margin:0;padding:0;border:0;background:none}.related-content{margin:0;padding:0;border:0}.knowledge-links{margin-top:34px}
+.article-cover{width:100%;aspect-ratio:16/9;margin:28px 0 20px;border-radius:22px;background-size:cover;background-position:center;border:1px solid var(--line)}
+.article-body blockquote{max-width:82%;margin:30px auto;padding:0;text-align:center;border:0;background:none;font-size:.94em;line-height:1.6;font-style:italic}
+footer.global-footer{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;border-radius:0;border:0;background-color:transparent}
+@media(max-width:760px){.article-shell{padding-left:24px;padding-right:24px}.article-body{line-height:1.52}.article-body h3{font-size:25px;margin-top:38px}.article-header h2{font-size:42px;line-height:1.06}.knowledge-accordion summary{padding:17px 0}.knowledge-accordion-body{padding-left:0;padding-right:0}.article-body blockquote{max-width:94%}.room-content-heading{margin-top:42px}}
+
+/* ===== Batch 3 review revision · media-aware content ===== */
+.video-embed{position:relative;aspect-ratio:16/9;margin:28px 0 34px;border-radius:18px;overflow:hidden;background:#161714;box-shadow:0 18px 48px rgba(32,34,26,.15)}
+.video-embed iframe{width:100%;height:100%;border:0;display:block}
+.language-badge{display:inline-flex;align-items:center;margin-top:12px;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:600 11px/1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.article-body img{display:block;max-width:100%;height:auto;margin:28px auto;border-radius:16px}
+.room-card-media{aspect-ratio:16/9;margin:-1px -1px 18px;border-radius:17px 17px 11px 11px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.room-card-media.video::after{content:'▶';position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:rgba(250,247,238,.88);color:#5b4934;font-size:19px;padding-left:3px;box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.room-card-type{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.room-card-type .language-badge{margin:0}
+.site-nav.is-hidden{transform:translateY(-110%)}
+.site-nav{transition:transform .28s ease}
+
+/* ===== Batch 3 Review 2 Hotfix · focused corrections ===== */
+[data-view="gagasan"] .room-grid { margin-top: 48px; }
+.portfolio-heading { margin-top: 48px; }
+.portfolio-project-card { min-height: 100%; }
+
+.knowledge-accordion {
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,.30);
+}
+.knowledge-accordion + .knowledge-accordion { margin-top: 14px; }
+.knowledge-accordion summary { padding: 18px 20px; }
+.knowledge-accordion summary strong { font-size: 19px; letter-spacing: .01em; }
+.knowledge-accordion summary small { font-size: 12px; }
+.knowledge-accordion-body { padding: 0 20px 22px; }
+.knowledge-accordion:first-of-type {
+  border-color: rgba(95,106,83,.34);
+  background: linear-gradient(135deg, rgba(95,106,83,.10), rgba(255,255,255,.25));
+}
+.knowledge-accordion:first-of-type summary strong::before { content: "⌁"; margin-right: 10px; color: var(--moss); }
+.knowledge-accordion:nth-of-type(2) {
+  border-color: rgba(111,119,125,.28);
+  background: linear-gradient(135deg, rgba(111,119,125,.08), rgba(255,255,255,.24));
+}
+.knowledge-accordion:nth-of-type(2) summary strong::before { content: "↗"; margin-right: 10px; color: #68747a; }
+
+footer.global-footer {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: -72px;
+}
+@media(max-width:760px){
+  [data-view="gagasan"] .room-grid { margin-top: 40px; }
+  .knowledge-accordion summary { padding: 16px 17px; }
+  .knowledge-accordion-body { padding: 0 17px 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -908,7 +1137,7 @@ footer.global-footer::after {
   <section class="view room-shell" data-view="gagasan">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Gagasan</span></div>
     <div class="room-hero room-hero-gagasan"><div><p class="room-kicker">Ruang 01</p><h2 class="room-title">Gagasan</h2></div><p class="room-desc">Pertanyaan, hipotesis, dan kerangka berpikir diberi tempat untuk tumbuh sebelum dipaksa menjadi kesimpulan.</p></div>
-    <div id="idea-list" class="content-grid" aria-live="polite"></div>
+    <div id="gagasan-list" class="content-grid" aria-live="polite"></div>
     <div class="room-note">Ruang ini bukan museum jawaban. Ia adalah bengkel tempat pertanyaan memperoleh bentuk, diuji, lalu dihubungkan dengan buah pemikiran yang lahir darinya.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
@@ -922,22 +1151,28 @@ footer.global-footer::after {
   <section class="view room-shell" data-view="renungan">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Renungan</span></div>
     <div class="room-hero room-hero-renungan"><div><p class="room-kicker">Ruang 02</p><h2 class="room-title">Renungan</h2></div><p class="room-desc">Gagasan dipertemukan dengan pengalaman, waktu, keheningan, dan kedalaman perhatian.</p></div>
-    <div class="room-grid">
-      <article class="room-card"><h3>Artikel</h3><p>Renungan tertulis yang mengajak pembaca berhenti dan melihat kembali.</p><span class="card-status">Segera diisi</span></article>
-      <article class="room-card"><h3>Video</h3><p>Tayangan dari kanal Renungan Ilmu dan karya audiovisual terpilih.</p><span class="card-status">Segera diisi</span></article>
-      <article class="room-card"><h3>Catatan Suara</h3><p>Pemikiran yang disampaikan melalui suara, percakapan, dan narasi.</p><span class="card-status">Segera diisi</span></article>
-    </div><div class="room-note">Tidak semua pemikiran perlu berlari. Sebagian justru baru terlihat ketika kita cukup lama diam di dekatnya.</div>
+    <div class="room-grid room-index-cards">
+      <a class="room-card room-card-link" href="#renungan-list" data-scroll-target="renungan-list"><h3>Artikel</h3><p>Renungan tertulis yang mengajak pembaca berhenti dan melihat kembali.</p><span class="card-status" id="renungan-count">Memuat isi…</span></a>
+      <article class="room-card"><h3>Video</h3><p>Tayangan dari kanal Renungan Ilmu dan karya audiovisual terpilih.</p><span class="card-status">Belum ada konten</span></article>
+      <article class="room-card"><h3>Catatan Suara</h3><p>Pemikiran yang disampaikan melalui suara, percakapan, dan narasi.</p><span class="card-status">Belum ada konten</span></article>
+    </div>
+    <div class="room-content-heading"><p class="room-kicker">Koleksi</p><h3>Artikel Renungan</h3></div>
+    <div id="renungan-list" class="content-grid" aria-live="polite"></div>
+    <div class="room-note">Tidak semua pemikiran perlu berlari. Sebagian justru baru terlihat ketika kita cukup lama diam di dekatnya.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
   <section class="view room-shell" data-view="laku">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Laku</span></div>
-    <div class="room-hero room-hero-laku"><div><p class="room-kicker">Ruang 03</p><h2 class="room-title">Laku</h2></div><p class="room-desc">Pengetahuan diuji melalui tindakan, kebiasaan, keterampilan, dan kehidupan sehari-hari.</p></div>
+    <div class="room-hero room-hero-laku"><div><p class="room-kicker">Ruang 03</p><h2 class="room-title">Laku</h2></div><p class="room-desc">Ruang yang berisi praktik serta berbagai sarana untuk membantu seseorang menjalankannya.</p></div>
     <div class="room-grid">
       <a class="room-card room-card-link harvest-card" href="#app-library" data-route="app-library"><span class="harvest-label">Perangkat Laku</span><h3>App Library</h3><p>Kumpulan aplikasi interaktif untuk membaca alam, mengenali diri, mencatat kebiasaan, dan mengubah pengetahuan menjadi praktik.</p><span class="card-status">Masuk ke App Library</span></a>
       <article class="room-card"><h3>Panduan Laku</h3><p>Petunjuk praktis agar pengetahuan tidak berhenti sebagai bacaan atau gagasan yang tampak pintar di layar.</p><span class="card-status">Segera diisi</span></article>
       <article class="room-card"><h3>Catatan Praktik</h3><p>Jejak penerapan, pengamatan, dan pembelajaran yang muncul dari pengalaman sehari-hari.</p><span class="card-status">Segera diisi</span></article>
-    </div><div class="room-note">Di sinilah gagasan kehilangan hak istimewanya. Ia harus membuktikan diri dalam kehidupan.</div>
+    </div>
+    <div class="room-content-heading"><p class="room-kicker">Koleksi</p><h3>Praktik dan Sarana</h3></div>
+    <div id="laku-list" class="content-grid" aria-live="polite"></div>
+    <div class="room-note">Di sinilah gagasan kehilangan hak istimewanya. Ia harus membuktikan diri dalam kehidupan.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
@@ -946,8 +1181,8 @@ footer.global-footer::after {
     <div class="room-hero"><div><p class="room-kicker">Laku · Perangkat</p><h2 class="room-title">App Library</h2></div><p class="room-desc">Perangkat interaktif untuk membantu manusia mengamati, mencoba, mencatat, dan menjalani pengetahuan.</p></div>
     <div class="room-grid">
       <a class="room-card room-card-link harvest-card" href="apps/pranata-mangsa/index.html"><span class="harvest-label">Aplikasi aktif</span><h3>Kawruh Pranata Mangsa</h3><p>Membaca dua belas mangsa, sasmita alam, cuaca lokal, dan catatan pengamatan sebagai pengetahuan yang terus diuji dalam kehidupan.</p><span class="card-status">Buka aplikasi</span></a>
-      <article class="room-card"><h3>Titen Laku</h3><p>Alat bantu untuk melihat hubungan antara kebiasaan, latihan, kecenderungan diri, dan perubahan yang berlangsung.</p><span class="card-status">Dalam pengembangan</span></article>
-      <article class="room-card"><h3>Penjelajahan Diri</h3><p>Perangkat refleksi untuk mengenali kecenderungan kepribadian secara lebih jernih.</p><span class="card-status">Dalam pengembangan</span></article>
+      <a class="room-card room-card-link harvest-card" href="apps/titen-diri/index.html"><span class="harvest-label">Aplikasi aktif</span><h3>Titen Diri</h3><p>Mengamati laku dan tanda harian melalui empat lensa untuk menumbuhkan pemahaman dan membentuk arah laku.</p><span class="card-status">Buka aplikasi</span></a>
+      <a class="room-card room-card-link harvest-card" href="apps/penjelajahan-diri/index.html"><span class="harvest-label">Aplikasi aktif</span><h3>Penjelajahan Diri</h3><p>Perangkat refleksi untuk mengenali kecenderungan kepribadian secara lebih jernih.</p><span class="card-status">Buka aplikasi</span></a>
     </div>
     <div class="back-row"><button class="back-button" data-route="laku">← Kembali ke Laku</button></div>
   </section>
@@ -958,18 +1193,23 @@ footer.global-footer::after {
     <div class="room-grid">
       <a class="room-card room-card-link harvest-card" href="#project-portfolio" data-route="project-portfolio"><span class="harvest-label">Karya Terbangun</span><h3>Project Portfolio</h3><p>Proyek arsitektur, interior, visual, riset, dan eksperimen yang telah memperoleh tubuh dan dapat ditinjau sebagai karya.</p><span class="card-status">Buka portfolio</span></a>
       <a class="room-card room-card-link" href="#publikasi" data-route="publikasi"><h3>Publikasi</h3><p>Buku, booklet, presentasi, dan dokumen yang telah disusun.</p><span class="card-status">Lihat publikasi</span></a>
-    </div><div class="room-note">Karya bukan sekadar hasil akhir. Ia adalah jejak cara berpikir yang berhasil memperoleh tubuh.</div>
+    </div>
+    <div class="room-content-heading"><p class="room-kicker">Koleksi</p><h3>Seluruh Karya</h3></div>
+    <div id="karya-list" class="content-grid" aria-live="polite"></div>
+    <div class="room-note">Karya bukan sekadar hasil akhir. Ia adalah jejak cara berpikir yang berhasil memperoleh tubuh.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
   <section class="view room-shell" data-view="project-portfolio">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><span>Project Portfolio</span></div>
     <div class="room-hero"><div><p class="room-kicker">Karya · Portfolio</p><h2 class="room-title">Project Portfolio</h2></div><p class="room-desc">Kumpulan proyek yang memperlihatkan bagaimana gagasan, keterampilan, material, dan kebutuhan nyata dipertemukan.</p></div>
-    <div class="room-grid">
-      <article class="room-card"><h3>Arsitektur</h3><p>Ruang dan bangunan yang menyimpan gagasan, laku, serta cara hidup.</p><span class="card-status">Segera dikurasi</span></article>
+    <div class="room-grid portfolio-categories">
+      <article class="room-card"><h3>Arsitektur</h3><p>Ruang dan bangunan yang menyimpan gagasan, laku, serta cara hidup.</p><span id="portfolio-architecture-count" class="card-status">Memuat proyek…</span></article>
       <article class="room-card"><h3>Interior</h3><p>Ruang dalam yang dibentuk melalui fungsi, material, cahaya, dan pengalaman.</p><span class="card-status">Segera dikurasi</span></article>
       <article class="room-card"><h3>Visual & Sistem</h3><p>Infografis, ilustrasi, diagram, aplikasi, dan visualisasi pengetahuan.</p><span class="card-status">Segera dikurasi</span></article>
     </div>
+    <div class="room-content-heading portfolio-heading"><p class="room-kicker">Arsitektur</p><h3>Proyek Arsitektur</h3></div>
+    <div id="portfolio-architecture-list" class="content-grid" aria-live="polite"></div>
     <div class="back-row"><button class="back-button" data-route="karya">← Kembali ke Karya</button></div>
   </section>
 
@@ -990,6 +1230,8 @@ footer.global-footer::after {
       <a class="room-card room-card-link" href="#hasil-panen" data-route="hasil-panen"><h3>Hasil Panen</h3><p>Karya dan pengetahuan yang telah matang, siap dibaca, digunakan, atau dibawa pulang.</p><span class="card-status">Lihat hasil panen</span></a>
       <a class="room-card room-card-link" href="#gudang" data-route="gudang"><h3>Gudang</h3><p>Arsip, bahan, versi terdahulu, dan persediaan pengetahuan yang perlu tetap disimpan.</p><span class="card-status">Buka gudang</span></a>
     </div>
+    <div class="room-content-heading"><p class="room-kicker">Koleksi</p><h3>Catatan Kebun</h3></div>
+    <div id="kebun-list" class="content-grid" aria-live="polite"></div>
     <div class="room-note">Tidak semua bibit harus menjadi pohon. Kebun yang sehat juga tahu apa yang perlu dirawat, dipangkas, dipanen, dan disimpan.</div>
     <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
@@ -1031,7 +1273,7 @@ footer.global-footer::after {
     <div class="back-row"><button class="back-button" id="content-back" data-route="pendopo">← Kembali</button></div>
   </section>
 
-  <footer class="global-footer"><span>Bhumi Wanaprastha v0.9 · Tahap 4.2</span><span>Pengetahuan yang menjadi laku.</span></footer>
+  <footer class="global-footer"><span>Bhumi Wanaprastha v0.9 · Batch 3 Review 2</span><span>Pengetahuan yang menjadi laku.</span></footer>
 </main>
 <script src="content/_generated/content-manifest.js"></script>
 <script src="content/content.js"></script>
@@ -1049,7 +1291,8 @@ footer.global-footer::after {
   const relationLabels = {'related':'Berkaitan dengan','extends':'Memperluas','derived-from':'Dikembangkan dari','applies-to':'Diterapkan pada','references':'Merujuk','contrasts':'Sudut pandang berbeda','continues':'Melanjutkan','precedes':'Mendahului','implemented-by':'Diwujudkan melalui','see-also':'Lihat juga','inspires':'Menginspirasi','becomes-practice':'Menjadi laku','produces-work':'Melahirkan karya','verified-by':'Dibuktikan melalui','observed-through':'Diamati melalui'};
   const data = {
     ideas: nodes.filter(x => x.section === 'gagasan'),
-    publications: nodes.filter(x => x.type === 'publikasi' || x.section === 'karya')
+    publications: nodes.filter(x => x.type === 'publikasi' || x.section === 'karya'),
+    byRoom: Object.fromEntries(['gagasan','renungan','laku','karya','kebun'].map(room => [room, nodes.filter(x => x.section === room && x.status !== 'draft')]))
   };
   if (!data.ideas.length) data.ideas = legacy.ideas || [];
   if (!data.publications.length) data.publications = legacy.publications || [];
@@ -1059,6 +1302,21 @@ footer.global-footer::after {
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   }[ch]));
+
+  function youtubeId(url='') {
+    const m=String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
+    return m ? m[1] : '';
+  }
+  function mediaThumbnail(item) {
+    const id=youtubeId(item.youtube);
+    return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : (item.thumbnail||item.cover||item.hero||'');
+  }
+  function renderPrimaryMedia(item) {
+    const id=youtubeId(item.youtube);
+    if(item.type==='video' && id) return `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${escapeHTML(id)}" title="${escapeHTML(item.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+    const cover=item.cover||item.hero||'';
+    return cover ? `<div class="article-cover" style="background-image:url('${escapeHTML(cover)}')" role="img" aria-label="Sampul ${escapeHTML(item.title)}"></div>` : '';
+  }
 
   const spaceOrder = ['gagasan','renungan','laku','karya','kebun'];
   const spaceNames = {gagasan:'Gagasan',renungan:'Renungan',laku:'Laku',karya:'Karya',kebun:'Kebun'};
@@ -1096,6 +1354,10 @@ footer.global-footer::after {
     return nodes.filter(n=>visited.has(n.id));
   }
 
+  function accordion(title, subtitle, content, open=false) {
+    return `<details class="knowledge-accordion" ${open?'open':''}><summary><span><strong>${escapeHTML(title)}</strong>${subtitle?`<small>${escapeHTML(subtitle)}</small>`:''}</span><span class="accordion-mark" aria-hidden="true">+</span></summary><div class="knowledge-accordion-body">${content}</div></details>`;
+  }
+
   function renderKnowledgeJourney(item) {
     const component=connectedKnowledge(item);
     const stages=spaceOrder.map(space=>{
@@ -1109,13 +1371,14 @@ footer.global-footer::after {
     const before=links.filter(x=>spaceOrder.indexOf(x.target.section)<spaceOrder.indexOf(item.section));
     const after=links.filter(x=>spaceOrder.indexOf(x.target.section)>spaceOrder.indexOf(item.section));
     const linkList=(arr,empty)=>arr.length?arr.map(({rel,target})=>`<a href="#${escapeHTML(target.route)}" data-route="${escapeHTML(target.route)}"><strong>${escapeHTML(target.title)}</strong><br><small>${escapeHTML(rel.label||relationLabels[rel.type]||rel.type)}</small></a>`).join(''):`<span class="empty">${empty}</span>`;
-    return `<section class="knowledge-journey" aria-label="Jejak Pengetahuan"><div class="knowledge-journey-head"><div><h3>Jejak Pengetahuan</h3><p>Alur konseptual yang menghubungkan node ini dengan ruang lain.</p></div><span class="knowledge-type">${escapeHTML(spaceNames[item.section]||item.section)} · ${escapeHTML(item.type)}</span></div><div class="knowledge-track">${stages}</div><div class="knowledge-direction"><div class="knowledge-direction-card"><h4>Berasal dan berkembang dari</h4>${linkList(before,'Belum ada node asal yang dicatat.')}</div><div class="knowledge-direction-card"><h4>Bergerak dan diterapkan menuju</h4>${linkList(after,'Belum ada lanjutan yang dicatat.')}</div></div></section>`;
+    const content=`<div class="knowledge-journey" aria-label="Jejak Pengetahuan"><div class="knowledge-journey-head"><span class="knowledge-type">${escapeHTML(spaceNames[item.section]||item.section)} · ${escapeHTML(item.type)}</span></div><div class="knowledge-track">${stages}</div><div class="knowledge-direction"><div class="knowledge-direction-card"><h4>Berasal dan berkembang dari</h4>${linkList(before,'Belum ada node asal yang dicatat.')}</div><div class="knowledge-direction-card"><h4>Bergerak dan diterapkan menuju</h4>${linkList(after,'Belum ada lanjutan yang dicatat.')}</div></div></div>`;
+    return accordion('Jejak Pengetahuan','Hubungan konseptual dengan ruang lain',content);
   }
 
   function renderRelatedContent(item) {
     const ranked=nodes.map(target=>({target,...relatedScore(item,target)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score || String(b.target.date).localeCompare(String(a.target.date))).slice(0,6);
-    if(!ranked.length) return '<section class="related-content"><h3>Jelajahi Selanjutnya</h3><p class="knowledge-empty">Belum ada konten terkait. Jaringan ini akan tumbuh bersama isinya.</p></section>';
-    return `<section class="related-content"><h3>Jelajahi Selanjutnya</h3><p class="related-intro">Dipilih dari relasi yang dicatat, tag bersama, ruang, dan jenis konten.</p><div class="related-grid">${ranked.map(({target,reasons})=>`<a class="related-card" href="#${escapeHTML(target.route)}" data-route="${escapeHTML(target.route)}"><small>${escapeHTML(spaceNames[target.section]||target.section)} · ${escapeHTML(target.type)}</small><strong>${escapeHTML(target.title)}</strong><span>${escapeHTML(reasons.slice(0,2).join(' · '))}</span></a>`).join('')}</div></section>`;
+    const content=!ranked.length?'<p class="knowledge-empty">Belum ada konten terkait. Jaringan ini akan tumbuh bersama isinya.</p>':`<p class="related-intro">Dipilih dari relasi yang dicatat, tag bersama, ruang, dan jenis konten.</p><div class="related-grid">${ranked.map(({target,reasons})=>`<a class="related-card" href="#${escapeHTML(target.route)}" data-route="${escapeHTML(target.route)}"><small>${escapeHTML(spaceNames[target.section]||target.section)} · ${escapeHTML(target.type)}</small><strong>${escapeHTML(target.title)}</strong><span>${escapeHTML(reasons.slice(0,2).join(' · '))}</span></a>`).join('')}</div>`;
+    return accordion('Jelajahi Selanjutnya','Konten yang paling dekat dengan tulisan ini',content);
   }
 
   function renderKnowledgeLinks(item) {
@@ -1156,18 +1419,42 @@ footer.global-footer::after {
     return `<section class="recipe-block">${item.duration?`<span class="recipe-duration">Durasi: ${escapeHTML(item.duration)}</span>`:''}<div class="recipe-columns">${list('Bahan',item.ingredients)}${list('Peralatan',item.tools)}</div>${item.steps?.length?`<h3>Langkah</h3><ol class="recipe-list">${item.steps.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ol>`:''}<div class="recipe-columns">${list('Manfaat yang Dicatat',item.benefits)}${list('Kehati-hatian',item.cautions)}</div></section>`;
   }
 
-  function renderIdeas() {
-    const host = document.getElementById('idea-list');
+  function renderRoomIndex(room) {
+    const host = document.getElementById(`${room}-list`);
     if (!host) return;
-    host.innerHTML = data.ideas.map(item => `
+    const items=(data.byRoom?.[room]||[]).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    host.innerHTML = items.length ? items.map(item => `
       <a class="room-card room-card-link idea-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">
-        <p class="publication-label">${escapeHTML(item.type)}</p>
+        ${mediaThumbnail(item)?`<div class="room-card-media ${item.type==='video'?'video':''}" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}
+        <div class="room-card-type"><p class="publication-label">${escapeHTML(item.type)}</p>${item.language&&item.language!=='id'?`<span class="language-badge">${escapeHTML(item.language)}</span>`:''}</div>
         <h3>${escapeHTML(item.title)}</h3>
         <p>${escapeHTML(item.summary)}</p>
         <div class="idea-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
-        <span class="card-status">${escapeHTML(item.status)}</span>
-      </a>`).join('');
+        <span class="card-status">${item.type==='video'?'Tonton video':'Baca tulisan'}</span>
+      </a>`).join('') : '<div class="placeholder-panel"><strong>Belum ada konten.</strong><span>Ruang ini siap menerima file Markdown berikutnya.</span></div>';
+    const count=document.getElementById(`${room}-count`);
+    if(count) count.textContent=`${items.length} konten tersedia`;
   }
+
+  function renderProjectPortfolio(){
+    const host=document.getElementById('portfolio-architecture-list');
+    const count=document.getElementById('portfolio-architecture-count');
+    if(!host) return;
+    const architectureTerms=['arsitektur','arsitektur-kontekstual','adaptive-reuse','renovasi','rumah','bangunan'];
+    const projects=nodes.filter(item=>item.section==='karya' && ['proyek','project'].includes(String(item.type||'').toLowerCase()) && tagsOf(item).some(tag=>architectureTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    if(count) count.textContent=projects.length?`${projects.length} proyek tersedia`:'Belum ada proyek';
+    host.innerHTML=projects.length?projects.map(item=>`
+      <a class="room-card room-card-link idea-card portfolio-project-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">
+        ${mediaThumbnail(item)?`<div class="room-card-media" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}
+        <p class="publication-label">${escapeHTML(item.type)}</p>
+        <h3>${escapeHTML(item.title)}</h3>
+        <p>${escapeHTML(item.summary)}</p>
+        <div class="idea-tags">${tagsOf(item).slice(0,5).map(tag=>`<span>${escapeHTML(tag)}</span>`).join('')}</div>
+        <span class="card-status">Buka proyek</span>
+      </a>`).join(''):'<div class="placeholder-panel"><strong>Belum ada proyek arsitektur.</strong><span>Proyek bertipe proyek dengan tag arsitektur akan muncul otomatis di sini.</span></div>';
+  }
+
+  function renderAllRoomIndexes(){ ['gagasan','renungan','laku','karya','kebun'].forEach(renderRoomIndex); renderProjectPortfolio(); }
 
   function renderIdeaDetail() {
     const host = document.getElementById('idea-detail');
@@ -1180,7 +1467,7 @@ footer.global-footer::after {
         <p class="article-deck">${escapeHTML(item.deck)}</p>
         <div class="article-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
       </header>
-      ${renderKnowledgeJourney(item)}<div class="article-body">${item.body}</div>${renderRecipeData(item)}${renderKnowledgeLinks(item)}${renderRelatedContent(item)}`;
+      ${renderPrimaryMedia(item)}<div class="article-body">${item.body}</div>${renderRecipeData(item)}${renderKnowledgeJourney(item)}${renderRelatedContent(item)}`;
   }
 
   function renderGenericContent(item) {
@@ -1199,8 +1486,8 @@ footer.global-footer::after {
         ${item.subtitle ? `<p class="article-deck">${escapeHTML(item.subtitle)}</p>` : `<p class="article-deck">${escapeHTML(item.deck || item.summary)}</p>`}
         <div class="article-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
       </header>
-      ${renderKnowledgeJourney(item)}<div class="article-body">${item.body || ''}</div>${renderRecipeData(item)}
-      ${item.download ? `<div class="publication-actions"><a class="publication-button primary" href="${escapeHTML(item.download)}" target="_blank" rel="noopener">Buka karya →</a></div>` : ''}${renderKnowledgeLinks(item)}${renderRelatedContent(item)}`;
+      ${item.language&&item.language!=='id'?`<span class="language-badge">${escapeHTML(item.language)}</span>`:''}${renderPrimaryMedia(item)}<div class="article-body">${item.body || ''}</div>${renderRecipeData(item)}
+      ${item.download ? `<div class="publication-actions"><a class="publication-button primary" href="${escapeHTML(item.download)}" target="_blank" rel="noopener">Buka karya →</a></div>` : ''}${renderKnowledgeJourney(item)}${renderRelatedContent(item)}`;
   }
 
   function renderPublications() {
@@ -1222,18 +1509,42 @@ footer.global-footer::after {
       </article>`).join('');
   }
 
+  const harvestTypeLabels = {
+    pdf:'PDF', image:'Gambar', video:'Video', html:'Aplikasi', app:'Aplikasi', url:'Tautan', website:'Website', zip:'Arsip ZIP', markdown:'Markdown', dataset:'Dataset', file:'Berkas'
+  };
+  const harvestActionLabels = {
+    pdf:'Petik PDF', image:'Lihat Ilustrasi', video:'Tonton Video', html:'Buka Aplikasi', app:'Buka Aplikasi', url:'Kunjungi', website:'Kunjungi Website', zip:'Unduh ZIP', markdown:'Baca Markdown', dataset:'Buka Dataset', file:'Buka Karya'
+  };
+  function harvestInfo(item) {
+    const type=String(item.harvestType||item.contentType||item.type||'file').toLowerCase();
+    const normalized=type==='gambar'?'image':type==='publikasi'?'pdf':type==='project'?'file':type;
+    const target=item.harvestTarget||item.download||item.target||item.cover||item.thumbnail||`#${item.route}`;
+    const action=item.harvestAction||harvestActionLabels[normalized]||'Buka Karya';
+    const label=item.harvestLabel||harvestTypeLabels[normalized]||normalized;
+    return {type:normalized,target,action,label};
+  }
+
   function renderHarvest() {
     const host = document.getElementById('harvest-grid');
     if (!host) return;
-    host.innerHTML = data.publications.map(item => `
-      <article class="harvest-item" id="panen-${escapeHTML(item.id)}">
-        <div class="harvest-thumb" role="img" aria-label="Visual ${escapeHTML(item.title)}" style="background-image:url('${escapeHTML(item.thumbnail)}')"></div>
-        <span class="harvest-label">Hasil panen · PDF</span>
+    host.innerHTML = data.publications.map(item => {
+      const info=harvestInfo(item);
+      const cover=item.cover||item.thumbnail||'';
+      const thumb=cover
+        ? `<div class="harvest-thumb" role="img" aria-label="Visual ${escapeHTML(item.title)}" style="background-image:url('${escapeHTML(cover)}')"></div>`
+        : `<div class="harvest-thumb is-placeholder" role="img" aria-label="Visual belum tersedia untuk ${escapeHTML(item.title)}"></div>`;
+      const action=info.target
+        ? `<a class="publication-button primary" href="${escapeHTML(info.target)}" ${info.target.startsWith('#')?'data-route="'+escapeHTML(item.route)+'"':'target="_blank" rel="noopener"'}>${escapeHTML(info.action)}</a>`
+        : '';
+      return `<article class="harvest-item" id="panen-${escapeHTML(item.id)}">
+        ${thumb}
+        <span class="harvest-label">Hasil panen · ${escapeHTML(info.label)}</span>
         <h3>${escapeHTML(item.title)}</h3>
         <p>${escapeHTML(item.harvestSummary || item.summary)}</p>
-        <div class="publication-meta">${item.harvestMeta.map(x => `<span>${escapeHTML(x)}</span>`).join('')}</div>
-        <div class="publication-actions"><a class="publication-button primary" href="${escapeHTML(item.download)}" target="_blank" rel="noopener">Petik PDF</a></div>
-      </article>`).join('');
+        ${item.harvestMeta?.length?`<div class="publication-meta">${item.harvestMeta.map(x => `<span>${escapeHTML(x)}</span>`).join('')}</div>`:''}
+        ${action?`<div class="publication-actions">${action}</div>`:''}
+      </article>`;
+    }).join('');
   }
 
   function show(route, push = true, targetId = '') {
@@ -1263,7 +1574,7 @@ footer.global-footer::after {
     }
   }
 
-  renderIdeas();
+  renderAllRoomIndexes();
   renderIdeaDetail();
   renderPublications();
   renderHarvest();
@@ -1273,6 +1584,8 @@ footer.global-footer::after {
   document.getElementById('search-filters')?.addEventListener('click', e => { const b=e.target.closest('[data-search-space]'); if(!b)return; activeSearchSpace=b.dataset.searchSpace; renderSearchFilters(); renderSearch(document.getElementById('knowledge-search')?.value||''); });
 
   document.addEventListener('click', e => {
+    const scroller=e.target.closest('[data-scroll-target]');
+    if(scroller){e.preventDefault();document.getElementById(scroller.dataset.scrollTarget)?.scrollIntoView({behavior:'smooth',block:'start'});return;}
     const harvest = e.target.closest('[data-harvest]');
     if (harvest) {
       e.preventDefault();
@@ -1292,6 +1605,14 @@ footer.global-footer::after {
 
   window.addEventListener('popstate', () => show(location.hash.slice(1) || 'pendopo', false));
   show(location.hash.slice(1) || 'pendopo', false);
+
+  // Top bar auto-hide while reading; returns immediately when scrolling upward.
+  const siteHeader=document.querySelector('.site-nav'); let lastScroll=window.scrollY;
+  window.addEventListener('scroll',()=>{
+    const current=window.scrollY;
+    if(siteHeader) siteHeader.classList.toggle('is-hidden', current>120 && current>lastScroll);
+    lastScroll=current;
+  },{passive:true});
 })();
 </script>
 </body>

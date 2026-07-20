@@ -1,7 +1,7 @@
 {
   "name": "bhumi-wanaprastha",
   "private": true,
-  "version": "0.9.0-stage.4.3",
+  "version": "0.9.0-batch.3",
   "scripts": {
     "build:content": "node scripts/build-content.mjs"
   }

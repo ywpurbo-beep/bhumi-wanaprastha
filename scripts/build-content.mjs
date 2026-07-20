@@ -1,11 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const root = path.resolve(__dirname, '..');
 const contentDir = path.join(root, 'content');
 const output = path.join(contentDir, '_generated', 'content-manifest.js');
 const allowedRelationTypes = new Set(['related','extends','derived-from','applies-to','references','contrasts','continues','precedes','implemented-by','see-also','inspires','becomes-practice','produces-work','verified-by','observed-through']);
-const listFields = new Set(['ingredients','tools','steps','benefits','cautions','meta','harvestMeta']);
+const listFields = new Set(['ingredients','tools','steps','benefits','cautions','meta','harvestMeta','tags','related','references']);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 function scalar(value='') {
@@ -39,9 +42,12 @@ function parseFrontmatter(source, file) {
     }
     if (section === 'tags') {
       const group = line.match(/^(primary|secondary):\s*$/);
-      if (group) { data.tags[group[1]] = []; relation = group[1]; continue; }
+      if (group) { if(Array.isArray(data.tags)) data.tags={primary:[],secondary:[]}; data.tags[group[1]] = []; relation = group[1]; continue; }
       const item = line.match(/^[-]\s+(.+)$/);
-      if (item && relation) data.tags[relation].push(scalar(item[1]));
+      if (item) {
+        if(relation && !Array.isArray(data.tags)) data.tags[relation].push(scalar(item[1]));
+        else if(Array.isArray(data.tags)) data.tags.push(scalar(item[1]));
+      }
       continue;
     }
     if (section === 'relations') {
@@ -60,7 +66,7 @@ function parseFrontmatter(source, file) {
   return {data, body: source.slice(end + 4).trim()};
 }
 
-function inline(text) { return esc(text).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>'); }
+function inline(text) { return esc(text).replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1" loading="lazy">').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>'); }
 function markdown(md) {
   const lines=md.replace(/\r/g,'').split('\n'); const out=[]; let para=[]; let list=null;
   const fp=()=>{if(para.length){out.push(`<p>${inline(para.join(' '))}</p>`);para=[];}}; const fl=()=>{if(list){out.push(`</${list}>`);list=null;}};
@@ -83,17 +89,21 @@ function walk(dir) {
 const ids = new Set();
 const items = walk(contentDir).map(file=>{
   const {data,body}=parseFrontmatter(fs.readFileSync(file,'utf8'),file);
-  const rel=path.relative(contentDir,file).split(path.sep); const section=data.section||rel[0]; const filename=path.basename(file,'.md');
+  const rel=path.relative(contentDir,file).split(path.sep); const section=data.section||data.room||rel[0]; const filename=path.basename(file,'.md');
   const slug=data.slug || (filename==='index'?path.basename(path.dirname(file)):filename);
-  for(const key of ['id','title','summary','author','date','type','status']) if(!data[key]) throw new Error(`${key} wajib di ${file}`);
+  data.id=data.id||slug; data.status=data.status||'published'; data.summary=data.summary||data.deck||''; data.author=data.author||'Anonim';
+  for(const key of ['id','title','date','type','status']) if(!data[key]) throw new Error(`${key} wajib di ${file}`);
   if(ids.has(data.id)) throw new Error(`ID ganda: ${data.id}`); ids.add(data.id);
   if(!/^\d{4}-\d{2}-\d{2}$/.test(String(data.date))) throw new Error(`Tanggal harus YYYY-MM-DD di ${file}`);
   const tags = data.tags && !Array.isArray(data.tags) ? data.tags : {primary:Array.isArray(data.tags)?data.tags:[],secondary:[]};
-  if((tags.primary||[]).length>3) throw new Error(`Tag utama maksimal 3 di ${file}`);
+  const simpleRelated=Array.isArray(data.related)?data.related.filter(Boolean).map(id=>({id,type:'related'})):[];
+  data.relations=[...(data.relations||[]),...simpleRelated.filter(r=>!(data.relations||[]).some(x=>x.id===r.id))];
+  if((tags.primary||[]).length>8) throw new Error(`Tag maksimal 8 di ${file}`);
   for(const r of (data.relations||[])) if(!allowedRelationTypes.has(r.type)) throw new Error(`Relasi tidak valid '${r.type}' di ${file}`);
   return {id:data.id,slug,route:data.route||`konten/${slug}`,section,title:data.title,summary:data.summary,deck:data.deck||data.summary,author:data.author,date:data.date,
     tags:{primary:tags.primary||[],secondary:tags.secondary||[]},allTags:[...(tags.primary||[]),...(tags.secondary||[])],relations:data.relations||[],type:data.type,status:data.status,
-    featured:Boolean(data.featured),cover:data.cover||'',label:data.label||data.type,subtitle:data.subtitle||'',thumbnail:data.thumbnail||data.cover||'',download:data.download||'',
+    featured:Boolean(data.featured),language:data.language||'id',youtube:data.youtube||'',hero:data.hero||'',cover:data.cover||data.hero||'',label:data.label||data.type,subtitle:data.subtitle||'',thumbnail:data.thumbnail||data.cover||data.hero||'',download:data.download||'',
+    harvestType:data.harvestType||data.contentType||'',harvestTarget:data.harvestTarget||data.target||'',harvestAction:data.harvestAction||'',harvestLabel:data.harvestLabel||'',
     meta:Array.isArray(data.meta)?data.meta:[],harvestSummary:data.harvestSummary||data.summary,harvestMeta:Array.isArray(data.harvestMeta)?data.harvestMeta:[],
     ingredients:Array.isArray(data.ingredients)?data.ingredients:[],tools:Array.isArray(data.tools)?data.tools:[],steps:Array.isArray(data.steps)?data.steps:[],
     duration:data.duration||'',benefits:Array.isArray(data.benefits)?data.benefits:[],cautions:Array.isArray(data.cautions)?data.cautions:[],
@@ -101,6 +111,6 @@ const items = walk(contentDir).map(file=>{
 }).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
 
 for(const item of items) for(const r of item.relations) if(!ids.has(r.id)) console.warn(`Peringatan: relasi ${item.id} -> ${r.id} belum memiliki node tujuan.`);
-const manifest={version:'0.9-stage-4.3',generatedAt:new Date().toISOString(),relationTypes:[...allowedRelationTypes],items};
+const manifest={version:'0.9-batch-3',generatedAt:new Date().toISOString(),relationTypes:[...allowedRelationTypes],items};
 fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,`window.BW_CONTENT_V08 = ${JSON.stringify(manifest,null,2)};\n`);
 console.log(`Generated ${items.length} knowledge nodes -> ${path.relative(root,output)}`);

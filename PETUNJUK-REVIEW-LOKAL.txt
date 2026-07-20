@@ -1,0 +1,17 @@
+BHUMI WANAPRASTHA - REVIEW LOKAL
+
+1. Pastikan laptop dan ponsel memakai Wi-Fi yang sama.
+2. Klik dua kali START REVIEW.bat.
+3. Browser laptop akan terbuka otomatis.
+4. Pada jendela hitam akan tampil alamat ponsel, misalnya:
+   http://192.168.1.25:8080
+5. Buka alamat tersebut di Chrome ponsel.
+6. Biarkan jendela server tetap terbuka selama review.
+7. Untuk berhenti, tekan Ctrl+C pada jendela server atau klik STOP REVIEW.bat.
+
+Setelah mengubah file Markdown:
+- Simpan file.
+- Klik UPDATE CONTENT.bat.
+- Refresh browser laptop atau ponsel.
+
+START REVIEW.bat juga selalu menjalankan update konten sebelum server dimulai.
