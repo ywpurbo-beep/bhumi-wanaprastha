@@ -1037,6 +1037,12 @@ footer.global-footer{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
 [data-view="gagasan"] .room-grid { margin-top: 48px; }
 .portfolio-heading { margin-top: 48px; }
 .portfolio-project-card { min-height: 100%; }
+.portfolio-category-card{position:relative;overflow:hidden;min-height:230px;padding-top:112px;background-color:rgba(255,255,255,.48);background-image:linear-gradient(to bottom,rgba(249,246,238,.05) 0%,rgba(249,246,238,.38) 52%,var(--paper) 100%);background-repeat:no-repeat;background-size:cover;background-position:center 26%;}
+.portfolio-category-card::before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(249,246,238,.38));pointer-events:none;}
+.portfolio-category-card>*{position:relative;z-index:1}.portfolio-category-architecture{background-image:linear-gradient(to bottom,rgba(249,246,238,.05) 0%,rgba(249,246,238,.38) 52%,var(--paper) 100%),url('assets/images/portfolio/portfolio-architecture-bg.webp');background-position:center 38%}.portfolio-category-interior{background-image:linear-gradient(to bottom,rgba(249,246,238,.05) 0%,rgba(249,246,238,.38) 52%,var(--paper) 100%),url('assets/images/portfolio/portfolio-interior-bg.webp');background-position:center 42%}.portfolio-category-visual{background-image:linear-gradient(to bottom,rgba(249,246,238,.05) 0%,rgba(249,246,238,.38) 52%,var(--paper) 100%),url('assets/images/portfolio/portfolio-visual-system-bg.webp');background-position:center 36%}
+.category-empty{margin-top:20px}.category-empty strong{font-weight:500}
+@media(max-width:760px){.portfolio-category-card{min-height:215px;padding-top:104px;background-size:125% auto}}
+
 
 .knowledge-accordion {
   margin-top: 24px;
@@ -1102,6 +1108,64 @@ footer.global-footer::after {
     background-position: center bottom !important;
   }
 }
+
+/* ===== Tahap A Final-2 · Background terpadu subruang Kebun ===== */
+.kebun-index-card {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:360px;
+  padding:30px 27px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background-size:cover;
+  background-position:center 62%;
+  background-repeat:no-repeat;
+}
+.kebun-index-card::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  height:auto;
+  background:linear-gradient(
+    to bottom,
+    rgba(247,243,234,.03) 0%,
+    rgba(247,243,234,.12) 38%,
+    rgba(247,243,234,.78) 67%,
+    rgba(247,243,234,.97) 88%,
+    rgba(247,243,234,.99) 100%
+  );
+  pointer-events:none;
+}
+.kebun-index-card h3,
+.kebun-index-card p,
+.kebun-index-card .card-status { position:relative; z-index:1; }
+.kebun-index-card h3 { margin-top:0; }
+.kebun-index-pasemaian,
+.room-card.kebun-index-pasemaian:hover { background-image:url('assets/images/kebun/pasemaian.webp'); }
+.kebun-index-hasil-panen,
+.room-card.kebun-index-hasil-panen:hover { background-image:url('assets/images/kebun/hasil-panen.webp'); }
+.kebun-index-gudang,
+.room-card.kebun-index-gudang:hover { background-image:url('assets/images/kebun/gudang.webp'); }
+.room-card.kebun-index-card:hover {
+  background-size:cover;
+  background-position:center 62%;
+  background-repeat:no-repeat;
+}
+@media (max-width:760px){
+  .kebun-index-card {
+    min-height:330px;
+    padding:27px 24px;
+    background-position:center 60%;
+  }
+  .room-card.kebun-index-card:hover { background-position:center 60%; }
+}
+
+/* ===== Tahap A Final-2 · Tanya Bhumi ===== */
+.ask-bhumi-card{margin:34px auto 0;max-width:1180px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);align-items:center;gap:28px;padding:34px;border:1px solid rgba(70,62,48,.15);border-radius:24px;background:rgba(255,255,255,.34);text-decoration:none;color:inherit;box-shadow:0 14px 40px rgba(55,48,37,.06);transition:transform .2s ease,box-shadow .2s ease}.ask-bhumi-card:hover{transform:translateY(-3px);box-shadow:0 18px 46px rgba(55,48,37,.1)}.ask-bhumi-card h2{margin:4px 0 10px;font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.7rem);font-weight:500}.ask-bhumi-card p{margin:0;max-width:650px;line-height:1.75}.ask-bhumi-card .enter{display:inline-block;margin-top:18px}.ask-bhumi-visual{min-height:210px;background:url('assets/images/tanya-bhumi/ask-bhumi-illustration.webp') center/contain no-repeat}.ask-bhumi-placeholder{max-width:820px;margin:36px auto;padding:42px;border:1px solid rgba(70,62,48,.14);border-radius:22px;background:rgba(255,255,255,.34);text-align:center}.ask-bhumi-placeholder img{display:block;width:min(100%,620px);margin:0 auto 24px;border-radius:18px}.ask-bhumi-placeholder h3{font-family:Georgia,serif;font-size:2rem;font-weight:500;margin:0 0 12px}.ask-bhumi-placeholder p{line-height:1.75;margin:0 auto;max-width:620px}@media(max-width:760px){.ask-bhumi-card{grid-template-columns:1fr;padding:26px}.ask-bhumi-visual{min-height:180px;order:-1}}
+
 </style>
 </head>
 <body>
@@ -1129,7 +1193,7 @@ footer.global-footer::after {
         <div class="logo" role="img" aria-label="Logo Bhumi Wanaprastha"></div>
         <p class="eyebrow">Pendopo</p>
         <h1 id="judul">Bhumi<br>Wanaprastha</h1>
-        <p class="subtitle">Sebuah ruang untuk mengembangkan pengetahuan melalui laku.</p>
+        <p class="subtitle">Sebuah ruang belajar terbuka tentang manusia, alam, dan pengetahuan.<br><span>Tempat pengetahuan bertumbuh menjadi laku.</span></p>
         <a class="invitation" href="#ruang">Memasuki Pendopo <b>↓</b></a>
       </div>
     </section>
@@ -1157,7 +1221,21 @@ footer.global-footer::after {
       </a>
     </section>
 
+
+    <a class="ask-bhumi-card" href="#tanya-bhumi" data-route="tanya-bhumi">
+      <div><span class="small">Percakapan Pengetahuan</span><h2>Tanya Bhumi</h2><p>Ruang untuk menelusuri isi Bhumi melalui pertanyaan. Ketika belum tahu, Bhumi tidak mengarang jawaban, melainkan mengajak mencari dan menanam benih pertanyaan baru.</p><span class="enter">Mengenal Tanya Bhumi →</span></div>
+      <div class="ask-bhumi-visual" role="img" aria-label="Ilustrasi Tanya Bhumi"></div>
+    </a>
+
     <section class="manifesto"><blockquote>“Tidak semua pengetahuan tumbuh di dalam buku. Sebagiannya tumbuh di dalam laku.”</blockquote><cite>Bhumi Wanaprastha</cite></section>
+  </section>
+
+
+  <section class="view room-shell" data-view="tanya-bhumi">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Tanya Bhumi</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Embrio Fitur</p><h2 class="room-title">Tanya Bhumi</h2></div><p class="room-desc">Jalur percakapan untuk membantu pengunjung menemukan hubungan antargagasan, renungan, laku, karya, dan isi kebun.</p></div>
+    <div class="ask-bhumi-placeholder"><img src="assets/images/tanya-bhumi/ask-bhumi-illustration.webp" alt="Ilustrasi percakapan Tanya Bhumi"><h3>Sedang ditumbuhkan</h3><p>Pada tahap berikutnya, Tanya Bhumi akan membaca pengetahuan yang telah tersedia di dalam situs, menjawab berdasarkan sumber Bhumi, dan mengakui ketika jawabannya belum ada. Pertanyaan yang berulang dapat disimpan sebagai <em>Benih Pertanyaan</em> untuk membantu menentukan arah pengembangan konten.</p></div>
+    <div class="back-row"><button class="back-button" data-route="pendopo">← Kembali ke Pendopo</button></div>
   </section>
 
   <section class="view room-shell" data-view="gagasan">
@@ -1230,13 +1308,32 @@ footer.global-footer::after {
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><span>Project Portfolio</span></div>
     <div class="room-hero"><div><p class="room-kicker">Karya · Portfolio</p><h2 class="room-title">Project Portfolio</h2></div><p class="room-desc">Kumpulan proyek yang memperlihatkan bagaimana gagasan, keterampilan, material, dan kebutuhan nyata dipertemukan.</p></div>
     <div class="room-grid portfolio-categories">
-      <article class="room-card"><h3>Arsitektur</h3><p>Ruang dan bangunan yang menyimpan gagasan, laku, serta cara hidup.</p><span id="portfolio-architecture-count" class="card-status">Memuat proyek…</span></article>
-      <article class="room-card"><h3>Interior</h3><p>Ruang dalam yang dibentuk melalui fungsi, material, cahaya, dan pengalaman.</p><span class="card-status">Segera dikurasi</span></article>
-      <article class="room-card"><h3>Visual & Sistem</h3><p>Infografis, ilustrasi, diagram, aplikasi, dan visualisasi pengetahuan.</p><span class="card-status">Segera dikurasi</span></article>
+      <a class="room-card room-card-link portfolio-category-card portfolio-category-architecture" href="#portfolio-architecture" data-route="portfolio-architecture"><h3>Arsitektur</h3><p>Ruang dan bangunan yang menyimpan gagasan, laku, serta cara hidup.</p><span id="portfolio-architecture-count" class="card-status">Memuat karya…</span></a>
+      <a class="room-card room-card-link portfolio-category-card portfolio-category-interior" href="#portfolio-interior" data-route="portfolio-interior"><h3>Interior</h3><p>Ruang dalam yang dibentuk melalui fungsi, material, cahaya, dan pengalaman.</p><span id="portfolio-interior-count" class="card-status">Sedang bertumbuh</span></a>
+      <a class="room-card room-card-link portfolio-category-card portfolio-category-visual" href="#portfolio-visual" data-route="portfolio-visual"><h3>Visual &amp; Sistem</h3><p>Infografis, ilustrasi, diagram, aplikasi, dan visualisasi pengetahuan.</p><span id="portfolio-visual-count" class="card-status">Memuat karya…</span></a>
     </div>
-    <div class="room-content-heading portfolio-heading"><p class="room-kicker">Arsitektur</p><h3>Proyek Arsitektur</h3></div>
-    <div id="portfolio-architecture-list" class="content-grid" aria-live="polite"></div>
     <div class="back-row"><button class="back-button" data-route="karya">← Kembali ke Karya</button></div>
+  </section>
+
+  <section class="view room-shell" data-view="portfolio-architecture">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><button data-route="project-portfolio">Project Portfolio</button><span>›</span><span>Arsitektur</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Portfolio · Arsitektur</p><h2 class="room-title">Arsitektur</h2></div><p class="room-desc">Karya ruang dan bangunan yang lahir dari pertemuan konteks, kebutuhan, material, dan cara hidup.</p></div>
+    <div id="portfolio-architecture-list" class="content-grid" aria-live="polite"></div>
+    <div class="back-row"><button class="back-button" data-route="project-portfolio">← Kembali ke Project Portfolio</button></div>
+  </section>
+
+  <section class="view room-shell" data-view="portfolio-interior">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><button data-route="project-portfolio">Project Portfolio</button><span>›</span><span>Interior</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Portfolio · Interior</p><h2 class="room-title">Interior</h2></div><p class="room-desc">Ruang dalam yang dibentuk melalui fungsi, material, cahaya, suasana, dan pengalaman penghuninya.</p></div>
+    <div id="portfolio-interior-list" class="content-grid" aria-live="polite"></div>
+    <div class="back-row"><button class="back-button" data-route="project-portfolio">← Kembali ke Project Portfolio</button></div>
+  </section>
+
+  <section class="view room-shell" data-view="portfolio-visual">
+    <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="karya">Karya</button><span>›</span><button data-route="project-portfolio">Project Portfolio</button><span>›</span><span>Visual &amp; Sistem</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Portfolio · Visual &amp; Sistem</p><h2 class="room-title">Visual &amp; Sistem</h2></div><p class="room-desc">Karya yang membantu gagasan memperoleh bentuk melalui gambar, diagram, infografis, aplikasi, dan sistem pengetahuan.</p></div>
+    <div id="portfolio-visual-list" class="content-grid" aria-live="polite"></div>
+    <div class="back-row"><button class="back-button" data-route="project-portfolio">← Kembali ke Project Portfolio</button></div>
   </section>
 
   <section class="view room-shell" data-view="publikasi">
@@ -1252,9 +1349,9 @@ footer.global-footer::after {
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><span>Kebun</span></div>
     <div class="room-hero room-hero-kebun"><div><p class="room-kicker">Ruang 05</p><h2 class="room-title">Kebun</h2></div><p class="room-desc">Tempat pengetahuan ditanam, dirawat, dipanen, dan disimpan untuk kembali digunakan.</p></div>
     <div class="room-grid">
-      <a class="room-card room-card-link" href="#pasemaian" data-route="pasemaian"><h3>Pasemaian</h3><p>Benih gagasan, eksperimen awal, dan kemungkinan yang belum memperoleh bentuk akhir.</p><span class="card-status">Masuk ke pasemaian</span></a>
-      <a class="room-card room-card-link" href="#hasil-panen" data-route="hasil-panen"><h3>Hasil Panen</h3><p>Karya dan pengetahuan yang telah matang, siap dibaca, digunakan, atau dibawa pulang.</p><span class="card-status">Lihat hasil panen</span></a>
-      <a class="room-card room-card-link" href="#gudang" data-route="gudang"><h3>Gudang</h3><p>Arsip, bahan, versi terdahulu, dan persediaan pengetahuan yang perlu tetap disimpan.</p><span class="card-status">Buka gudang</span></a>
+      <a class="room-card room-card-link kebun-index-card kebun-index-pasemaian" href="#pasemaian" data-route="pasemaian"><h3>Pasemaian</h3><p>Benih gagasan, eksperimen awal, dan kemungkinan yang belum memperoleh bentuk akhir.</p><span class="card-status">Masuk ke pasemaian</span></a>
+      <a class="room-card room-card-link kebun-index-card kebun-index-hasil-panen" href="#hasil-panen" data-route="hasil-panen"><h3>Hasil Panen</h3><p>Karya dan pengetahuan yang telah matang, siap dibaca, digunakan, atau dibawa pulang.</p><span class="card-status">Lihat hasil panen</span></a>
+      <a class="room-card room-card-link kebun-index-card kebun-index-gudang" href="#gudang" data-route="gudang"><h3>Gudang</h3><p>Tempat menyimpan berbagai rujukan, arsip, catatan lama, dan pengetahuan yang belum tentu dibutuhkan hari ini, tetapi mungkin berguna pada waktunya.</p><span class="card-status">Buka gudang</span></a>
     </div>
     <div class="room-content-heading"><p class="room-kicker">Koleksi</p><h3>Catatan Kebun</h3></div>
     <div id="kebun-list" class="content-grid" aria-live="polite"></div>
@@ -1279,8 +1376,8 @@ footer.global-footer::after {
 
   <section class="view room-shell" data-view="gudang">
     <div class="breadcrumb"><button data-route="pendopo">Pendopo</button><span>›</span><button data-route="kebun">Kebun</button><span>›</span><span>Gudang</span></div>
-    <div class="room-hero"><div><p class="room-kicker">Kebun · Penyimpanan</p><h2 class="room-title">Gudang</h2></div><p class="room-desc">Tempat menyimpan arsip, bahan, versi terdahulu, dan persediaan yang mungkin berguna kembali.</p></div>
-    <div class="placeholder-panel"><strong>Gudang sedang ditata.</strong><span>Kelak ruang ini menampung arsip dan bahan yang tidak perlu tampil di ruang utama, tetapi terlalu berharga untuk dibuang.</span></div>
+    <div class="room-hero"><div><p class="room-kicker">Kebun · Penyimpanan</p><h2 class="room-title">Gudang</h2></div><p class="room-desc">Tempat menyimpan berbagai rujukan, arsip, catatan lama, dan pengetahuan yang belum tentu dibutuhkan hari ini, tetapi mungkin berguna pada waktunya.</p></div>
+    <div class="room-content-heading"><p class="room-kicker">Rujukan tersimpan</p><h3>Temuan Gudang</h3></div><div id="gudang-list" class="content-grid" aria-live="polite"></div><div class="room-note">Gudang menyimpan jejak menuju sumber asal, bukan menimbun salinan. Setiap temuan disertai alasan mengapa ia masih layak disimpan.</div>
     <div class="back-row"><button class="back-button" data-route="kebun">← Kembali ke Kebun</button></div>
   </section>
 
@@ -1299,13 +1396,13 @@ footer.global-footer::after {
     <div class="back-row"><button class="back-button" id="content-back" data-route="pendopo">← Kembali</button></div>
   </section>
 
-  <footer class="global-footer"><span>Bhumi Wanaprastha v0.9 · Batch 3 Review 3 Footer Clean</span><span>Pengetahuan yang menjadi laku.</span></footer>
+  <footer class="global-footer"><span>Bhumi Wanaprastha v0.9 · Update Tahap A</span><span>Pengetahuan yang menjadi laku.</span></footer>
 </main>
 <script src="content/_generated/content-manifest.js"></script>
 <script src="content/content.js"></script>
 <script>
 (() => {
-  const baseRoutes = ['search','pendopo','gagasan','jejak-candi','renungan','laku','app-library','karya','project-portfolio','publikasi','kebun','pasemaian','hasil-panen','gudang'];
+  const baseRoutes = ['search','pendopo','tanya-bhumi','gagasan','jejak-candi','renungan','laku','app-library','karya','project-portfolio','portfolio-architecture','portfolio-interior','portfolio-visual','publikasi','kebun','pasemaian','hasil-panen','gudang'];
   const views = [...document.querySelectorAll('[data-view]')];
   const navLinks = [...document.querySelectorAll('.nav-link')];
   const menu = document.getElementById('nav-links');
@@ -1462,25 +1559,40 @@ footer.global-footer::after {
     if(count) count.textContent=`${items.length} konten tersedia`;
   }
 
-  function renderProjectPortfolio(){
-    const host=document.getElementById('portfolio-architecture-list');
-    const count=document.getElementById('portfolio-architecture-count');
-    if(!host) return;
-    const architectureTerms=['arsitektur','arsitektur-kontekstual','adaptive-reuse','renovasi','rumah','bangunan'];
-    const projects=nodes.filter(item=>item.section==='karya' && ['proyek','project'].includes(String(item.type||'').toLowerCase()) && tagsOf(item).some(tag=>architectureTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-    if(count) count.textContent=projects.length?`${projects.length} proyek tersedia`:'Belum ada proyek';
-    host.innerHTML=projects.length?projects.map(item=>`
-      <a class="room-card room-card-link idea-card portfolio-project-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">
-        ${mediaThumbnail(item)?`<div class="room-card-media" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}
-        <p class="publication-label">${escapeHTML(item.type)}</p>
-        <h3>${escapeHTML(item.title)}</h3>
-        <p>${escapeHTML(item.summary)}</p>
-        <div class="idea-tags">${tagsOf(item).slice(0,5).map(tag=>`<span>${escapeHTML(tag)}</span>`).join('')}</div>
-        <span class="card-status">Buka proyek</span>
-      </a>`).join(''):'<div class="placeholder-panel"><strong>Belum ada proyek arsitektur.</strong><span>Proyek bertipe proyek dengan tag arsitektur akan muncul otomatis di sini.</span></div>';
+  function renderPortfolioCard(item){
+    return `<a class="room-card room-card-link idea-card portfolio-project-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">
+      ${mediaThumbnail(item)?`<div class="room-card-media" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}
+      <p class="publication-label">${escapeHTML(item.type)}</p>
+      <h3>${escapeHTML(item.title)}</h3>
+      <p>${escapeHTML(item.summary)}</p>
+      <div class="idea-tags">${tagsOf(item).slice(0,5).map(tag=>`<span>${escapeHTML(tag)}</span>`).join('')}</div>
+      <span class="card-status">Buka karya</span>
+    </a>`;
   }
 
-  function renderAllRoomIndexes(){ ['gagasan','renungan','laku','karya','kebun'].forEach(renderRoomIndex); renderProjectPortfolio(); }
+  function renderProjectPortfolio(){
+    const architectureTerms=['arsitektur','arsitektur-kontekstual','adaptive-reuse','renovasi','rumah','bangunan'];
+    const interiorTerms=['interior','ruang-dalam','furnitur','furniture'];
+    const karya=nodes.filter(item=>item.section==='karya' && item.status!=='draft');
+    const architecture=karya.filter(item=>['proyek','project'].includes(String(item.type||'').toLowerCase()) && tagsOf(item).some(tag=>architectureTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    const interior=karya.filter(item=>tagsOf(item).some(tag=>interiorTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    const visual=karya.filter(item=>!architecture.includes(item) && !interior.includes(item) && !['publikasi'].includes(String(item.type||'').toLowerCase())).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    const groups=[
+      ['architecture',architecture,'Belum ada proyek arsitektur.','Karya arsitektur yang baru akan tumbuh di sini.'],
+      ['interior',interior,'Ruang ini sedang bertumbuh.','Karya interior akan hadir ketika dokumentasinya telah cukup matang.'],
+      ['visual',visual,'Ruang ini sedang bertumbuh.','Karya visual dan sistem akan bertambah bersama perjalanan Bhumi.']
+    ];
+    groups.forEach(([key,items,title,note])=>{
+      const host=document.getElementById(`portfolio-${key}-list`);
+      const count=document.getElementById(`portfolio-${key}-count`);
+      if(count) count.textContent=items.length?`${items.length} karya tersedia`:'Sedang bertumbuh';
+      if(host) host.innerHTML=items.length?items.map(renderPortfolioCard).join(''):`<div class="placeholder-panel category-empty"><strong>${title}</strong><span>${note}</span></div>`;
+    });
+  }
+
+  function renderGudangIndex(){ const host=document.getElementById('gudang-list'); if(!host) return; const items=nodes.filter(item=>item.section==='kebun' && tagsOf(item).map(String).map(x=>x.toLowerCase()).includes('gudang')).sort((a,b)=>String(b.date).localeCompare(String(a.date))); host.innerHTML=items.length?items.map(item=>`<a class="room-card room-card-link idea-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">${mediaThumbnail(item)?`<div class="room-card-media" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}<p class="publication-label">${escapeHTML(item.type)}</p><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.summary)}</p><span class="card-status">Buka temuan</span></a>`).join(''):'<div class="placeholder-panel"><strong>Belum ada temuan.</strong><span>Gudang masih kosong.</span></div>'; }
+
+  function renderAllRoomIndexes(){ ['gagasan','renungan','laku','karya','kebun'].forEach(renderRoomIndex); renderProjectPortfolio(); renderGudangIndex(); }
 
   function renderIdeaDetail() {
     const host = document.getElementById('idea-detail');
