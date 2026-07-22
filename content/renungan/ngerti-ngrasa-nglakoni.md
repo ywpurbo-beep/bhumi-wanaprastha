@@ -34,7 +34,7 @@ Banyak orang mengenal Ki Hadjar Dewantara melalui semboyannya:
 > *Ing madya mangun karsa.*  
 > *Tut wuri handayani.*
 
-Semboyan itu sering dipahami sebagai prinsip kepemimpinan atau pendidikan. Tetapi jika kita perhatikan lebih dalam, kata-kats itu juga mengandung makna yang lebih mendasar: bagaimana pengetahuan menemukan bentuknya dalam laku.
+Semboyan itu sering dipahami sebagai prinsip kepemimpinan atau pendidikan. Tetapi jika kita perhatikan lebih dalam, kata-kata itu juga mengandung makna yang lebih mendasar: bagaimana pengetahuan menemukan bentuknya dalam laku.
 Sebagian besar dari kita dibesarkan dengan keyakinan bahwa belajar berarti mengumpulkan pengetahuan.
 
 Kita membaca, mendengar, menghafal lalu memahami. Sering kali berhenti sampai di sana. Padahal, memahami bukanlah tujuan akhir.
