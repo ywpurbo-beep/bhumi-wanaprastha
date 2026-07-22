@@ -17,6 +17,6 @@ relations:
 ---
 # Ilustrasi Eksperimental Bhumi Wanaprastha
 
-![Ilustrasi eksperimental](assets/batch-1/1cc50e60-d4da-4340-8f3d-8b92fe27e3c1.png)
+![Ilustrasi eksperimental](assets/batch-1/mandelbrot.png)
 
 Ukuran asli: 1536 × 1024 piksel.
