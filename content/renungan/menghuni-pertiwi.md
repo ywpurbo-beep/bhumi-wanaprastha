@@ -32,7 +32,7 @@ Setiap hari kita berpijak di atas tanah. Kita membangun rumah di atasnya, menana
 
 Barangkali persoalannya bukan apakah kita tinggal di bumi. Persoalannya adalah, apakah kita sudah belajar **menghuninya**.
 
-Di banyak tempat, hubungan manusia dengan bumi mulai berubah. Tanah semakin sering dipandang sebagai komoditas, sumber daya, atau sekadar sebidang lahan yang dapat diukur, dibeli, dan dimanfaatkan. Cara pandang seperti ini tentu memiliki tempatnya sendiri. Berkatnya, kita dapat membangun kota, menghitung hasil panen, dan merancang berbagai kebutuhan hidup.
+Di banyak tempat, hubungan manusia dengan bumi mulai berubah. Tanah semakin sering dipandang sebagai komoditas, sumber daya, atau sekadar sebidang lahan yang dapat diukur, dibeli, dan dimanfaatkan. Cara pandang seperti ini tentu memiliki tempatnya sendiri. Karenanya, kita dapat membangun kota, menghitung hasil panen, dan merancang berbagai kebutuhan hidup.
 
 Namun, apakah itu sudah cukup?
 
