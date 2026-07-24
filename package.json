@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.9.0-update-tahap-a-final",
   "scripts": {
-    "build:content": "node scripts/build-content.mjs"
+    "build:content": "node scripts/build-content.mjs",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.114.0"
   }
 }
