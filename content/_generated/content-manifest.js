@@ -1,6 +1,6 @@
 window.BW_CONTENT_V08 = {
   "version": "0.9-batch-3",
-  "generatedAt": "2026-08-09T07:09:36.496Z",
+  "generatedAt": "2026-08-09T10:38:21.031Z",
   "relationTypes": [
     "related",
     "extends",
@@ -20,6 +20,135 @@ window.BW_CONTENT_V08 = {
   ],
   "items": [
     {
+      "id": "renungan-jalan-sunyi",
+      "slug": "jalan-sunyi",
+      "route": "konten/jalan-sunyi",
+      "section": "renungan",
+      "title": "Jalan Sunyi",
+      "summary": "Tentang pengetahuan, kekuatan, tanggung jawab, dan kesunyian yang terkadang menyertai kebijaksanaan.",
+      "deck": "Tentang pengetahuan, kekuatan, tanggung jawab, dan kesunyian yang terkadang menyertai kebijaksanaan.",
+      "author": "Tina Kamihadi",
+      "hasAuthor": true,
+      "date": "2015-08-17",
+      "originalDate": "2015-08-17",
+      "publishedDate": "2026-08-09",
+      "tags": {
+        "primary": [
+          "pengetahuan",
+          "kebijaksanaan",
+          "kesunyian",
+          "tanggung jawab",
+          "pilihan"
+        ],
+        "secondary": []
+      },
+      "allTags": [
+        "pengetahuan",
+        "kebijaksanaan",
+        "kesunyian",
+        "tanggung jawab",
+        "pilihan"
+      ],
+      "relations": [
+        {
+          "id": "gagasan-pengetahuan-menjadi-laku",
+          "type": "derived-from",
+          "label": "Berangkat dari gagasan pengetahuan yang menjadi laku"
+        },
+        {
+          "id": "wajah-kebijaksanaan",
+          "type": "related",
+          "label": "Membaca kebijaksanaan melalui Kresna"
+        },
+        {
+          "id": "renungan-ngerti-ngrasa-nglakoni",
+          "type": "related"
+        }
+      ],
+      "type": "fragmen",
+      "status": "published",
+      "featured": false,
+      "language": "id",
+      "youtube": "",
+      "hero": "/assets/images/renungan/jalan-sunyi.webp",
+      "cover": "/assets/images/renungan/jalan-sunyi.webp",
+      "label": "fragmen",
+      "subtitle": "",
+      "thumbnail": "/assets/images/renungan/jalan-sunyi.webp",
+      "download": "",
+      "harvestType": "",
+      "harvestTarget": "",
+      "harvestAction": "",
+      "harvestLabel": "",
+      "meta": [],
+      "harvestSummary": "Tentang pengetahuan, kekuatan, tanggung jawab, dan kesunyian yang terkadang menyertai kebijaksanaan.",
+      "harvestMeta": [],
+      "ingredients": [],
+      "tools": [],
+      "steps": [],
+      "duration": "",
+      "benefits": [],
+      "cautions": [],
+      "body": "<h2>Jalan Sunyi</h2>\n<p>Bagaikan Sang Krisna yang termenung menatap Kurusetra…</p>\n<p>Ia tahu, di tangannya tergenggam cakra,<br> yang dapat membangun kehidupan…<br> ataupun menghancurkannya.</p>\n<p>Takdir telah menetapkan:</p>\n<p>Ia, yang memiliki pengetahuan hidup dan kebijaksanaan,<br> akan selalu sendirian…</p>\n<p><em>Jakarta, 17 Agustus 2015, 16.16 WIB</em><br> <strong>Tina Kamihadi</strong></p>",
+      "plainText": "Jalan Sunyi Bagaikan Sang Krisna yang termenung menatap Kurusetra… Ia tahu, di tangannya tergenggam cakra, yang dapat membangun kehidupan… ataupun menghancurkannya. Takdir telah menetapkan: Ia, yang memiliki pengetahuan hidup dan kebijaksanaan, akan selalu sendirian… Jakarta, 17 Agustus 2015, 16.16 WIB Tina Kamihadi"
+    },
+    {
+      "id": "renungan-mengalami-tuhan",
+      "slug": "mengalami-tuhan",
+      "route": "konten/mengalami-tuhan",
+      "section": "renungan",
+      "title": "Mengalami Tuhan",
+      "summary": "Sebuah renungan tentang keterbatasan manusia dalam menjelaskan Tuhan, dan tentang pentingnya mengalami-Nya.",
+      "deck": "Sebuah renungan tentang keterbatasan manusia dalam menjelaskan Tuhan, dan tentang pentingnya mengalami-Nya.",
+      "author": "Tina Kamihadi",
+      "hasAuthor": true,
+      "date": "2025-01-20",
+      "originalDate": "2025-01-20",
+      "publishedDate": "2026-08-09",
+      "tags": {
+        "primary": [
+          "Tuhan",
+          "pengalaman",
+          "renungan",
+          "spiritualitas"
+        ],
+        "secondary": []
+      },
+      "allTags": [
+        "Tuhan",
+        "pengalaman",
+        "renungan",
+        "spiritualitas"
+      ],
+      "relations": [],
+      "type": "puisi",
+      "status": "published",
+      "featured": false,
+      "language": "id",
+      "youtube": "",
+      "hero": "",
+      "cover": "",
+      "label": "puisi",
+      "subtitle": "",
+      "thumbnail": "",
+      "download": "",
+      "harvestType": "",
+      "harvestTarget": "",
+      "harvestAction": "",
+      "harvestLabel": "",
+      "meta": [],
+      "harvestSummary": "Sebuah renungan tentang keterbatasan manusia dalam menjelaskan Tuhan, dan tentang pentingnya mengalami-Nya.",
+      "harvestMeta": [],
+      "ingredients": [],
+      "tools": [],
+      "steps": [],
+      "duration": "",
+      "benefits": [],
+      "cautions": [],
+      "body": "<h2>MENGALAMI TUHAN</h2>\n<p>Mengamati mereka yang sibuk berdiskusi tentang Tuhan.<br> berdebat, berargumen...<br> terkadang muncul emosi<br></p>\n<p>Tuhan....<br></p>\n<p>berbagai teks dibuka<br> naskah agama...<br> pemikiran filosofis...<br> semua dibedah<br></p>\n<p>manusia berlomba<br> menggunakan logikanya<br> kecerdasannya..<br> untuk menjelaskan keberadaan Tuhan<br></p>\n<p>Tuhan....<br></p>\n<p>maafkan ciptaan-Mu ini..<br> manusia-manusia yang naif<br> merasa mampu mengenali-Mu....<br> memahami-Mu...<br> menjelaskan segalanya tentang-Mu<br></p>\n<p>Tuhan....<br></p>\n<p>maafkanlah...<br> dalam kesombongannya...<br> Manusia lupa untuk mengalami-Mu<br></p>\n<p><em>Tina Kamihadi; Pasir Jambu, 20 Januari 2025</em></p>",
+      "plainText": "MENGALAMI TUHAN Mengamati mereka yang sibuk berdiskusi tentang Tuhan. berdebat, berargumen... terkadang muncul emosi Tuhan.... berbagai teks dibuka naskah agama... pemikiran filosofis... semua dibedah manusia berlomba menggunakan logikanya kecerdasannya.. untuk menjelaskan keberadaan Tuhan Tuhan.... maafkan ciptaan-Mu ini.. manusia-manusia yang naif merasa mampu mengenali-Mu.... memahami-Mu... menjelaskan segalanya tentang-Mu Tuhan.... maafkanlah... dalam kesombongannya... Manusia lupa untuk mengalami-Mu Tina Kamihadi; Pasir Jambu, 20 Januari 2025"
+    },
+    {
       "id": "gudang-becoming-earth",
       "slug": "gudang-becoming-earth",
       "route": "konten/gudang-becoming-earth",
@@ -28,7 +157,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Esai tentang kehidupan tanah, pelapukan, dan cara kehidupan terus berlanjut melalui perubahan bentuk.",
       "deck": "Esai tentang kehidupan tanah, pelapukan, dan cara kehidupan terus berlanjut melalui perubahan bentuk.",
       "author": "Emergency Magazine",
+      "hasAuthor": true,
       "date": "2026-07-22",
+      "originalDate": "2026-07-22",
+      "publishedDate": "2026-07-22",
       "tags": {
         "primary": [
           "gudang",
@@ -93,7 +225,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Bahan rujukan untuk memahami qi sebagai konsep kebudayaan yang menghubungkan tubuh, lingkungan, dan kehidupan sehari-hari.",
       "deck": "Bahan rujukan untuk memahami qi sebagai konsep kebudayaan yang menghubungkan tubuh, lingkungan, dan kehidupan sehari-hari.",
       "author": "La Vie des Idées",
+      "hasAuthor": true,
       "date": "2026-07-22",
+      "originalDate": "2026-07-22",
+      "publishedDate": "2026-07-22",
       "tags": {
         "primary": [
           "gudang",
@@ -158,7 +293,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Esai rujukan untuk menimbang kembali hubungan manusia dengan tanah, kerendahan hati, dan makna menghuni bumi.",
       "deck": "Esai rujukan untuk menimbang kembali hubungan manusia dengan tanah, kerendahan hati, dan makna menghuni bumi.",
       "author": "Emergency Magazine",
+      "hasAuthor": true,
       "date": "2026-07-22",
+      "originalDate": "2026-07-22",
+      "publishedDate": "2026-07-22",
       "tags": {
         "primary": [
           "gudang",
@@ -223,7 +361,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Katalog buku resmi untuk pembelajaran prakarya dan kewirausahaan kerajinan tingkat SMA/MA.",
       "deck": "Katalog buku resmi untuk pembelajaran prakarya dan kewirausahaan kerajinan tingkat SMA/MA.",
       "author": "Kemendikdasmen",
+      "hasAuthor": true,
       "date": "2026-07-22",
+      "originalDate": "2026-07-22",
+      "publishedDate": "2026-07-22",
       "tags": {
         "primary": [
           "gudang",
@@ -279,7 +420,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Katalog buku resmi untuk pembelajaran prakarya kerajinan tingkat SMP/MTs.",
       "deck": "Katalog buku resmi untuk pembelajaran prakarya kerajinan tingkat SMP/MTs.",
       "author": "Kemendikdasmen",
+      "hasAuthor": true,
       "date": "2026-07-22",
+      "originalDate": "2026-07-22",
+      "publishedDate": "2026-07-22",
       "tags": {
         "primary": [
           "gudang",
@@ -335,7 +479,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Dokumen panduan resmi sebagai rujukan pengembangan pembelajaran berbasis keterampilan, proses, dan karya.",
       "deck": "Dokumen panduan resmi sebagai rujukan pengembangan pembelajaran berbasis keterampilan, proses, dan karya.",
       "author": "Kemendikdasmen",
+      "hasAuthor": true,
       "date": "2026-07-22",
+      "originalDate": "2026-07-22",
+      "publishedDate": "2026-07-22",
       "tags": {
         "primary": [
           "gudang",
@@ -391,7 +538,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Sebuah penelusuran tentang bagaimana berbagai tradisi memandang hubungan manusia dengan tanah, tubuh, dan bumi sebagai tempat kita belajar menjadi manusia.",
       "deck": "Sebuah penelusuran tentang bagaimana berbagai tradisi memandang hubungan manusia dengan tanah, tubuh, dan bumi sebagai tempat kita belajar menjadi manusia.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-22",
+      "originalDate": "2026-07-22",
+      "publishedDate": "2026-07-22",
       "tags": {
         "primary": [
           "bumi",
@@ -470,7 +620,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Sebuah penelusuran tentang bagaimana pengetahuan perlahan membentuk manusia melalui laku.",
       "deck": "Sebuah penelusuran tentang bagaimana pengetahuan perlahan membentuk manusia melalui laku.",
       "author": "Yus",
+      "hasAuthor": true,
       "date": "2026-07-21",
+      "originalDate": "2026-07-21",
+      "publishedDate": "2026-07-21",
       "tags": {
         "primary": [
           "pengetahuan",
@@ -530,7 +683,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Belajar melihat bumi bukan sekadar sebagai tempat tinggal, melainkan sebagai tempat kita membangun hubungan dan menumbuhkan laku.",
       "deck": "Belajar melihat bumi bukan sekadar sebagai tempat tinggal, melainkan sebagai tempat kita membangun hubungan dan menumbuhkan laku.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-21",
+      "originalDate": "2026-07-21",
+      "publishedDate": "2026-07-21",
       "tags": {
         "primary": [
           "pertiwi",
@@ -602,7 +758,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Sebuah renungan tentang perjalanan pengetahuan dari memahami, merasakan, hingga benar-benar menjalani.",
       "deck": "Sebuah renungan tentang perjalanan pengetahuan dari memahami, merasakan, hingga benar-benar menjalani.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-21",
+      "originalDate": "2026-07-21",
+      "publishedDate": "2026-07-21",
       "tags": {
         "primary": [
           "Ki Hadjar Dewantara",
@@ -664,7 +823,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Aplikasi refleksi harian untuk mengamati laku dan tanda melalui empat lensa: fisik, meridian, mental, dan cakra.",
       "deck": "Aplikasi refleksi harian untuk mengamati laku dan tanda melalui empat lensa: fisik, meridian, mental, dan cakra.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-20",
+      "originalDate": "2026-07-20",
+      "publishedDate": "2026-07-20",
       "tags": {
         "primary": [
           "titen diri",
@@ -724,7 +886,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Kemajuan teknologi memperluas kemampuan manusia untuk mencipta, tetapi tidak otomatis memperluas kebijaksanaan dalam mengenali batas. Tulisan ini mengajak melihat kembali makna eling dan waspada sebagai bentuk kesadaran yang membantu manusia menjaga ritme, memahami konsekuensi, dan menemukan keseimbangan di tengah percepatan peradaban.",
       "deck": "Kemajuan teknologi memperluas kemampuan manusia untuk mencipta, tetapi tidak otomatis memperluas kebijaksanaan dalam mengenali batas. Tulisan ini mengajak melihat kembali makna eling dan waspada sebagai bentuk kesadaran yang membantu manusia menjaga ritme, memahami konsekuensi, dan menemukan keseimbangan di tengah percepatan peradaban.",
       "author": "YWP",
+      "hasAuthor": true,
       "date": "2026-07-17",
+      "originalDate": "2026-07-17",
+      "publishedDate": "2026-07-17",
       "tags": {
         "primary": [
           "eling",
@@ -802,7 +967,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Bagaimana jika perkembangan individu, komunitas, hingga peradaban mengikuti pola yang sama? Tulisan ini mengajukan gagasan Fractal Civilization: kesadaran yang bertumbuh secara spiral pada setiap skala kehidupan, mempertemukan Artificial Intelligence, Ancestral Intelligence, dan Awareness sebagai fondasi peradaban masa depan.",
       "deck": "Bagaimana jika perkembangan individu, komunitas, hingga peradaban mengikuti pola yang sama? Tulisan ini mengajukan gagasan Fractal Civilization: kesadaran yang bertumbuh secara spiral pada setiap skala kehidupan, mempertemukan Artificial Intelligence, Ancestral Intelligence, dan Awareness sebagai fondasi peradaban masa depan.",
       "author": "YWP",
+      "hasAuthor": true,
       "date": "2026-07-17",
+      "originalDate": "2026-07-17",
+      "publishedDate": "2026-07-17",
       "tags": {
         "primary": [
           "fractal-civilization",
@@ -888,7 +1056,10 @@ window.BW_CONTENT_V08 = {
       "summary": "An exploration of how small, technology-enabled communities may become a resilient response to increasing global complexity. Rather than rejecting technology, the Micro-Civilization movement seeks to place it back in service of human relationships, local knowledge, and meaningful living.",
       "deck": "An exploration of how small, technology-enabled communities may become a resilient response to increasing global complexity. Rather than rejecting technology, the Micro-Civilization movement seeks to place it back in service of human relationships, local knowledge, and meaningful living.",
       "author": "YWP",
+      "hasAuthor": true,
       "date": "2026-07-17",
+      "originalDate": "2026-07-17",
+      "publishedDate": "2026-07-17",
       "tags": {
         "primary": [
           "micro-civilization",
@@ -970,7 +1141,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Hipotesis bahwa tubuh manusia mungkin berevolusi sebagai sistem sensor lingkungan yang sangat peka. Tulisan ini mengajak melihat kemungkinan bahwa berbagai laku tradisional berperan menjaga sensitivitas biologis terhadap alam, sekaligus membuka ruang dialog antara sains modern dan Ancestral Intelligence.",
       "deck": "Hipotesis bahwa tubuh manusia mungkin berevolusi sebagai sistem sensor lingkungan yang sangat peka. Tulisan ini mengajak melihat kemungkinan bahwa berbagai laku tradisional berperan menjaga sensitivitas biologis terhadap alam, sekaligus membuka ruang dialog antara sains modern dan Ancestral Intelligence.",
       "author": "YWP",
+      "hasAuthor": true,
       "date": "2026-07-17",
+      "originalDate": "2026-07-17",
+      "publishedDate": "2026-07-17",
       "tags": {
         "primary": [
           "ancestral-intelligence",
@@ -1052,7 +1226,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Sebuah renungan mengenai ancaman yang jarang dibicarakan dalam perkembangan Artificial Intelligence. Tulisan ini mengajak pembaca melihat bahwa risiko terbesar bukanlah AI yang menjadi semakin cerdas, melainkan manusia yang perlahan kehilangan kemampuan untuk memahami, mengendalikan, dan mengarahkan sistem yang diciptakannya sendiri.",
       "deck": "Sebuah renungan mengenai ancaman yang jarang dibicarakan dalam perkembangan Artificial Intelligence. Tulisan ini mengajak pembaca melihat bahwa risiko terbesar bukanlah AI yang menjadi semakin cerdas, melainkan manusia yang perlahan kehilangan kemampuan untuk memahami, mengendalikan, dan mengarahkan sistem yang diciptakannya sendiri.",
       "author": "Yus",
+      "hasAuthor": true,
       "date": "2026-07-17",
+      "originalDate": "2026-07-17",
+      "publishedDate": "2026-07-17",
       "tags": {
         "primary": [
           "artificial-intelligence",
@@ -1118,7 +1295,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Renungan konseptual tentang dadi wong, laku, dan proses pengetahuan menjelma menjadi watak manusia serta kebudayaan.",
       "deck": "Renungan konseptual tentang dadi wong, laku, dan proses pengetahuan menjelma menjadi watak manusia serta kebudayaan.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "dadi wong",
@@ -1174,7 +1354,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Tulisan populer tentang perbedaan antara menyimpan informasi dan mewariskan pengetahuan agar tetap hidup dalam manusia dan peradaban.",
       "deck": "Tulisan populer tentang perbedaan antara menyimpan informasi dan mewariskan pengetahuan agar tetap hidup dalam manusia dan peradaban.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "peradaban",
@@ -1230,7 +1413,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Penelusuran sederhana tentang sensasi hangat dari jahe, hubungan antara pengalaman tradisional dan penjelasan yang dapat diuji.",
       "deck": "Penelusuran sederhana tentang sensasi hangat dari jahe, hubungan antara pengalaman tradisional dan penjelasan yang dapat diuji.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "jahe",
@@ -1294,7 +1480,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Pranata Mangsa dibaca sebagai kecerdasan leluhur berbasis pengamatan lintas generasi, bukan sekadar kalender tradisional atau romantisme masa lalu.",
       "deck": "Pranata Mangsa dibaca sebagai kecerdasan leluhur berbasis pengamatan lintas generasi, bukan sekadar kalender tradisional atau romantisme masa lalu.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "pranata mangsa",
@@ -1350,7 +1539,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Sebuah esai tentang paradoks kehidupan modern: semakin cepat teknologi memperluas kemampuan manusia, semakin penting akar budaya, kecerdasan tubuh, dan orientasi batin untuk menjaga arah.",
       "deck": "Sebuah esai tentang paradoks kehidupan modern: semakin cepat teknologi memperluas kemampuan manusia, semakin penting akar budaya, kecerdasan tubuh, dan orientasi batin untuk menjaga arah.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "akselerasi",
@@ -1410,7 +1602,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Aset visual eksperimental dari dataset awal Bhumi Wanaprastha. Judul dan konteks final masih perlu ditetapkan.",
       "deck": "Aset visual eksperimental dari dataset awal Bhumi Wanaprastha. Judul dan konteks final masih perlu ditetapkan.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "ilustrasi",
@@ -1459,7 +1654,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Konsep karya visual yang merangkum perjalanan jahe dari gagasan, renungan, resep, dan kebun menjadi satu alur pengetahuan.",
       "deck": "Konsep karya visual yang merangkum perjalanan jahe dari gagasan, renungan, resep, dan kebun menjadi satu alur pengetahuan.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "jahe",
@@ -1523,7 +1721,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Node uji untuk memastikan dokumen publikasi eksternal dapat dicatat dan ditampilkan melalui Markdown.",
       "deck": "Node uji untuk memastikan dokumen publikasi eksternal dapat dicatat dan ditampilkan melalui Markdown.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "publikasi",
@@ -1574,7 +1775,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Catatan budidaya sederhana untuk menghubungkan resep wedang jahe dengan sumber bahan, musim, pertumbuhan, dan pengamatan langsung.",
       "deck": "Catatan budidaya sederhana untuk menghubungkan resep wedang jahe dengan sumber bahan, musim, pertumbuhan, dan pengamatan langsung.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "jahe",
@@ -1643,7 +1847,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Lembar simulasi untuk mengeksplorasi kebutuhan sumber daya dan menguji apakah suatu pola hidup atau sistem dapat bertahan dalam batas satu bumi.",
       "deck": "Lembar simulasi untuk mengeksplorasi kebutuhan sumber daya dan menguji apakah suatu pola hidup atau sistem dapat bertahan dalam batas satu bumi.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "one earth test",
@@ -1699,7 +1906,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Aplikasi interaktif untuk membantu pengguna mengenali kecenderungan kepribadian melalui serangkaian pertanyaan sederhana.",
       "deck": "Aplikasi interaktif untuk membantu pengguna mengenali kecenderungan kepribadian melalui serangkaian pertanyaan sederhana.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "penjelajahan diri",
@@ -1753,7 +1963,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Resep dasar wedang jahe dengan takaran sederhana, ruang variasi, dan catatan kehati-hatian agar dapat dipraktikkan serta diamati.",
       "deck": "Resep dasar wedang jahe dengan takaran sederhana, ruang variasi, dan catatan kehati-hatian agar dapat dipraktikkan serta diamati.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "jahe",
@@ -1844,7 +2057,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Renungan audio mengenai bangunan sebagai media penyimpanan pengetahuan, kebiasaan, dan memori sebuah peradaban.",
       "deck": "Renungan audio mengenai bangunan sebagai media penyimpanan pengetahuan, kebiasaan, dan memori sebuah peradaban.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "arsitektur",
@@ -1898,7 +2114,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Renungan tentang bagaimana minuman sederhana dapat menjadi jeda untuk mengamati tubuh, cuaca, kebiasaan, dan batas antara pengalaman dengan klaim.",
       "deck": "Renungan tentang bagaimana minuman sederhana dapat menjadi jeda untuk mengamati tubuh, cuaca, kebiasaan, dan batas antara pengalaman dengan klaim.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "jahe",
@@ -1967,7 +2186,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Node uji untuk memastikan video YouTube dapat dimasukkan ke Ruang Renungan melalui satu file Markdown.",
       "deck": "Node uji untuk memastikan video YouTube dapat dimasukkan ke Ruang Renungan melalui satu file Markdown.",
       "author": "Anonim",
+      "hasAuthor": true,
       "date": "2026-07-16",
+      "originalDate": "2026-07-16",
+      "publishedDate": "2026-07-16",
       "tags": {
         "primary": [
           "video",
@@ -2018,7 +2240,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Aplikasi interaktif untuk membaca dua belas mangsa, sasmita alam, cuaca lokal, dan catatan pengamatan sebagai pengetahuan yang terus diuji dalam kehidupan.",
       "deck": "Aplikasi interaktif untuk membaca dua belas mangsa, sasmita alam, cuaca lokal, dan catatan pengamatan sebagai pengetahuan yang terus diuji dalam kehidupan.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2026-07-13",
+      "originalDate": "2026-07-13",
+      "publishedDate": "2026-07-13",
       "tags": {
         "primary": [
           "pranata mangsa",
@@ -2076,7 +2301,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Penelusuran mengenai cara sebuah visi besar dapat dijaga selama puluhan tahun, bahkan ketika para pelakunya berganti dari satu generasi ke generasi berikutnya.",
       "deck": "Sebuah penelusuran dari pertanyaan tentang kesinambungan visi pembangunan candi menuju gagasan embodied knowledge, memori peradaban, dan pengetahuan yang hidup sebagai laku.",
       "author": "Yus",
+      "hasAuthor": true,
       "date": "2026-07-12",
+      "originalDate": "2026-07-12",
+      "publishedDate": "2026-07-12",
       "tags": {
         "primary": [
           "pengetahuan",
@@ -2138,7 +2366,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Di tengah kelimpahan informasi dan jawaban instan dari kecerdasan buatan, karya ini menelaah jarak antara mengetahui dan menjalani. Pengetahuan baru menjadi kekuatan peradaban ketika hidup sebagai kebiasaan, karakter, dan cara hidup manusia.",
       "deck": "Di tengah kelimpahan informasi dan jawaban instan dari kecerdasan buatan, karya ini menelaah jarak antara mengetahui dan menjalani. Pengetahuan baru menjadi kekuatan peradaban ketika hidup sebagai kebiasaan, karakter, dan cara hidup manusia.",
       "author": "Yus",
+      "hasAuthor": true,
       "date": "2026-07-12",
+      "originalDate": "2026-07-12",
+      "publishedDate": "2026-07-12",
       "tags": {
         "primary": [
           "pengetahuan",
@@ -2207,7 +2438,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Karya ini membaca perjalanan Kresna bukan sebagai deretan keajaiban, melainkan sebagai cermin kebijaksanaan manusia. Sebelas peristiwa menyingkap perlindungan, keraguan, kasih, pengorbanan, tanggung jawab moral, pelepasan, dan kepulangan.",
       "deck": "Karya ini membaca perjalanan Kresna bukan sebagai deretan keajaiban, melainkan sebagai cermin kebijaksanaan manusia. Sebelas peristiwa menyingkap perlindungan, keraguan, kasih, pengorbanan, tanggung jawab moral, pelepasan, dan kepulangan.",
       "author": "Yus",
+      "hasAuthor": true,
       "date": "2026-07-12",
+      "originalDate": "2026-07-12",
+      "publishedDate": "2026-07-12",
       "tags": {
         "primary": [
           "kebijaksanaan",
@@ -2276,7 +2510,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Jauh sebelum satelit dan komputer memprediksi musim, masyarakat Nusantara telah mengembangkan sistem membaca perubahan alam melalui pengamatan lintas generasi. Video ini mengajak melihat Pranata Mangsa sebagai bentuk Ancestral Intelligence yang tetap relevan di era Artificial Intelligence.",
       "deck": "Jauh sebelum satelit dan komputer memprediksi musim, masyarakat Nusantara telah mengembangkan sistem membaca perubahan alam melalui pengamatan lintas generasi. Video ini mengajak melihat Pranata Mangsa sebagai bentuk Ancestral Intelligence yang tetap relevan di era Artificial Intelligence.",
       "author": "YWP",
+      "hasAuthor": true,
       "date": "2026-07-06",
+      "originalDate": "2026-07-06",
+      "publishedDate": "2026-07-06",
       "tags": {
         "primary": [
           "pranata-mangsa",
@@ -2354,7 +2591,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Di era ketika Artificial Intelligence mampu menguasai semakin banyak pengetahuan eksplisit, keunggulan manusia tidak lagi terletak pada sekadar menjadi pintar. Video ini mengajak melihat kembali pentingnya Embodied Knowledge, yaitu pengetahuan yang hidup sebagai pengalaman, kepekaan, dan laku di dalam tubuh.",
       "deck": "Di era ketika Artificial Intelligence mampu menguasai semakin banyak pengetahuan eksplisit, keunggulan manusia tidak lagi terletak pada sekadar menjadi pintar. Video ini mengajak melihat kembali pentingnya Embodied Knowledge, yaitu pengetahuan yang hidup sebagai pengalaman, kepekaan, dan laku di dalam tubuh.",
       "author": "YWP",
+      "hasAuthor": true,
       "date": "2026-06-21",
+      "originalDate": "2026-06-21",
+      "publishedDate": "2026-06-21",
       "tags": {
         "primary": [
           "embodied-knowledge",
@@ -2420,59 +2660,6 @@ window.BW_CONTENT_V08 = {
       "plainText": "Video Renungan Ilmu mengenai keterbatasan kecerdasan intelektual dan pentingnya pengetahuan yang hidup di dalam pengalaman, kepekaan, keterampilan, serta laku tubuh."
     },
     {
-      "id": "renungan-mengalami-tuhan",
-      "slug": "mengalami-tuhan",
-      "route": "konten/mengalami-tuhan",
-      "section": "renungan",
-      "title": "Mengalami Tuhan",
-      "summary": "Sebuah renungan tentang keterbatasan manusia dalam menjelaskan Tuhan, dan tentang pentingnya mengalami-Nya.",
-      "deck": "Sebuah renungan tentang keterbatasan manusia dalam menjelaskan Tuhan, dan tentang pentingnya mengalami-Nya.",
-      "author": "Tina Kamihadi",
-      "date": "2025-01-20",
-      "tags": {
-        "primary": [
-          "Tuhan",
-          "pengalaman",
-          "renungan",
-          "spiritualitas"
-        ],
-        "secondary": []
-      },
-      "allTags": [
-        "Tuhan",
-        "pengalaman",
-        "renungan",
-        "spiritualitas"
-      ],
-      "relations": [],
-      "type": "puisi",
-      "status": "published",
-      "featured": false,
-      "language": "id",
-      "youtube": "",
-      "hero": "",
-      "cover": "",
-      "label": "puisi",
-      "subtitle": "",
-      "thumbnail": "",
-      "download": "",
-      "harvestType": "",
-      "harvestTarget": "",
-      "harvestAction": "",
-      "harvestLabel": "",
-      "meta": [],
-      "harvestSummary": "Sebuah renungan tentang keterbatasan manusia dalam menjelaskan Tuhan, dan tentang pentingnya mengalami-Nya.",
-      "harvestMeta": [],
-      "ingredients": [],
-      "tools": [],
-      "steps": [],
-      "duration": "",
-      "benefits": [],
-      "cautions": [],
-      "body": "<h2>MENGALAMI TUHAN</h2>\n<p>Mengamati mereka yang sibuk berdiskusi tentang Tuhan.<br> berdebat, berargumen...<br> terkadang muncul emosi<br></p>\n<p>Tuhan....<br></p>\n<p>berbagai teks dibuka<br> naskah agama...<br> pemikiran filosofis...<br> semua dibedah<br></p>\n<p>manusia berlomba<br> menggunakan logikanya<br> kecerdasannya..<br> untuk menjelaskan keberadaan Tuhan<br></p>\n<p>Tuhan....<br></p>\n<p>maafkan ciptaan-Mu ini..<br> manusia-manusia yang naif<br> merasa mampu mengenali-Mu....<br> memahami-Mu...<br> menjelaskan segalanya tentang-Mu<br></p>\n<p>Tuhan....<br></p>\n<p>maafkanlah...<br> dalam kesombongannya...<br> Manusia lupa untuk mengalami-Mu<br></p>\n<p><em>Tina Kamihadi; Pasir Jambu, 20 Januari 2025</em></p>",
-      "plainText": "MENGALAMI TUHAN Mengamati mereka yang sibuk berdiskusi tentang Tuhan. berdebat, berargumen... terkadang muncul emosi Tuhan.... berbagai teks dibuka naskah agama... pemikiran filosofis... semua dibedah manusia berlomba menggunakan logikanya kecerdasannya.. untuk menjelaskan keberadaan Tuhan Tuhan.... maafkan ciptaan-Mu ini.. manusia-manusia yang naif merasa mampu mengenali-Mu.... memahami-Mu... menjelaskan segalanya tentang-Mu Tuhan.... maafkanlah... dalam kesombongannya... Manusia lupa untuk mengalami-Mu Tina Kamihadi; Pasir Jambu, 20 Januari 2025"
-    },
-    {
       "id": "melanjutkan-yang-sudah-ada",
       "slug": "melanjutkan-yang-sudah-ada",
       "route": "konten/melanjutkan-yang-sudah-ada",
@@ -2481,7 +2668,10 @@ window.BW_CONTENT_V08 = {
       "summary": "Transformasi sebuah aula kecil di tengah kebun menjadi rumah tinggal melalui intervensi sederhana, pemanfaatan material sekitar, furnitur warisan, dan penghormatan terhadap bangunan yang telah ada.",
       "deck": "Transformasi sebuah aula kecil di tengah kebun menjadi rumah tinggal melalui intervensi sederhana, pemanfaatan material sekitar, furnitur warisan, dan penghormatan terhadap bangunan yang telah ada.",
       "author": "Bhumi Wanaprastha",
+      "hasAuthor": true,
       "date": "2023-01-01",
+      "originalDate": "2023-01-01",
+      "publishedDate": "2023-01-01",
       "tags": {
         "primary": [
           "adaptive-reuse",
@@ -2530,61 +2720,6 @@ window.BW_CONTENT_V08 = {
       "cautions": [],
       "body": "<h2>Melanjutkan yang Sudah Ada</h2>\n<blockquote><em>Transformasi sebuah aula kecil di tengah kebun menjadi rumah tinggal melalui intervensi sederhana dan penghormatan terhadap apa yang telah ada.</em></blockquote>\n<p>Tidak semua rumah dimulai dari sebidang tanah kosong.</p>\n<p>Sebagian lahir ketika seseorang melihat kemungkinan pada tempat yang telah kehilangan fungsi lamanya. Rumah ini bermula dari sebuah aula kecil di tengah kebun di Kampung Papakmanggu, Desa Cibodas, Kecamatan Pasirjambu, Kabupaten Bandung.</p>\n<p>Bangunan itu ditemukan secara kebetulan oleh sepasang arsitek dalam sebuah perjalanan. Tidak ada rencana untuk mencari tanah atau membeli rumah. Namun, perjumpaan singkat dengan tempat tersebut segera memunculkan keyakinan bahwa bangunan dan kebunnya masih menyimpan kehidupan yang dapat diteruskan.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/hero.webp\" alt=\"Rumah Papakmanggu setelah direnovasi\" loading=\"lazy\"></p>\n<p>Keputusan yang diambil sederhana: tidak memulai dari nol, tetapi melanjutkan apa yang sudah ada.</p>\n<h3>Informasi Proyek</h3>\n<p><strong>Lokasi</strong><br> Kampung Papakmanggu, Desa Cibodas, Kecamatan Pasirjambu, Kabupaten Bandung</p>\n<p><strong>Luas lahan</strong><br> 250 m²</p>\n<p><strong>Luas bangunan</strong><br> 110 m²</p>\n<p><strong>Fungsi awal</strong><br> Aula kecil di tengah kebun</p>\n<p><strong>Fungsi baru</strong><br> Rumah tinggal alternatif dan ruang bekerja</p>\n<p><strong>Tahun renovasi</strong><br> 2023</p>\n<p><strong>Durasi pekerjaan</strong><br> ± 2 minggu</p>\n<p><strong>Biaya renovasi</strong><br> ± Rp15.000.000, termasuk material dan upah</p>\n<h3>Menemukan Sebuah Tempat</h3>\n<p>Bangunan ini pada awalnya bukan rumah tinggal. Ia didirikan sebagai aula sederhana di atas lahan kebun oleh pemilik terdahulu bersama warga sekitar.</p>\n<p>Sebagian material utamanya berasal dari tempat itu sendiri. Kayu putih yang tumbuh di lahan dipotong dan digunakan sebagai bagian dari konstruksi bangunan. Sejak awal, bangunan tersebut lahir dari hubungan langsung antara tempat, material, dan tenaga masyarakat di sekitarnya.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/kondisi-awal.webp\" alt=\"Kondisi bangunan sebelum renovasi\" loading=\"lazy\"></p>\n<p>Ketika fungsi aula berhenti, bangunan tetap berdiri dengan struktur yang masih dapat digunakan. Ruang utamanya luas, bukaan tersebar di beberapa sisi, dan terasnya berhubungan langsung dengan kebun. Keadaan ini menjadi dasar untuk melihatnya sebagai tempat tinggal yang mungkin dikembangkan tanpa pembongkaran besar.</p>\n<h3>Membaca yang Sudah Ada</h3>\n<p>Perancangan dimulai dengan mengamati bagian-bagian yang masih bekerja dengan baik.</p>\n<p>Struktur utama dipertahankan. Atap, lantai, bukaan, dan sebagian besar dinding tetap digunakan. Ruang tengah yang sebelumnya berfungsi sebagai aula kemudian menjadi ruang hidup bersama yang menampung kegiatan duduk, makan, bekerja, dan menerima tamu.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/denah.png\" alt=\"Denah perubahan fungsi bangunan\" loading=\"lazy\"></p>\n<p>Perubahan tata ruang dilakukan tanpa menghilangkan keterbacaan bangunan asal. Dua kamar ditempatkan pada bagian belakang, sementara ruang utama dibiarkan tetap terbuka. Dapur menjadi bagian dari ruang bersama agar kegiatan sehari-hari tidak terpisah ke dalam terlalu banyak ruang kecil. Bangunan lama tidak diperlakukan sebagai bidang kosong yang bebas dibentuk kembali. Bentuk, arah, dan keterbatasannya justru digunakan sebagai petunjuk untuk menentukan perubahan.</p>\n<h3>Intervensi Seperlunya</h3>\n<p>Renovasi dilakukan dalam waktu sekitar dua minggu dengan biaya kurang lebih lima belas juta rupiah, termasuk material dan upah. Keterbatasan tersebut tidak dipandang sebagai hambatan yang harus disamarkan. Ia menjadi ukuran yang menjaga setiap keputusan tetap sederhana dan tepat guna. Struktur utama dipertahankan. Ruang diubah hanya ketika benar-benar diperlukan. Material yang tersedia digunakan kembali sejauh masih layak. Pekerjaan dilakukan oleh warga sekitar yang telah mengenal cara membangun di lingkungan tersebut.</p>\n<p>Satu-satunya ruang baru yang benar-benar dibutuhkan adalah kamar mandi, karena bangunan awal memang tidak dirancang sebagai rumah tinggal. Kamar mandi ditempatkan pada salah satu sudut teras. Dindingnya mengikuti lengkung teras dan batas lahan yang telah ada. Bentuk lengkung tersebut bukan tambahan dekoratif, melainkan hasil dari menerima geometri tempat tanpa memaksanya menjadi lurus. Sketsa awal diterjemahkan dengan perubahan yang sangat sedikit. Material sederhana, tekstur dinding yang tidak berlebihan, serta penyaring bambu menjaga ruang baru tetap terasa sebagai bagian dari bangunan dan kebun.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/kamar-mandi.webp\" alt=\"Kamar mandi setelah selesai dibangun\" loading=\"lazy\"></p>\n<h3>Benda yang Menemukan Tempatnya Kembali</h3>\n<p>Sebagian besar furnitur di rumah ini bukan barang baru. Kedua penghuni memiliki meja, kursi, lemari, dan berbagai benda peninggalan orang tua yang selama bertahun-tahun hanya tersimpan di gudang. Tidak ada ruang yang benar-benar sesuai untuk menempatkannya, sementara benda-benda tersebut masih menyimpan fungsi dan ingatan.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/furnitur-warisan.webp\" alt=\"Furnitur lama dan warisan keluarga di ruang utama\" loading=\"lazy\"></p>\n<p>Rumah Papakmanggu memberi benda-benda itu tempat untuk digunakan kembali. Furnitur dari masa dan latar yang berbeda tidak diseragamkan. Masing-masing dibiarkan hadir dengan karakter dan riwayatnya sendiri. Dengan cara ini, renovasi tidak hanya melanjutkan umur bangunan, tetapi juga melanjutkan kehidupan benda-benda yang telah lama menyertai dua keluarga.</p>\n<h3>Memberi Ruang bagi Kehidupan</h3>\n<p>Setelah renovasi selesai, perubahan terpenting tidak lagi terjadi melalui pekerjaan konstruksi. Rumah mulai dibentuk oleh kegiatan sehari-hari. Ruang utama menjadi tempat bekerja, membaca, berbincang, memainkan musik, dan beristirahat. Dapur digunakan tanpa dipisahkan dari kegiatan lain. Meja kerja menghadap ke kebun, sementara teras menjadi penghubung antara ruang dalam dan udara pegunungan.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/ruang-hidup.webp\" alt=\"Ruang utama yang telah dihuni\" loading=\"lazy\"></p>\n<p>Kehadiran buku, peralatan kerja, tanaman, makanan, dan benda-benda pribadi membuat rumah berkembang tanpa rancangan tambahan yang berlebihan. Ruang memperoleh bentuknya dari kebiasaan penghuninya.</p>\n<p>Pada malam hari, cahaya dari dalam bangunan menjadikannya tampak seperti bagian kecil dari kebun yang tetap hidup. Sementara di luar kunang-kunang bercahaya kelap-kelip di kegelapan kebun.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/suasana-malam.webp\" alt=\"Suasana rumah pada malam hari\" loading=\"lazy\"></p>\n<h3>Rumah dan Kebun</h3>\n<p>Rumah ini tidak dirancang sebagai objek yang terpisah dari lahannya.</p>\n<p>Teras, bukaan, ruang kerja, dapur luar, dan area tanam membentuk hubungan yang terus digunakan setiap hari. Kebun bukan sekadar latar visual, tetapi bagian dari cara rumah tersebut dihuni.</p>\n<p><img src=\"/images/karya/rumah-papakmanggu/rumah-dan-kebun.webp\" alt=\"Hubungan rumah dengan kebun\" loading=\"lazy\"></p>\n<p>Material bangunan pernah berasal dari kebun. Warga sekitar ikut membangun aula awal dan kembali terlibat dalam proses renovasi. Setelah menjadi rumah, kegiatan menanam, bekerja, memasak, dan beristirahat kembali menghubungkan bangunan dengan tempatnya.</p>\n<p>Hubungan tersebut tidak dibentuk melalui satu rancangan besar. Ia tumbuh dari rangkaian keputusan kecil yang menjaga apa yang masih berguna, menambahkan apa yang dibutuhkan, dan membiarkan kehidupan sehari-hari menyelesaikan sisanya.</p>\n<h3>Refleksi</h3>\n<p>Rumah ini menunjukkan bahwa sebuah tempat tidak selalu memerlukan awal yang baru.</p>\n<p>Kadang yang dibutuhkan hanyalah kesediaan untuk memahami apa yang telah ada, merawatnya seperlunya, lalu memberinya kesempatan untuk kembali menjalankan fungsi.</p>\n<p>Pada akhirnya, rumah bukan hanya hasil dari apa yang dibangun, tetapi juga dari apa yang dipilih untuk dipertahankan.</p>",
       "plainText": "Melanjutkan yang Sudah Ada Transformasi sebuah aula kecil di tengah kebun menjadi rumah tinggal melalui intervensi sederhana dan penghormatan terhadap apa yang telah ada. Tidak semua rumah dimulai dari sebidang tanah kosong. Sebagian lahir ketika seseorang melihat kemungkinan pada tempat yang telah kehilangan fungsi lamanya. Rumah ini bermula dari sebuah aula kecil di tengah kebun di Kampung Papakmanggu, Desa Cibodas, Kecamatan Pasirjambu, Kabupaten Bandung. Bangunan itu ditemukan secara kebetulan oleh sepasang arsitek dalam sebuah perjalanan. Tidak ada rencana untuk mencari tanah atau membeli rumah. Namun, perjumpaan singkat dengan tempat tersebut segera memunculkan keyakinan bahwa bangunan dan kebunnya masih menyimpan kehidupan yang dapat diteruskan. ! Rumah Papakmanggu setelah direnovasi /images/karya/rumah-papakmanggu/hero.webp Keputusan yang diambil sederhana: tidak memulai dari nol, tetapi melanjutkan apa yang sudah ada. Informasi Proyek Lokasi Kampung Papakmanggu, Desa Cibodas, Kecamatan Pasirjambu, Kabupaten Bandung Luas lahan 250 m² Luas bangunan 110 m² Fungsi awal Aula kecil di tengah kebun Fungsi baru Rumah tinggal alternatif dan ruang bekerja Tahun renovasi 2023 Durasi pekerjaan ± 2 minggu Biaya renovasi ± Rp15.000.000, termasuk material dan upah Menemukan Sebuah Tempat Bangunan ini pada awalnya bukan rumah tinggal. Ia didirikan sebagai aula sederhana di atas lahan kebun oleh pemilik terdahulu bersama warga sekitar. Sebagian material utamanya berasal dari tempat itu sendiri. Kayu putih yang tumbuh di lahan dipotong dan digunakan sebagai bagian dari konstruksi bangunan. Sejak awal, bangunan tersebut lahir dari hubungan langsung antara tempat, material, dan tenaga masyarakat di sekitarnya. ! Kondisi bangunan sebelum renovasi /images/karya/rumah-papakmanggu/kondisi-awal.webp Ketika fungsi aula berhenti, bangunan tetap berdiri dengan struktur yang masih dapat digunakan. Ruang utamanya luas, bukaan tersebar di beberapa sisi, dan terasnya berhubungan langsung dengan kebun. Keadaan ini menjadi dasar untuk melihatnya sebagai tempat tinggal yang mungkin dikembangkan tanpa pembongkaran besar. Membaca yang Sudah Ada Perancangan dimulai dengan mengamati bagian-bagian yang masih bekerja dengan baik. Struktur utama dipertahankan. Atap, lantai, bukaan, dan sebagian besar dinding tetap digunakan. Ruang tengah yang sebelumnya berfungsi sebagai aula kemudian menjadi ruang hidup bersama yang menampung kegiatan duduk, makan, bekerja, dan menerima tamu. ! Denah perubahan fungsi bangunan /images/karya/rumah-papakmanggu/denah.png Perubahan tata ruang dilakukan tanpa menghilangkan keterbacaan bangunan asal. Dua kamar ditempatkan pada bagian belakang, sementara ruang utama dibiarkan tetap terbuka. Dapur menjadi bagian dari ruang bersama agar kegiatan sehari-hari tidak terpisah ke dalam terlalu banyak ruang kecil. Bangunan lama tidak diperlakukan sebagai bidang kosong yang bebas dibentuk kembali. Bentuk, arah, dan keterbatasannya justru digunakan sebagai petunjuk untuk menentukan perubahan. Intervensi Seperlunya Renovasi dilakukan dalam waktu sekitar dua minggu dengan biaya kurang lebih lima belas juta rupiah, termasuk material dan upah. Keterbatasan tersebut tidak dipandang sebagai hambatan yang harus disamarkan. Ia menjadi ukuran yang menjaga setiap keputusan tetap sederhana dan tepat guna. Struktur utama dipertahankan. Ruang diubah hanya ketika benar-benar diperlukan. Material yang tersedia digunakan kembali sejauh masih layak. Pekerjaan dilakukan oleh warga sekitar yang telah mengenal cara membangun di lingkungan tersebut. Satu-satunya ruang baru yang benar-benar dibutuhkan adalah kamar mandi, karena bangunan awal memang tidak dirancang sebagai rumah tinggal. Kamar mandi ditempatkan pada salah satu sudut teras. Dindingnya mengikuti lengkung teras dan batas lahan yang telah ada. Bentuk lengkung tersebut bukan tambahan dekoratif, melainkan hasil dari menerima geometri tempat tanpa memaksanya menjadi lurus. Sketsa awal diterjemahkan dengan perubahan yang sangat sedikit. Material sederhana, tekstur dinding yang tidak berlebihan, serta penyaring bambu menjaga ruang baru tetap terasa sebagai bagian dari bangunan dan kebun. ! Kamar mandi setelah selesai dibangun /images/karya/rumah-papakmanggu/kamar-mandi.webp Benda yang Menemukan Tempatnya Kembali Sebagian besar furnitur di rumah ini bukan barang baru. Kedua penghuni memiliki meja, kursi, lemari, dan berbagai benda peninggalan orang tua yang selama bertahun-tahun hanya tersimpan di gudang. Tidak ada ruang yang benar-benar sesuai untuk menempatkannya, sementara benda-benda tersebut masih menyimpan fungsi dan ingatan. ! Furnitur lama dan warisan keluarga di ruang utama /images/karya/rumah-papakmanggu/furnitur-warisan.webp Rumah Papakmanggu memberi benda-benda itu tempat untuk digunakan kembali. Furnitur dari masa dan latar yang berbeda tidak diseragamkan. Masing-masing dibiarkan hadir dengan karakter dan riwayatnya sendiri. Dengan cara ini, renovasi tidak hanya melanjutkan umur bangunan, tetapi juga melanjutkan kehidupan benda-benda yang telah lama menyertai dua keluarga. Memberi Ruang bagi Kehidupan Setelah renovasi selesai, perubahan terpenting tidak lagi terjadi melalui pekerjaan konstruksi. Rumah mulai dibentuk oleh kegiatan sehari-hari. Ruang utama menjadi tempat bekerja, membaca, berbincang, memainkan musik, dan beristirahat. Dapur digunakan tanpa dipisahkan dari kegiatan lain. Meja kerja menghadap ke kebun, sementara teras menjadi penghubung antara ruang dalam dan udara pegunungan. ! Ruang utama yang telah dihuni /images/karya/rumah-papakmanggu/ruang-hidup.webp Kehadiran buku, peralatan kerja, tanaman, makanan, dan benda-benda pribadi membuat rumah berkembang tanpa rancangan tambahan yang berlebihan. Ruang memperoleh bentuknya dari kebiasaan penghuninya. Pada malam hari, cahaya dari dalam bangunan menjadikannya tampak seperti bagian kecil dari kebun yang tetap hidup. Sementara di luar kunang-kunang bercahaya kelap-kelip di kegelapan kebun. ! Suasana rumah pada malam hari /images/karya/rumah-papakmanggu/suasana-malam.webp Rumah dan Kebun Rumah ini tidak dirancang sebagai objek yang terpisah dari lahannya. Teras, bukaan, ruang kerja, dapur luar, dan area tanam membentuk hubungan yang terus digunakan setiap hari. Kebun bukan sekadar latar visual, tetapi bagian dari cara rumah tersebut dihuni. ! Hubungan rumah dengan kebun /images/karya/rumah-papakmanggu/rumah-dan-kebun.webp Material bangunan pernah berasal dari kebun. Warga sekitar ikut membangun aula awal dan kembali terlibat dalam proses renovasi. Setelah menjadi rumah, kegiatan menanam, bekerja, memasak, dan beristirahat kembali menghubungkan bangunan dengan tempatnya. Hubungan tersebut tidak dibentuk melalui satu rancangan besar. Ia tumbuh dari rangkaian keputusan kecil yang menjaga apa yang masih berguna, menambahkan apa yang dibutuhkan, dan membiarkan kehidupan sehari-hari menyelesaikan sisanya. Refleksi Rumah ini menunjukkan bahwa sebuah tempat tidak selalu memerlukan awal yang baru. Kadang yang dibutuhkan hanyalah kesediaan untuk memahami apa yang telah ada, merawatnya seperlunya, lalu memberinya kesempatan untuk kembali menjalankan fungsi. Pada akhirnya, rumah bukan hanya hasil dari apa yang dibangun, tetapi juga dari apa yang dipilih untuk dipertahankan."
-    },
-    {
-      "id": "renungan-jalan-sunyi",
-      "slug": "jalan-sunyi",
-      "route": "konten/jalan-sunyi",
-      "section": "renungan",
-      "title": "Jalan Sunyi",
-      "summary": "Tentang pengetahuan, kekuatan, tanggung jawab, dan kesunyian yang terkadang menyertai kebijaksanaan.",
-      "deck": "Tentang pengetahuan, kekuatan, tanggung jawab, dan kesunyian yang terkadang menyertai kebijaksanaan.",
-      "author": "Tina Kamihadi",
-      "date": "2015-08-17",
-      "tags": {
-        "primary": [
-          "pengetahuan",
-          "kebijaksanaan",
-          "kesunyian",
-          "tanggung jawab",
-          "pilihan"
-        ],
-        "secondary": []
-      },
-      "allTags": [
-        "pengetahuan",
-        "kebijaksanaan",
-        "kesunyian",
-        "tanggung jawab",
-        "pilihan"
-      ],
-      "relations": [],
-      "type": "fragmen",
-      "status": "published",
-      "featured": false,
-      "language": "id",
-      "youtube": "",
-      "hero": "/assets/images/renungan/jalan-sunyi.webp",
-      "cover": "/assets/images/renungan/jalan-sunyi.webp",
-      "label": "fragmen",
-      "subtitle": "",
-      "thumbnail": "/assets/images/renungan/jalan-sunyi.webp",
-      "download": "",
-      "harvestType": "",
-      "harvestTarget": "",
-      "harvestAction": "",
-      "harvestLabel": "",
-      "meta": [],
-      "harvestSummary": "Tentang pengetahuan, kekuatan, tanggung jawab, dan kesunyian yang terkadang menyertai kebijaksanaan.",
-      "harvestMeta": [],
-      "ingredients": [],
-      "tools": [],
-      "steps": [],
-      "duration": "",
-      "benefits": [],
-      "cautions": [],
-      "body": "<h2>Jalan Sunyi</h2>\n<p>Bagaikan Sang Krisna yang termenung menatap Kurusetra…</p>\n<p>Ia tahu, di tangannya tergenggam cakra,<br> yang dapat membangun kehidupan…<br> ataupun menghancurkannya.</p>\n<p>Takdir telah menetapkan:</p>\n<p>Ia, yang memiliki pengetahuan hidup dan kebijaksanaan,<br> akan selalu sendirian…</p>\n<p><em>Jakarta, 17 Agustus 2015, 16.16 WIB</em><br> <strong>Tina Kamihadi</strong></p>",
-      "plainText": "Jalan Sunyi Bagaikan Sang Krisna yang termenung menatap Kurusetra… Ia tahu, di tangannya tergenggam cakra, yang dapat membangun kehidupan… ataupun menghancurkannya. Takdir telah menetapkan: Ia, yang memiliki pengetahuan hidup dan kebijaksanaan, akan selalu sendirian… Jakarta, 17 Agustus 2015, 16.16 WIB Tina Kamihadi"
     }
   ]
 };

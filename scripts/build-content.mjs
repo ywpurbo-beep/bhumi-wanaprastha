@@ -91,16 +91,20 @@ const items = walk(contentDir).map(file=>{
   const {data,body}=parseFrontmatter(fs.readFileSync(file,'utf8'),file);
   const rel=path.relative(contentDir,file).split(path.sep); const section=data.section||data.room||rel[0]; const filename=path.basename(file,'.md');
   const slug=data.slug || (filename==='index'?path.basename(path.dirname(file)):filename);
+  const hasExplicitAuthor = Boolean(data.author);
   data.id=data.id||slug; data.status=data.status||'published'; data.summary=data.summary||data.deck||''; data.author=data.author||'Anonim';
   for(const key of ['id','title','date','type','status']) if(!data[key]) throw new Error(`${key} wajib di ${file}`);
   if(ids.has(data.id)) throw new Error(`ID ganda: ${data.id}`); ids.add(data.id);
   if(!/^\d{4}-\d{2}-\d{2}$/.test(String(data.date))) throw new Error(`Tanggal harus YYYY-MM-DD di ${file}`);
+  const originalDate = data.original_date || data.date;
+  const publishedDate = data.published_date || data.date;
+  for (const [label,value] of [['original_date',originalDate],['published_date',publishedDate]]) if(!/^\d{4}-\d{2}-\d{2}$/.test(String(value))) throw new Error(`${label} harus YYYY-MM-DD di ${file}`);
   const tags = data.tags && !Array.isArray(data.tags) ? data.tags : {primary:Array.isArray(data.tags)?data.tags:[],secondary:[]};
   const simpleRelated=Array.isArray(data.related)?data.related.filter(Boolean).map(id=>({id,type:'related'})):[];
   data.relations=[...(data.relations||[]),...simpleRelated.filter(r=>!(data.relations||[]).some(x=>x.id===r.id))];
   if((tags.primary||[]).length>8) throw new Error(`Tag maksimal 8 di ${file}`);
   for(const r of (data.relations||[])) if(!allowedRelationTypes.has(r.type)) throw new Error(`Relasi tidak valid '${r.type}' di ${file}`);
-  return {id:data.id,slug,route:data.route||`konten/${slug}`,section,title:data.title,summary:data.summary,deck:data.deck||data.summary,author:data.author,date:data.date,
+  return {id:data.id,slug,route:data.route||`konten/${slug}`,section,title:data.title,summary:data.summary,deck:data.deck||data.summary,author:data.author,hasAuthor:hasExplicitAuthor,date:data.date,originalDate,publishedDate,
     tags:{primary:tags.primary||[],secondary:tags.secondary||[]},allTags:[...(tags.primary||[]),...(tags.secondary||[])],relations:data.relations||[],type:data.type,status:data.status,
     featured:Boolean(data.featured),language:data.language||'id',youtube:data.youtube||'',hero:data.hero||'',cover:data.cover||data.hero||'',label:data.label||data.type,subtitle:data.subtitle||'',thumbnail:data.thumbnail||data.cover||data.hero||'',download:data.download||'',
     harvestType:data.harvestType||data.contentType||'',harvestTarget:data.harvestTarget||data.target||'',harvestAction:data.harvestAction||'',harvestLabel:data.harvestLabel||'',
@@ -108,7 +112,7 @@ const items = walk(contentDir).map(file=>{
     ingredients:Array.isArray(data.ingredients)?data.ingredients:[],tools:Array.isArray(data.tools)?data.tools:[],steps:Array.isArray(data.steps)?data.steps:[],
     duration:data.duration||'',benefits:Array.isArray(data.benefits)?data.benefits:[],cautions:Array.isArray(data.cautions)?data.cautions:[],
     body:markdown(body),plainText:body.replace(/<[^>]+>/g,' ').replace(/[#*_>`\[\]()]/g,' ').replace(/\s+/g,' ').trim()};
-}).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+}).sort((a,b)=>(b.publishedDate||b.date||'').localeCompare(a.publishedDate||a.date||''));
 
 for(const item of items) for(const r of item.relations) if(!ids.has(r.id)) console.warn(`Peringatan: relasi ${item.id} -> ${r.id} belum memiliki node tujuan.`);
 const manifest={version:'0.9-batch-3',generatedAt:new Date().toISOString(),relationTypes:[...allowedRelationTypes],items};

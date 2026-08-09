@@ -630,6 +630,10 @@ footer.global-footer { margin-top:80px; }
 .article-header { padding:34px 0 28px; border-bottom:1px solid var(--line); }
 .article-header h2 { margin:12px 0 18px; font-size:clamp(38px,6vw,68px); line-height:1.04; font-weight:500; letter-spacing:-.035em; }
 .article-deck { margin:0; max-width:760px; color:var(--muted); font-size:20px; line-height:1.65; }
+.article-byline { display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; margin:-4px 0 15px; color:var(--muted); font-size:15px; line-height:1.45; }
+.article-byline .author { color:var(--ink); font-family:Georgia,serif; font-style:italic; }
+.article-byline .sep { opacity:.45; }
+.article-byline time { font-size:13px; letter-spacing:.025em; }
 .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
 .article-body { padding:34px 0 12px; font-size:19px; line-height:1.82; }
 .article-body h3 { margin:46px 0 12px; font-size:30px; font-weight:500; }
@@ -1172,7 +1176,7 @@ footer.global-footer::after {
 body {
   background-color: var(--paper);
   background-image:
-    linear-gradient(rgba(248,244,235,.89), rgba(245,240,229,.89)),
+    linear-gradient(rgba(248,244,235,.84), rgba(245,240,229,.84)),
     url('assets/living-knowledge/C01-Forest-Floor-Texture.webp');
   background-repeat: repeat, repeat;
   background-size: auto, 627px 627px;
@@ -1463,6 +1467,21 @@ body::before {
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   }[ch]));
 
+  const publicationDate = item => item.publishedDate || item.date || '';
+  const originalDate = item => item.originalDate || item.date || '';
+  function formatDateID(value='') {
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(String(value))) return String(value||'');
+    const [y,m,d]=String(value).split('-').map(Number);
+    return new Intl.DateTimeFormat('id-ID',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(y,m-1,d)));
+  }
+  function renderArticleByline(item) {
+    if(!item.hasAuthor && !item.author) return '';
+    const author=item.hasAuthor ? item.author : '';
+    const date=originalDate(item);
+    if(!author && !date) return '';
+    return `<div class="article-byline">${author?`<span class="author">${escapeHTML(author)}</span>`:''}${author&&date?'<span class="sep">·</span>':''}${date?`<time datetime="${escapeHTML(date)}">${escapeHTML(formatDateID(date))}</time>`:''}</div>`;
+  }
+
   function youtubeId(url='') {
     const m=String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
     return m ? m[1] : '';
@@ -1536,7 +1555,7 @@ body::before {
   }
 
   function renderRelatedContent(item) {
-    const ranked=nodes.map(target=>({target,...relatedScore(item,target)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score || String(b.target.date).localeCompare(String(a.target.date))).slice(0,6);
+    const ranked=nodes.map(target=>({target,...relatedScore(item,target)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score || String(publicationDate(b.target)).localeCompare(String(publicationDate(a.target)))).slice(0,6);
     const content=!ranked.length?'<p class="knowledge-empty">Belum ada konten terkait. Jaringan ini akan tumbuh bersama isinya.</p>':`<p class="related-intro">Dipilih dari relasi yang dicatat, tag bersama, ruang, dan jenis konten.</p><div class="related-grid">${ranked.map(({target,reasons})=>`<a class="related-card" href="#${escapeHTML(target.route)}" data-route="${escapeHTML(target.route)}"><small>${escapeHTML(spaceNames[target.section]||target.section)} · ${escapeHTML(target.type)}</small><strong>${escapeHTML(target.title)}</strong><span>${escapeHTML(reasons.slice(0,2).join(' · '))}</span></a>`).join('')}</div>`;
     return accordion('Jelajahi Selanjutnya','Konten yang paling dekat dengan tulisan ini',content);
   }
@@ -1567,10 +1586,10 @@ body::before {
     const host=document.getElementById('search-results'); const count=document.getElementById('search-count'); if(!host)return;
     const terms=query.trim().toLocaleLowerCase('id-ID').split(/\s+/).filter(Boolean);
     let results=nodes.filter(item=>(activeSearchSpace==='semua'||item.section===activeSearchSpace)&&terms.every(term=>searchableText(item).includes(term)));
-    results=results.map(item=>({item,score:searchScore(item,terms)})).sort((a,b)=>b.score-a.score||String(b.item.date).localeCompare(String(a.item.date))).map(x=>x.item);
+    results=results.map(item=>({item,score:searchScore(item,terms)})).sort((a,b)=>b.score-a.score||String(publicationDate(b.item)).localeCompare(String(publicationDate(a.item)))).map(x=>x.item);
     count.textContent=query.trim()?`${results.length} node ditemukan untuk “${query.trim()}”.`:`${results.length} node pengetahuan tersedia.`;
     const groups=spaceOrder.map(space=>({space,items:results.filter(x=>x.section===space)})).filter(g=>g.items.length);
-    host.innerHTML=groups.length?groups.map(group=>`<section class="search-group"><h3 class="search-group-title">${spaceNames[group.space]} <span>(${group.items.length})</span></h3>${group.items.map(item=>`<a class="search-result" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}"><small>${escapeHTML(item.date)} · ${escapeHTML(item.author)}<span class="search-result-type">${escapeHTML(item.type)}</span></small><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.summary)}</p><div class="knowledge-meta">${tagsOf(item).map(tag=>`<span>${escapeHTML(tag)}</span>`).join('')}</div></a>`).join('')}</section>`).join(''):'<div class="placeholder-panel"><strong>Tidak ditemukan.</strong><span>Coba istilah yang lebih umum, ruang lain, atau periksa ejaannya.</span></div>';
+    host.innerHTML=groups.length?groups.map(group=>`<section class="search-group"><h3 class="search-group-title">${spaceNames[group.space]} <span>(${group.items.length})</span></h3>${group.items.map(item=>`<a class="search-result" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}"><small>${escapeHTML(formatDateID(publicationDate(item)))} · ${escapeHTML(item.author)}<span class="search-result-type">${escapeHTML(item.type)}</span></small><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.summary)}</p><div class="knowledge-meta">${tagsOf(item).map(tag=>`<span>${escapeHTML(tag)}</span>`).join('')}</div></a>`).join('')}</section>`).join(''):'<div class="placeholder-panel"><strong>Tidak ditemukan.</strong><span>Coba istilah yang lebih umum, ruang lain, atau periksa ejaannya.</span></div>';
   }
 
   function renderRecipeData(item){
@@ -1582,7 +1601,7 @@ body::before {
   function renderRoomIndex(room) {
     const host = document.getElementById(`${room}-list`);
     if (!host) return;
-    const items=(data.byRoom?.[room]||[]).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    const items=(data.byRoom?.[room]||[]).slice().sort((a,b)=>String(publicationDate(b)).localeCompare(String(publicationDate(a))));
     host.innerHTML = items.length ? items.map(item => `
       <a class="room-card room-card-link idea-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">
         ${mediaThumbnail(item)?`<div class="room-card-media ${item.type==='video'?'video':''}" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}
@@ -1611,9 +1630,9 @@ body::before {
     const architectureTerms=['arsitektur','arsitektur-kontekstual','adaptive-reuse','renovasi','rumah','bangunan'];
     const interiorTerms=['interior','ruang-dalam','furnitur','furniture'];
     const karya=nodes.filter(item=>item.section==='karya' && item.status!=='draft');
-    const architecture=karya.filter(item=>['proyek','project'].includes(String(item.type||'').toLowerCase()) && tagsOf(item).some(tag=>architectureTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-    const interior=karya.filter(item=>tagsOf(item).some(tag=>interiorTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-    const visual=karya.filter(item=>!architecture.includes(item) && !interior.includes(item) && !['publikasi'].includes(String(item.type||'').toLowerCase())).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    const architecture=karya.filter(item=>['proyek','project'].includes(String(item.type||'').toLowerCase()) && tagsOf(item).some(tag=>architectureTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(publicationDate(b)).localeCompare(String(publicationDate(a))));
+    const interior=karya.filter(item=>tagsOf(item).some(tag=>interiorTerms.includes(String(tag).toLowerCase()))).sort((a,b)=>String(publicationDate(b)).localeCompare(String(publicationDate(a))));
+    const visual=karya.filter(item=>!architecture.includes(item) && !interior.includes(item) && !['publikasi'].includes(String(item.type||'').toLowerCase())).sort((a,b)=>String(publicationDate(b)).localeCompare(String(publicationDate(a))));
     const groups=[
       ['architecture',architecture,'Belum ada proyek arsitektur.','Karya arsitektur yang baru akan tumbuh di sini.'],
       ['interior',interior,'Ruang ini sedang bertumbuh.','Karya interior akan hadir ketika dokumentasinya telah cukup matang.'],
@@ -1627,7 +1646,7 @@ body::before {
     });
   }
 
-  function renderGudangIndex(){ const host=document.getElementById('gudang-list'); if(!host) return; const items=nodes.filter(item=>item.section==='kebun' && tagsOf(item).map(String).map(x=>x.toLowerCase()).includes('gudang')).sort((a,b)=>String(b.date).localeCompare(String(a.date))); host.innerHTML=items.length?items.map(item=>`<a class="room-card room-card-link idea-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">${mediaThumbnail(item)?`<div class="room-card-media" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}<p class="publication-label">${escapeHTML(item.type)}</p><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.summary)}</p><span class="card-status">Buka temuan</span></a>`).join(''):'<div class="placeholder-panel"><strong>Belum ada temuan.</strong><span>Gudang masih kosong.</span></div>'; }
+  function renderGudangIndex(){ const host=document.getElementById('gudang-list'); if(!host) return; const items=nodes.filter(item=>item.section==='kebun' && tagsOf(item).map(String).map(x=>x.toLowerCase()).includes('gudang')).sort((a,b)=>String(publicationDate(b)).localeCompare(String(publicationDate(a)))); host.innerHTML=items.length?items.map(item=>`<a class="room-card room-card-link idea-card" href="#${escapeHTML(item.route)}" data-route="${escapeHTML(item.route)}">${mediaThumbnail(item)?`<div class="room-card-media" style="background-image:url('${escapeHTML(mediaThumbnail(item))}')"></div>`:''}<p class="publication-label">${escapeHTML(item.type)}</p><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.summary)}</p><span class="card-status">Buka temuan</span></a>`).join(''):'<div class="placeholder-panel"><strong>Belum ada temuan.</strong><span>Gudang masih kosong.</span></div>'; }
 
   function renderAllRoomIndexes(){ ['gagasan','renungan','laku','karya','kebun'].forEach(renderRoomIndex); renderProjectPortfolio(); renderGudangIndex(); }
 
@@ -1639,6 +1658,7 @@ body::before {
       <header class="article-header">
         <p class="room-kicker">${escapeHTML(item.type)}</p>
         <h2>${escapeHTML(item.title)}</h2>
+        ${renderArticleByline(item)}
         <p class="article-deck">${escapeHTML(item.deck)}</p>
         <div class="article-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
       </header>
@@ -1658,6 +1678,7 @@ body::before {
       <header class="article-header">
         <p class="room-kicker">${escapeHTML(item.label || item.type)}</p>
         <h2>${escapeHTML(item.title)}</h2>
+        ${renderArticleByline(item)}
         ${item.subtitle ? `<p class="article-deck">${escapeHTML(item.subtitle)}</p>` : `<p class="article-deck">${escapeHTML(item.deck || item.summary)}</p>`}
         <div class="article-tags">${tagsOf(item).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
       </header>

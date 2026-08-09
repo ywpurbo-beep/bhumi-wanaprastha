@@ -3,6 +3,8 @@ id: renungan-mengalami-tuhan
 title: "Mengalami Tuhan"
 author: "Tina Kamihadi"
 date: "2025-01-20"
+original_date: "2025-01-20"
+published_date: "2026-08-09"
 room: "renungan"
 type: "puisi"
 summary: "Sebuah renungan tentang keterbatasan manusia dalam menjelaskan Tuhan, dan tentang pentingnya mengalami-Nya."
