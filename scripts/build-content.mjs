@@ -66,7 +66,7 @@ function parseFrontmatter(source, file) {
   return {data, body: source.slice(end + 4).trim()};
 }
 
-function inline(text) { return esc(text).replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1" loading="lazy">').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>'); }
+function inline(text) { return esc(text).replace(/\[\[BWBR\]\]/g,'<br>').replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1" loading="lazy">').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>'); }
 function markdown(md) {
   const lines=md.replace(/\r/g,'').split('\n'); const out=[]; let para=[]; let list=null;
   const fp=()=>{if(para.length){out.push(`<p>${inline(para.join(' '))}</p>`);para=[];}}; const fl=()=>{if(list){out.push(`</${list}>`);list=null;}};
@@ -75,7 +75,7 @@ function markdown(md) {
     const h=line.match(/^(#{1,4})\s+(.+)$/); if(h){fp();fl();const n=h[1].length+1;out.push(`<h${n}>${inline(h[2])}</h${n}>`);continue;}
     const li=line.match(/^[-*]\s+(.+)$/); if(li){fp();if(list!=='ul'){fl();out.push('<ul>');list='ul';}out.push(`<li>${inline(li[1])}</li>`);continue;}
     const ol=line.match(/^\d+\.\s+(.+)$/); if(ol){fp();if(list!=='ol'){fl();out.push('<ol>');list='ol';}out.push(`<li>${inline(ol[1])}</li>`);continue;}
-    const q=line.match(/^>\s?(.+)$/); if(q){fp();fl();out.push(`<blockquote>${inline(q[1])}</blockquote>`);continue;} para.push(line.trim());
+    const q=line.match(/^>\s?(.+)$/); if(q){fp();fl();out.push(`<blockquote>${inline(q[1])}</blockquote>`);continue;} const hardBreak=/ {2,}$/.test(line); para.push(line.trim() + (hardBreak?'[[BWBR]]':''));
   } fp();fl();return out.join('\n');
 }
 
